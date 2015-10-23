@@ -1,0 +1,184 @@
+%\documentclass[9pt,handout]{beamer}
+\documentclass[9pt]{beamer}
+
+%\usepackage[style=alphabetic]{biblatex}
+
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen=left}
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice.
+%
+% Modified by Tobias G. Pfeiffer <tobias.pfeiffer@math.fu-berlin.de>
+% to show usage of some features specific to the FU Berlin template.
+
+% altered by someone at TU. fiddled with and fixed some things by 
+% Nicolas Werner (some UTF-8 fix, biblatex-biber intro before toc,
+% other stuff I can't remember)
+
+% remove this line and the "ucs" option to the documentclass when your editor is not utf8-capable
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}   % to make utf-8 input possible
+\usepackage[english]{babel}     % hyphenation etc., alternatively use 'german' as parameter
+\usepackage{verbatim}  			% comments and stuff
+\usepackage[right]{eurosym}
+\usepackage{tikz}
+\newcommand{\todo}[1]{\raisebox{0pt}{\parbox{0pt}{\begin{large}\colorbox{red}{todo: #1}\end{large} \hspace*{0.05cm}}}}
+
+\usepackage{blindtext}
+\usepackage[fixlanguage]{babelbib}
+\selectbiblanguage{english}
+
+
+% ``English''  <>  "`Deutsch"'
+\newcommand{\germanQuote}[1]{\glqq#1\grqq}
+\newcommand{\englishQuote}[1]{``#1''}
+% in Überschriften kann es sein,
+% dass man danach $\;$ 
+% setzen muss, damit
+% die Abstände stimmen.....
+% in Sections ist das aber illegal
+% deswegen:
+% \texorpdfstring{\germanQuote{Text} $\;$blah}{\germanQuote{Text} blah}
+
+%\addbibresource{references.bib}
+\bibliographystyle{alpha}
+%\bibliography{references}
+
+\include{tu-beamer-template}  % THIS is the line that includes the TU template!
+\input{beamer_table_of_content}
+
+\setbeamertemplate{caption}[numbered]
+%\captionsetup{labelformat=simple}
+%\setbeamerfont{caption}{size=\TINY}
+
+\usepackage{arev,t1enc,textcomp} % looks nicer than the standard sans-serif font
+% if you experience problems, comment out the line above and change
+% the documentclass option "9pt" to "10pt"
+\usepackage{caption}
+
+% image to be shown on the title page (without file extension, should be pdf or png)
+
+\titleimage{img/snet_logo} 
+
+\title[IoSL]{Indoor Navigation}
+
+\subtitle{Indoor Navigation in the TU-Mensa}
+
+\author[Oldenburg,Hechenberger]{Lennart Oldenburg, Andreas Hechenberger}
+
+\institute[TU Berlin]{Department of Telecommunication Systems Service-centric Networking - Technische Universität Berlin}
+
+\date[WS 2015/2016]{WS 2015/2016}
+
+\subject{SNET IoSL Project -- WS 2015/2016}
+
+\renewcommand{\footlinetext}{\insertshortinstitute, \insertshorttitle, \insertshortdate}
+
+\newcounter{currentOutline}
+
+\graphicspath{{./img/}}
+
+\setbeamerfont{caption name}{size=\tiny}
+
+\setbeamertemplate{blocks}[rounded][shadow=false] % pdfpc fucks up the shadows, can be true for other viewers
+
+\setbeamertemplate{footline}[text line]{%
+	\parbox{0pt}{\vspace*{-20pt}\hspace*{-23pt}\color{tu-red}\rule{1.2\paperwidth}{0.4pt}}
+	\parbox{\linewidth}{\vspace*{-8pt}WS 2015/2016\hfill\insertsection\hfill\insertpagenumber}}
+%\setbeamertemplate{navigation symbols bibliography entry title}{}
+\setbeamertemplate{navigation symbols}{}
+
+%fuer umrandeten text
+
+\usepackage[framemethod=TikZ]{mdframed}
+\usetikzlibrary{shadows}
+\usetikzlibrary{positioning}
+\usepackage{environ}
+\usepackage{varwidth}
+%\usepackage{showframe}
+
+\newlength{\MyMdframedWidthTweak}%
+\NewEnviron{bubble}[1][]{%
+    \setlength{\MyMdframedWidthTweak}{\dimexpr%
+        +\mdflength{innerleftmargin}
+        +\mdflength{innerrightmargin}
+        +\mdflength{leftmargin}
+        +\mdflength{rightmargin}
+        }%
+    \savebox0{%
+        \begin{varwidth}{\dimexpr\linewidth-\MyMdframedWidthTweak\relax}%
+            \BODY
+        \end{varwidth}%
+    }%
+    \begin{mdframed}[
+        backgroundcolor=lightgray, 
+        shadow=true, 
+        shadowsize=4pt,
+        roundcorner=5pt,
+        userdefinedwidth=\dimexpr\wd0+\MyMdframedWidthTweak\relax, 
+        #1]
+        \usebox0
+    \end{mdframed}
+}
+
+\usepackage{fancybox}
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+
+
+\section*{Introduction} % Not numbered, before TOC
+
+\subsection*{Intro}
+\begin{frame}{IoLS-INav}
+	\begin{center}
+	\englishQuote{Quote stuff}
+\end{center}
+	{\hfill\small\textit{Test Quote} \cite{test:yeah}}
+\end{frame}
+
+
+\begin{frame}<beamer>{Table of Contents}
+\tableofcontents[ 
+	currentsection, %currentsubsection, 
+	hideothersubsections, 
+	sectionstyle=show/show, % sectionstyle=show/hide, 
+	%subsectionstyle=show/shaded/hide %subsectionstyle=show/shaded
+%	sections=1-5 % anpassen?
+]
+\end{frame}
+
+
+\stepcounter{currentOutline} % currentOutline = currentOutline + 1
+% \setcounter{currentOutline}{value}
+% \addtocounter{currentOutline}{value}
+
+
+% Section: group of navigation bubbles
+% Subsection: subgroup of navigation bubbles; black outline instead of grey
+
+\section{Use Cases}
+
+\begin{frame}{Use Cases}
+	Some text
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{References}
+\bibliography{references}
+\end{frame}
+\end{document}
