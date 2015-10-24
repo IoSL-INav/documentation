@@ -1,0 +1,33 @@
+# Backup files:
+*~
+.*.swp
+
+# Makefile output
+*_handout.tex
+
+# Latex output:
+/*.pdf
+
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.lof
+*.log
+*.lot
+*.lox
+*.toc
+*.out
+*.ps
+*.cb
+*.cb2
+*.snm
+*.nav
+*.vrb
+*.bcf
+
+*.synctex.gz
+*-blx.bib
+*.run.xml
+*.fdb_latexmk
+*.pdfpc
