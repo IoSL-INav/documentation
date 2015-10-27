@@ -70,11 +70,11 @@
 
 \titleimage{img/snet_logo} 
 
-\title[IoSL]{Indoor Navigation}
+\title[Internet of Services Lab]{Indoor Navigation}
 
 \subtitle{Indoor Navigation in the TU-Mensa}
 
-\author[Oldenburg,Hechenberger, Meznarič]{Lennart Oldenburg, Andreas Hechenberger, Jan Meznarič}
+\author[Oldenburg, Hechenberger, Meznarič, Lukau]{Lennart Oldenburg, Andreas Hechenberger, Jan Meznarič, Eridy Lukau}
 
 \institute[TU Berlin]{Department of Telecommunication Systems Service-centric Networking 
 \\ Technische Universität Berlin}
@@ -145,11 +145,11 @@
 \section*{Introduction} % Not numbered, before TOC
 
 \subsection*{Intro}
-\begin{frame}{IoLS-INav}
+\begin{frame}{Internet of Services Lab - Indoor Navigation}
 	\begin{center}
 	\englishQuote{Quote stuff}
 \end{center}
-	{\hfill\small\textit{Test Quote} \cite{test:yeah}}
+	{\hfill\small\textit{Test quote} \cite{test:yeah}}
 \end{frame}
 
 
@@ -172,93 +172,162 @@
 % Section: group of navigation bubbles
 % Subsection: subgroup of navigation bubbles; black outline instead of grey
 
-\section{Problem}
+\section{Problem scenario \& questions}
 
-\begin{frame}{Problem}
-	\begin{itemize}
-	\item How to position people inside buildings?
-	\item How to find your friends inside buildings?
-	\item How to address privacy and security issues?
-	\end{itemize}
+\begin{frame}{The mensa problem}
+
+	\begin{center}
+
+		\includegraphics[width=.8\textwidth]{mensa}
+	
+	\end{center}
+
 \end{frame}
 
-\begin{frame}{Use Cases}
+\begin{frame}{Use cases}
+
 	\begin{itemize}
-	\item User wants to locate his friends inside mensa.
-	\item User wants to locate his friends inside library.
-	\item add others!!!!!!!!!
+	
+		\item User wants to locate his/her friends using our app
+		\item \todo{Add produced user stories and use cases in a nice graphic}
+	
 	\end{itemize}
+
 \end{frame}
 
-\section{Possible approaches}
+\begin{frame}{Resulting project questions}
+
+	\begin{itemize}
+	
+		\item How to locate people inside buildings?
+		\item How to find your friends inside buildings?
+		\item How to address privacy and security issues?
+		\item \todo{More...}
+	
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Occuring problems}
+
+	\begin{itemize}
+	
+		\item No GPS in buildings etc. => topic \textbf{Indoor navigation}
+		\item \todo{More...}
+	
+	\end{itemize}
+
+\end{frame}
+
+\section{Technology overview}
 
 \begin{frame}{Possible approaches to indoor positioning}
+
 	\begin{itemize}
-	\item Bluetooth, WiFi, NFC, QR-Code, manual position pinning\cite{brimicombe2009location}.
-	\item add technologies matrix!!!!!!!!!
+	
+		\item WiFi, Bluetooth, NFC, QR-Code, manual position pinning\cite{brimicombe2009location}.
+		\item \todo{Add technology matrix (last meeting)}
+	
 	\end{itemize}
+
 \end{frame}
 
 \begin{frame}{WiFi positioning}
+
 	\begin{itemize}
-	\item With use of tubit api.
-	\item Provides building name, floor, coordinates.
-	\item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
+	
+		\item With use of tubIT API.
+		\item Provides building name, floor, coordinates.
+		\item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
+
 	\end{itemize}
+	
 \end{frame}
 
 \begin{frame}{Bluetooth}
+
 	\begin{itemize}
-	\item Estimote beacons
-	\item Possible positioning approaches
-		\begin{itemize}
-			\item Indoor-Region Based Navigation
-			\item Live Indoor-Location Feedback Navigation
-			\item D2D Indoor-Navigation via Virtual Beacons
-		\end{itemize}
-	\item Problem: possibly high battery usage
+	
+		\item Estimote beacons
+		\item Possible positioning approaches
+			\begin{itemize}
+				\item Indoor-Region Based Navigation
+				\item Live Indoor-Location Feedback Navigation
+				\item D2D Indoor-Navigation via Virtual Beacons
+			\end{itemize}
+		\item Problem: possibly high battery usage
+
 	\end{itemize}
+
 \end{frame}
 
-\begin{frame}{Question}
-	How much interaction with mobile device are users willing to do?
-	\begin{itemize}	
-	\item Always on positioning. Requires always-on Bluetooth.
-	\item Always on positioning. Bluetooth turns on when WiFi positioning detects we are in mensa or library.
-	\item Time based positioning. Application activates only in certain time intervals.
-	\item Positioning while application is running and Bluetooth is on.
-	\item Positioning on demand. User have to press a button to share position.
-	\item User pins own position on map inside application.
-	\end{itemize}
-\end{frame}
+\begin{frame}{Questions of concern}
 
-\begin{frame}{Application architecture}
 	\begin{itemize}
-	\item Client-server architecture
-	\item Server tasks
-		\begin{itemize}
-			\item Retrieve details about bluetooth beacons. 
-			\item Share location between users.
-		\end{itemize}
-	\item add pictures!!!!!!!
+	
+		\item How much interaction with mobile device are users willing to do?
+		\item Always-on positioning. Requires always-on Bluetooth.
+		\item Always-on positioning. Bluetooth turns on when WiFi positioning detects we are in mensa or library.
+		\item Time based positioning. Application activates only in certain time intervals.
+		\item Positioning while application is running and Bluetooth is on.
+		\item Positioning on demand. User have to press a button to share position.
+		\item User pins own position on map inside application.
+	
 	\end{itemize}
+
 \end{frame}
 
-\section{Time schedule}
+\section{Our approach}
 
-\begin{frame}{Time schedule}
+\begin{frame}{Our approach - application architecture}
+
 	\begin{itemize}
-	\item Work plan for project (approximately)
-	\item gantt diagram
+
+		\item Explain our visioned setup in a nice big graphic here
+		\item Client-server architecture
+		\item Server tasks
+			\begin{itemize}
+				\item Retrieve details about bluetooth beacons. 
+				\item Share location between users.
+			\end{itemize}
+		\item \todo{Add graphic - include (at least): Android app, iOS app, location technique, backend, tubIT federation provider, two users}
+	
 	\end{itemize}
+
 \end{frame}
 
-\begin{frame}{Questions}
-	add questionmark image :) 
+\section{Timeline}
+
+\begin{frame}{Timeline}
+
+	\begin{itemize}
+		
+		\item Work plan for project (approximately)
+		\item gantt diagram
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Questions?}
+
+	\begin{center}
+
+		{\Huge Do you have questions?}
+		
+		\vspace{1cm}
+		
+		{\Large If not - we have! :)}
+		
+	\end{center}
+
 \end{frame}
 
 
 \begin{frame}[allowframebreaks]{References}
-\bibliography{references}
+
+	\bibliography{references}
+
 \end{frame}
+
 \end{document}
