@@ -74,9 +74,10 @@
 
 \subtitle{Indoor Navigation in the TU-Mensa}
 
-\author[Oldenburg,Hechenberger]{Lennart Oldenburg, Andreas Hechenberger}
+\author[Oldenburg,Hechenberger, Meznarič]{Lennart Oldenburg, Andreas Hechenberger, Jan Meznarič}
 
-\institute[TU Berlin]{Department of Telecommunication Systems Service-centric Networking - Technische Universität Berlin}
+\institute[TU Berlin]{Department of Telecommunication Systems Service-centric Networking 
+\\ Technische Universität Berlin}
 
 \date[WS 2015/2016]{WS 2015/2016}
 
@@ -155,7 +156,7 @@
 \begin{frame}<beamer>{Table of Contents}
 \tableofcontents[ 
 	currentsection, %currentsubsection, 
-	hideothersubsections, 
+	%hideothersubsections, 
 	sectionstyle=show/show, % sectionstyle=show/hide, 
 	%subsectionstyle=show/shaded/hide %subsectionstyle=show/shaded
 %	sections=1-5 % anpassen?
@@ -171,10 +172,89 @@
 % Section: group of navigation bubbles
 % Subsection: subgroup of navigation bubbles; black outline instead of grey
 
-\section{Use Cases}
+\section{Problem}
+
+\begin{frame}{Problem}
+	\begin{itemize}
+	\item How to position people inside buildings?
+	\item How to find your friends inside buildings?
+	\item How to address privacy and security issues?
+	\end{itemize}
+\end{frame}
 
 \begin{frame}{Use Cases}
-	Some text
+	\begin{itemize}
+	\item User wants to locate his friends inside mensa.
+	\item User wants to locate his friends inside library.
+	\item add others!!!!!!!!!
+	\end{itemize}
+\end{frame}
+
+\section{Possible approaches}
+
+\begin{frame}{Possible approaches to indoor positioning}
+	\begin{itemize}
+	\item Bluetooth, WiFi, NFC, QR-Code, manual position pinning\cite{brimicombe2009location}.
+	\item add technologies matrix!!!!!!!!!
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{WiFi positioning}
+	\begin{itemize}
+	\item With use of tubit api.
+	\item Provides building name, floor, coordinates.
+	\item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Bluetooth}
+	\begin{itemize}
+	\item Estimote beacons
+	\item Possible positioning approaches
+		\begin{itemize}
+			\item Indoor-Region Based Navigation
+			\item Live Indoor-Location Feedback Navigation
+			\item D2D Indoor-Navigation via Virtual Beacons
+		\end{itemize}
+	\item Problem: possibly high battery usage
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Question}
+	How much interaction with mobile device are users willing to do?
+	\begin{itemize}	
+	\item Always on positioning. Requires always-on Bluetooth.
+	\item Always on positioning. Bluetooth turns on when WiFi positioning detects we are in mensa or library.
+	\item Time based positioning. Application activates only in certain time intervals.
+	\item Positioning while application is running and Bluetooth is on.
+	\item Positioning on demand. User have to press a button to share position.
+	\item User pins own position on map inside application.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Application architecture}
+	\begin{itemize}
+	\item Client-server architecture
+	\item Server tasks
+		\begin{itemize}
+			\item Retrieve details about bluetooth beacons. 
+			\item Share location between users.
+		\end{itemize}
+	\item add pictures!!!!!!!
+	\end{itemize}
+\end{frame}
+
+\section{Time schedule}
+
+\begin{frame}{Time schedule}
+	\begin{itemize}
+	\item Work plan for project (approximately)
+	\item gantt diagram
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Questions}
+	add questionmark image :) 
 \end{frame}
 
 
