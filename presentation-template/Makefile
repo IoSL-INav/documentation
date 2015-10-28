@@ -9,4 +9,4 @@ default:
 
 .PHONY: clean
 clean:
-	rm -v *.aux *.toc *.log *.out *.bbl *.bcf *.blg *.lof *.lot *.nav *.run.xml *.snm main.pdf
+	rm -v *.aux *.toc *.log *.out *.bbl *.bcf *.blg *.lof *.lot *.nav *.run.xml *.snm
