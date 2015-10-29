@@ -66,6 +66,13 @@
 % the documentclass option "9pt" to "10pt"
 \usepackage{caption}
 
+\usepackage{xpatch}
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\setlength{\itemsep}{3ex}\def\makelabel}
+  {}
+  {}
+
 % image to be shown on the title page (without file extension, should be pdf or png)
 
 \titleimage{img/snet_logo} 
@@ -134,12 +141,12 @@
 
 \usepackage{fancybox}
 
+
 \begin{document}
 
 \begin{frame}[plain]
 	\titlepage
 \end{frame}
-
 
 
 \section*{Introduction} % Not numbered, before TOC
@@ -254,6 +261,7 @@
 		\item Estimote beacons
 		\item Possible positioning approaches
 			\begin{itemize}
+				\setlength{\itemsep}{1ex}
 				\item Indoor-Region Based Navigation
 				\item Live Indoor-Location Feedback Navigation
 				\item D2D Indoor-Navigation via Virtual Beacons
@@ -268,21 +276,19 @@
 
 	NFC
 	\begin{itemize}
-	
+		\setlength{\itemsep}{1ex}
 		\item Precondition: NFC tag on every table in mensa.
 		\item Scenario: First group member that sits down puts phone on the table, phone reads tag and sends location to other group members.
 		\item Cons: Requires user putting phone on table. High cost of initial NFC tags set-up. Requires NFC-enabled mobile device.
-
 	\end{itemize}
 	
 	\bigskip
 	QR code
 	\begin{itemize}
-	
+		\setlength{\itemsep}{1ex}
 		\item Precondition: QR code on every table in mensa.
 		\item Scenario: First group member that sits down scans QR code on the table, phone sends location to other group members.
 		\item Cons: Requires user scanning codes; impractical, time-consuming. 
-
 	\end{itemize}
 
 \end{frame}
@@ -304,15 +310,11 @@
 
 	\begin{itemize}
 	
-		\item How much interaction with mobile device are users willing to do?
-		\item Always-on positioning. Requires always-on Bluetooth.
-		\item Always-on positioning. Bluetooth turns on when WiFi positioning detects we are in mensa or library.
-		\item Time based positioning. Application activates only in certain time intervals.
-		\item Positioning while application is running and Bluetooth is on.
-		\item Positioning on demand. User have to press a button to share position.
-		\item User pins own position on map inside application.
-		\item \todo{Ask the 3 - 4 most important questions}
-	
+		\item Which \textbf{localisation technique} is the most \textbf{precise} one?
+		\item How much will location tracking \textbf{drain} the \textbf{battery}?
+		\item How can we ensure the \textbf{user's privacy} is \textbf{not violated}?
+		\item How much \textbf{interaction} with mobile device are \textbf{users} willing to do?
+		
 	\end{itemize}
 
 \end{frame}
@@ -348,11 +350,10 @@
 		\begin{block}{Location technique}
 				
 			\begin{itemize}
-			
+				\setlength{\itemsep}{1ex}
 				\item Mixture between WiFi and BLE
 				\item Rough: tubIT WiFi localisation
 				\item Precise: Probably estimote beacons
-					
 			\end{itemize}
 				
 		\end{block}
@@ -364,11 +365,10 @@
 		\begin{block}{Backend}
 				
 			\begin{itemize}
-			
+				\setlength{\itemsep}{1ex}
 				\item Handles user management
 				\item Uses tubIT federation for authentication
 				\item Provides REST API for clients
-			
 			\end{itemize}
 			
 		\end{block}
@@ -380,11 +380,10 @@
 		\begin{block}{Mobile}
 				
 			\begin{itemize}
-			
+				\setlength{\itemsep}{1ex}
 				\item Android and iOS applications
 				\item Using vendor and probably estimote's SDKs
 				\item Only basic design
-					
 			\end{itemize}
 			
 		\end{block}
@@ -428,6 +427,7 @@
 	\end{center}
 
 	\begin{itemize}
+		\setlength{\itemsep}{1ex}
 		\item \textbf{Look} at the \textbf{matrix} above
 		\item \textbf{Decide} which of the \textbf{properties} is the biggest disadvantage for you
 		\item Vote for \textbf{2} properties
