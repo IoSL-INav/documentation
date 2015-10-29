@@ -355,7 +355,9 @@
     </g>
     <g
        id="g4320-8-1"
-       transform="matrix(4.122302,0,0,4.122302,-1025.2726,-2791.0264)">
+       transform="matrix(4.122302,0,0,4.122302,-1025.2726,-2791.0264)"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838">
       <rect
          y="857.27649"
          x="316.68283"
@@ -390,21 +392,27 @@
        width="52.527931"
        height="18.940361"
        x="290.10181"
-       y="788.45398" />
+       y="788.45398"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838" />
     <rect
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#646464;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5016-7"
        width="52.527931"
        height="18.940361"
        x="290.10181"
-       y="812.9502" />
+       y="812.9502"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0300c8;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="301.53821"
        y="803.08038"
        id="text5033"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838"><tspan
          sodipodi:role="line"
          id="tspan5035"
          x="301.53821"
@@ -416,7 +424,9 @@
        x="296.69415"
        y="827.5766"
        id="text5037"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838"><tspan
          sodipodi:role="line"
          id="tspan5039"
          x="296.69415"
@@ -426,7 +436,9 @@
        style="fill:#0300ff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:4.18400002;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 326.49172,760.96816 -20.25192,7.00653 0.10515,0.12091 8.67048,2.88366 1.67954,8.98223 0.10515,0.12091 9.69148,-19.11404 z"
        id="path4328-4-1"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-xdpi="363.9838"
+       inkscape:export-ydpi="363.9838" />
     <g
        id="g4160-2-7"
        transform="translate(177.85698,-56.853161)"

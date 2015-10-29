@@ -341,17 +341,55 @@
 
 \begin{frame}{Our approach - specifics}
 
-	\begin{itemize}
+	\setbeamercovered{transparent}
+
+	\uncover<1->{
 	
-		\item Client-server architecture
-		\item Server tasks
+		\begin{block}{Location technique}
+				
 			\begin{itemize}
-				\item Retrieve details about bluetooth beacons. 
-				\item Share location between users.
+			
+				\item Mixture between WiFi and BLE
+				\item Rough: tubIT WiFi localisation
+				\item Precise: Probably estimote beacons
+					
 			\end{itemize}
-		\item \todo{Finalize this}
+				
+		\end{block}
 	
-	\end{itemize}
+	}
+	
+	\uncover<2->{
+	
+		\begin{block}{Backend}
+				
+			\begin{itemize}
+			
+				\item Handles user management
+				\item Uses tubIT federation for authentication
+				\item Provides REST API for clients
+			
+			\end{itemize}
+			
+		\end{block}
+		
+	}
+	
+	\uncover<3->{
+	
+		\begin{block}{Mobile}
+				
+			\begin{itemize}
+			
+				\item Android and iOS applications
+				\item Using vendor and probably estimote's SDKs
+				\item Only basic design
+					
+			\end{itemize}
+			
+		\end{block}
+		
+	}
 
 \end{frame}
 
