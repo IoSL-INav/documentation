@@ -237,6 +237,8 @@
 
 	\begin{itemize}
 	
+		\item \todo{i think we can remove this slide}
+	
 		\item WiFi
 		\item Bluetooth (Low Energy)
 		\item NFC
@@ -247,11 +249,31 @@
 
 \end{frame}
 
+\begin{frame}{Technology matrix}
+
+	\begin{center} \todo{replace with new graphics}
+	
+		\includegraphics[width=\textwidth]{matrix}
+	
+	\end{center}
+
+\end{frame}
+
+\begin{frame}{Technology matrix}
+
+	\begin{center} \todo{replace with new graphics - highlighted}
+	
+		\includegraphics[width=\textwidth]{matrix}
+	
+	\end{center}
+
+\end{frame}
+
 \begin{frame}{WiFi positioning}
 
 	\begin{itemize}
 	
-		\item With use of tubIT API.
+		\item With use of tubIT API. \todo{change}
 		\item Provides building name, floor, coordinates.
 		\item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
 
@@ -259,9 +281,29 @@
 	
 \end{frame}
 
-\begin{frame}{Bluetooth \cite{feldmann2003indoor}}
+\begin{frame}{Bluetooth}
+	
+	\large Estimote beacons
+	\begin{center}
+	
+		\includegraphics[width=0.8\textwidth]{box_devkit}
+	
+	\end{center}
 
-	\begin{itemize}
+\end{frame}
+
+\begin{frame}{Bluetooth}
+
+	Region Based Navigation
+	
+	\todo{picture region based}
+
+\end{frame}
+
+\begin{frame}{Bluetooth}
+
+	\todo{what to do with this slide}
+	\begin{itemize} 
 	
 		\item Estimote beacons
 		\item Possible positioning approaches
@@ -277,30 +319,11 @@
 
 \end{frame}
 
-\begin{frame}{NFC / QR code}
-
-	NFC
-	\begin{itemize}
-		\setlength{\itemsep}{1ex}
-		\item Precondition: NFC tag on every table in mensa.
-		\item Scenario: First group member that sits down puts phone on the table, phone reads tag and sends location to other group members.
-		\item Cons: Requires user putting phone on table. High cost of initial NFC tags set-up. Requires NFC-enabled mobile device.
-	\end{itemize}
-	
-	\bigskip
-	QR code
-	\begin{itemize}
-		\setlength{\itemsep}{1ex}
-		\item Precondition: QR code on every table in mensa.
-		\item Scenario: First group member that sits down scans QR code on the table, phone sends location to other group members.
-		\item Cons: Requires user scanning codes; impractical, time-consuming. 
-	\end{itemize}
-
-\end{frame}
-
 \begin{frame}{Manual position pinning}
 
 	\begin{itemize}
+	
+		\item \todo{this has to be moved to approaches}
 	
 		\item Fallback option, if no location can be received automatically.
 		\item User will have option, to pin own location inside mobile application.
@@ -321,16 +344,6 @@
 		\item How much \textbf{interaction} with mobile device are \textbf{users} willing to do?
 		
 	\end{itemize}
-
-\end{frame}
-
-\begin{frame}{Technology matrix}
-
-	\begin{center}
-	
-		\includegraphics[width=\textwidth]{matrix}
-	
-	\end{center}
 
 \end{frame}
 
@@ -442,7 +455,7 @@
 
 
 \begin{frame}[allowframebreaks]{References}
-
+	\nocite{*}
 	\bibliography{references}
 
 \end{frame}
