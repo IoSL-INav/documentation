@@ -154,7 +154,7 @@
 \subsection*{Intro}
 
 \begin{frame}<beamer>{Table of Contents}
-
+	\todo{I think we were told we can remove this slide}
 	\tableofcontents[ 
 		currentsection, %currentsubsection, 
 		%hideothersubsections, 
@@ -211,7 +211,7 @@
 	\begin{itemize}
 	
 		\item How to get own position inside buildings?
-		\item How to find other people inside buildings?
+		\item How to find other people inside buildings? (dynamic targets) 
 		\item Which privacy and security concern can be addressed?
 	
 	\end{itemize}
@@ -223,10 +223,27 @@
 	\begin{itemize}
 	
 		\item No GPS signal inside buildings => topic \textbf{Indoor navigation}.
+		\item Floor information is also important.
 		\item Indoor maps are not as widely available as outdoor maps.		
 		\item Users don't want to interact with mobile device every time they go to mensa. 		
 		\item Hard to determine accurate location. Is region based positioning enough?
 	
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Possible approaches to indoor positioning}
+	\todo{this slide maybe still need a bit of work}
+	\begin{itemize}
+	
+		\item Manual position pinning.
+		\begin{itemize}
+			\item Fallback option, if no location can be received automatically.
+			\item User will have option, to pin own location inside mobile application.
+			\item Useful in cases of broken infrastructure (WiFi is down, dead batteries in Bluetooth beacons...).
+			\item Provides alternative for users with high privacy concerns who don't want to automatically share their locations.
+		\end{itemize}
+		\item Automatic position pinning. 
 	\end{itemize}
 
 \end{frame}
@@ -302,9 +319,9 @@
 	\bigskip	
 	\begin{itemize}
 	
-		\item Implemented with Cisco Mobility Services Engine
+		\item For rough positioning where no beacons are available.
+		\item Implemented with Cisco Mobility Services Engine.		
 		\item Provides building name, floor, coordinates.
-		\item Intended for rough positioning where no beacons are available
 		\item Problems: 
 			\begin{itemize}
 				\item no provided coordinates in mensa and library
@@ -318,21 +335,6 @@
 	
 	\end{center}
 	
-\end{frame}
-
-\begin{frame}{Manual position pinning}
-
-	\begin{itemize}
-	
-		\item \todo{this has to be moved to approaches}
-	
-		\item Fallback option, if no location can be received automatically.
-		\item User will have option, to pin own location inside mobile application.
-		\item Useful in cases of broken infrastructure (WiFi is down, dead batteries in Bluetooth beacons...).
-		\item Provides alternative for users with high privacy concerns who don't want to automatically share their locations.
-
-	\end{itemize}
-
 \end{frame}
 
 \begin{frame}{Questions of concern}
