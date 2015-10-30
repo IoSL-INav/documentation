@@ -269,18 +269,6 @@
 
 \end{frame}
 
-\begin{frame}{WiFi positioning}
-
-	\begin{itemize}
-	
-		\item With use of tubIT API. \todo{change}
-		\item Provides building name, floor, coordinates.
-		\item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
-
-	\end{itemize}
-	
-\end{frame}
-
 \begin{frame}{Bluetooth}
 	
 	\large Estimote beacons
@@ -305,14 +293,15 @@
 
 \begin{frame}{Bluetooth}
 
-	\todo{what to do with this slide}
+	\todo{what to do with this slide? }
+	\todo{live positioning and d2d have to be moved to posible future work or smth}
 	\begin{itemize} 
 	
-		\item Estimote beacons
+
 		\item Possible positioning approaches
 			\begin{itemize}
 				\setlength{\itemsep}{1ex}
-				\item Indoor-Region Based Navigation
+
 				\item Live Indoor-Location Feedback Navigation
 				\item D2D Indoor-Navigation via Virtual Beacons
 			\end{itemize}
@@ -320,6 +309,30 @@
 
 	\end{itemize}
 
+\end{frame}
+
+\begin{frame}{WiFi positioning}
+
+	{\large tubIT positioning API} 
+	\bigskip	
+	\begin{itemize}
+	
+		\item Implemented with Cisco Mobility Services Engine
+		\item Provides building name, floor, coordinates.
+		\item Intended for rough positioning where no beacons are available
+		\item Problems: 
+			\begin{itemize}
+				\item no provided coordinates in mensa and library
+				\item \todo{inaccurate coordinates elsewhere, or are they of routers?}
+			\end{itemize}
+	\end{itemize}
+	
+	\begin{center}
+	
+		\includegraphics[width=\textwidth]{tubitapi_response}
+	
+	\end{center}
+	
 \end{frame}
 
 \begin{frame}{Manual position pinning}
