@@ -254,13 +254,27 @@
 
 \begin{frame}{WiFi positioning via \textbf{CISCO MSI API}}
 
+    {\large tubIT positioning API} 
+    \bigskip    
     \begin{itemize}
     
-        \item With use of tubIT API.
+        \item For rough positioning where no beacons are available.
+        \item Implemented with Cisco Mobility Services Engine.      
         \item Provides building name, floor, coordinates.
-        \item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
-
+        \item Problems: 
+            \begin{itemize}
+                \item no provided coordinates in mensa and library
+                \item \todo{inaccurate coordinates elsewhere, or are they of routers?}
+            \end{itemize}
     \end{itemize}
+    
+    \begin{center}
+    
+        \includegraphics[width=\textwidth]{tubitapi_response}
+    
+    \end{center}
+    
+    \todo{visualize it}
 
     \todo{show snipp of measurements and show reference to cisco MSI API}
     
@@ -290,32 +304,6 @@
 		\includegraphics[width=\textwidth]{regions}
 	
 	\end{center}
-
-\end{frame}
-
-\begin{frame}{WiFi positioning}
-
-	{\large tubIT positioning API} 
-	\bigskip	
-	\begin{itemize}
-	
-		\item For rough positioning where no beacons are available.
-		\item Implemented with Cisco Mobility Services Engine.		
-		\item Provides building name, floor, coordinates.
-		\item Problems: 
-			\begin{itemize}
-				\item no provided coordinates in mensa and library
-				\item \todo{inaccurate coordinates elsewhere, or are they of routers?}
-			\end{itemize}
-	\end{itemize}
-	
-	\begin{center}
-	
-		\includegraphics[width=\textwidth]{tubitapi_response}
-	
-	\end{center}
-	
-    \todo{visualize it}
 
 \end{frame}
 
