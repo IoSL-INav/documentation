@@ -77,7 +77,7 @@
 
 \titleimage{img/snet_logo} 
 
-\title[\Huge Internet of Services Lab]{Indoor Navigation}
+\title{Internet of Services Lab - Indoor Navigation}
 
 \subtitle{\small{Indoor Navigation in the TU-Mensa}}
 
@@ -159,17 +159,21 @@
 
 \section{Problem scenario \& questions}
 
-\begin{frame}{The mensa problem}
+\begin{frame}{Use case}
 
+	\vspace{1cm}
+	
     \begin{center}
 
-        \includegraphics[width=.5\textwidth]{mensa}%
+        \includegraphics[width=.5\textwidth]{mensa}
         \includegraphics[width=.5\textwidth]{Bibliothek}
     
     \end{center}
 
-    \todo{link for mensa source}
-    \tiny{source: \url{http://www.berlin-studis.de/images/stories/TU-Universitaetsbibliothek.jpg}}
+	\vspace{1cm}
+    
+    \tiny{Source left: \url{http://www2.studentenwerk-berlin.de/uploads/pic_untenvonoben_737_full.jpg}}\\
+    \tiny{Source right: \url{http://www.berlin-studis.de/images/stories/TU-Universitaetsbibliothek.jpg}}
 
 \end{frame}
 
@@ -181,43 +185,54 @@
 
 
 \begin{frame}{User stories}
-    \textbf{share location with friends:}
     
-    \vspace{0.2cm}
+    \textbf{Share location with friends:}
 
-    \todo{change image of use case}
-    
-    \vspace{1cm}
+	\begin{center}
+	
+		\includegraphics[width=.6\textwidth]{user-story}
+	
+	\end{center}
     
     \begin{itemize}
+    
         \item Main goal: indoor-region based navigation
+    
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}{App idea}
+
     \todo{draw image or show image of smartphone in use}
+    
 \end{frame}
 
-\begin{frame}{Localication ideas}
+\begin{frame}{Localization ideas}
+
     \begin{itemize}
         \item \todo{show image of manual position pinning on a smartphone if possible}
         \item \todo{show image of position methods within regions on a smartphone if possible}
     \end{itemize}
+    
 \end{frame}
 
 \begin{frame}{Possible approaches to indoor positioning}
+	
 	\todo{this slide maybe still need a bit of work}
+
 	\begin{itemize}
 	
-		\item Manual position pinning.
+		\item Manual position pinning
 		\begin{itemize}
-			\item Fallback option, if no location can be received automatically.
-			\item User will have option, to pin own location inside mobile application.
-			\item Useful in cases of broken infrastructure (WiFi is down, dead batteries in Bluetooth beacons...).
-			\item Provides alternative for users with high privacy concerns who don't want to automatically share their locations.
+			\setlength{\itemsep}{0.2ex}
+			\item Fallback option, if no location available
+			\item Pin own location inside mobile application
+			\item Alternative for users with high privacy concerns
 		\end{itemize}
-		\item Automatic position pinning. 
+		
+		\item Localization technique
+	
 	\end{itemize}
 
 \end{frame}
@@ -244,7 +259,7 @@
     
         \item Bluetooth (Low Energy)
         \item WiFi
-        \item Manual position pinning\cite{brimicombe2009location} (fallback)
+        \item Manual position pinning (fallback) \cite{brimicombe2009location}
         \item NFC
         \item QR-Code
     
@@ -253,50 +268,66 @@
 \end{frame}
 
 \begin{frame}{WiFi positioning via \textbf{CISCO MSI API}}
+    
+    \uncover<1-> {
+	    
+	    \begin{itemize}
+	    
+	        \item For rough positioning
+	        \item Uses Cisco Mobility Services Engine
+	        \item Provides building name, floor, coordinates
+    	    \item Problems:
+	            \begin{itemize}
+	            	\setlength{\itemsep}{0.2ex}
+	                \item No coordinates in mensa and library
+	            \end{itemize}
+    
+	    \end{itemize}
+	}
+    
+    \uncover<2-> {
+    
+    	\begin{center}
+	    
+	        \includegraphics[width=\textwidth]{tubitapi_response}
+		   
+	    \end{center}
+	
+	}
+    
+\end{frame}
 
-    {\large tubIT positioning API} 
-    \begin{itemize}
-    
-        \item For rough positioning where no beacons are available.
-        \item Implemented with Cisco Mobility Services Engine.      
-        \item Provides building name, floor, coordinates.
-        \item Problems: 
-            \begin{itemize}
-                \item no provided coordinates in mensa and library
-            \end{itemize}
-    \end{itemize}
-    
-    \begin{center}
-    
-        \includegraphics[width=\textwidth]{tubitapi_response}
-    
-    \end{center}
-    
-    \todo{visualize it}
-    \todo{inaccurate coordinates elsewhere, or are they of routers?}
-    \todo{show snipp of measurements and show reference to cisco MSI API}
-    
+\begin{frame}{Bluetooth (Low Energy)}
+	
+	\begin{columns}[onlytextwidth]
+
+		\begin{column}{.45\textwidth}
+		
+			\textbf{Estimote} beacons
+
+			\vspace{0.5cm}
+			
+			\begin{itemize}
+				\setlength{\itemsep}{0.75ex}
+				\item Precise positioning
+				\item iBeacon protocol
+			\end{itemize}
+			
+		\end{column}
+		
+		\begin{column}{.55\textwidth}
+		
+			\includegraphics[width=\textwidth]{box_devkit}
+			
+		\end{column}
+	
+	\end{columns}
+
 \end{frame}
 
 \begin{frame}{Bluetooth}
 	
-	{\large Estimote beacons}
-	\bigskip
-	\begin{itemize}
-		\item For precise positioning
-		\item iBeacon protocol
-	\end{itemize}
-	\begin{center}
-	
-		\includegraphics[width=0.6\textwidth]{box_devkit}
-	
-	\end{center}
-
-\end{frame}
-
-\begin{frame}{Bluetooth}
-	
-	\large Region Based Navigation
+	\large Region based navigation
 	\begin{center}
 	
 		\includegraphics[width=\textwidth]{regions}
@@ -331,16 +362,17 @@
 \end{frame}
 
 \begin{frame}{Questions of concern}
+
     \begin{itemize}
     
-        \item Which \textbf{localisation technique} is the most \textbf{precise} one?
-        \item How much will location tracking \textbf{drain} the \textbf{battery}?
-        \item How can we ensure the \textbf{user's privacy} is \textbf{not violated}?
-        \item How much \textbf{interaction} with mobile device are \textbf{users} willing to do?
+        \item Accuracy?
+        \item Battery consumption?
+        \item Privacy and security?
+        \item User interaction?
         
     \end{itemize}
 
-    \todo{should be delete this slide?}
+    \todo{should we delete this slide?}
 
 \end{frame}
 
