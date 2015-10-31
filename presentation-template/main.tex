@@ -29,7 +29,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}   % to make utf-8 input possible
 \usepackage[english]{babel}     % hyphenation etc., alternatively use 'german' as parameter
-\usepackage{verbatim}  			% comments and stuff
+\usepackage{verbatim}           % comments and stuff
 \usepackage[right]{eurosym}
 \usepackage{tikz}
 \newcommand{\todo}[1]{\raisebox{0pt}{\parbox{0pt}{\begin{large}\colorbox{red}{todo: #1}\end{large} \hspace*{0.05cm}}}}
@@ -77,11 +77,11 @@
 
 \titleimage{img/snet_logo} 
 
-\title[Internet of Services Lab]{Indoor Navigation}
+\title[\Huge Internet of Services Lab]{Indoor Navigation}
 
-\subtitle{Indoor Navigation in the TU-Mensa}
+\subtitle{\small{Indoor Navigation in the TU-Mensa}}
 
-\author[Oldenburg, Hechenberger, Meznarič, Lukau]{Lennart Oldenburg, Andreas Hechenberger, Jan Meznarič, Eridy Lukau}
+\author[Oldenburg, Hechenberger, Meznarič, Lukau]{{Lennart Oldenburg, Andreas Hechenberger, Jan Meznarič, Eridy Lukau}}
 
 \institute[TU Berlin]{Department of Telecommunication Systems Service-centric Networking 
 \\ Technische Universität Berlin}
@@ -96,13 +96,13 @@
 
 \graphicspath{{./img/}}
 
-\setbeamerfont{caption name}{size=\tiny}
+\setbeamerfont{caption name}{size=\huge}
 
 \setbeamertemplate{blocks}[rounded][shadow=false] % pdfpc fucks up the shadows, can be true for other viewers
 
 \setbeamertemplate{footline}[text line]{%
-	\parbox{0pt}{\vspace*{-20pt}\hspace*{-23pt}\color{tu-red}\rule{1.2\paperwidth}{0.4pt}}
-	\parbox{\linewidth}{\vspace*{-8pt}WS 2015/2016\hfill\insertsection\hfill\insertpagenumber}}
+    \parbox{0pt}{\vspace*{-20pt}\hspace*{-23pt}\color{tu-red}\rule{1.2\paperwidth}{0.4pt}}
+    \parbox{\linewidth}{\vspace*{-8pt}WS 2015/2016\hfill\insertsection\hfill\insertpagenumber}}
 %\setbeamertemplate{navigation symbols bibliography entry title}{}
 \setbeamertemplate{navigation symbols}{}
 
@@ -145,24 +145,7 @@
 \begin{document}
 
 \begin{frame}[plain]
-	\titlepage
-\end{frame}
-
-
-\section*{Introduction} % Not numbered, before TOC
-
-\subsection*{Intro}
-
-\begin{frame}<beamer>{Table of Contents}
-	\todo{I think we were told we can remove this slide}
-	\tableofcontents[ 
-		currentsection, %currentsubsection, 
-		%hideothersubsections, 
-		sectionstyle=show/show, % sectionstyle=show/hide, 
-		%subsectionstyle=show/shaded/hide %subsectionstyle=show/shaded
-		%sections=1-5 % anpassen?
-	]
-
+    \titlepage
 \end{frame}
 
 
@@ -178,58 +161,49 @@
 
 \begin{frame}{The mensa problem}
 
-	\begin{center}
+    \begin{center}
 
-		\includegraphics[width=.8\textwidth]{mensa}
-	
-	\end{center}
+        \includegraphics[width=.5\textwidth]{mensa}%
+        \includegraphics[width=.5\textwidth]{Bibliothek}
+    
+    \end{center}
+
+    \todo{link for mensa source}
+    \tiny{source: \url{http://www.berlin-studis.de/images/stories/TU-Universitaetsbibliothek.jpg}}
 
 \end{frame}
+
+\begin{frame}{Requirements}
+
+    \todo{fill requirements}
+
+\end{frame}
+
 
 \begin{frame}{User stories}
+    \textbf{share location with friends:}
+    
+    \vspace{0.2cm}
 
-	\textbf{Find friends:}
-	
-	\vspace{0.2cm}
-
-	\begin{center}
-	
-		\includegraphics[width=\textwidth]{user-story}
-	
-	\end{center}
-	
-	\vspace{1cm}
-	
-	\textbf{1} of \textbf{6} user stories.
-	
-	Result in use cases which direct development steps.
+    \todo{change image of use case}
+    
+    \vspace{1cm}
+    
+    \begin{itemize}
+        \item Main goal: indoor-region based navigation
+    \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Resulting project questions}
-
-	\begin{itemize}
-	
-		\item How to get own position inside buildings?
-		\item How to find other people inside buildings? (dynamic targets) 
-		\item Which privacy and security concern can be addressed?
-	
-	\end{itemize}
-
+\begin{frame}{App idea}
+    \todo{draw image or show image of smartphone in use}
 \end{frame}
 
-\begin{frame}{Occuring problems}
-
-	\begin{itemize}
-	
-		\item No GPS signal inside buildings => topic \textbf{Indoor navigation}.
-		\item Floor information is also important.
-		\item Indoor maps are not as widely available as outdoor maps.		
-		\item Users don't want to interact with mobile device every time they go to mensa. 		
-		\item Hard to determine accurate location. Is region based positioning enough?
-	
-	\end{itemize}
-
+\begin{frame}{Localication ideas}
+    \begin{itemize}
+        \item \todo{show image of manual position pinning on a smartphone if possible}
+        \item \todo{show image of position methods within regions on a smartphone if possible}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Possible approaches to indoor positioning}
@@ -250,40 +224,46 @@
 
 \section{Technology overview}
 
+\begin{frame}{Technology matrix}
+
+    \begin{center}
+    
+        \only<1>{\includegraphics[width=\textwidth]{matrix}}%
+        \only<2>{\includegraphics[width=\textwidth]{matrix}}%
+    
+    \end{center}
+
+    \todo{flip wifi row up and make a second picture with highlighting the first two rows}
+    \todo{replace with new graphics - highlighted}
+
+\end{frame}
+
 \begin{frame}{Possible approaches to indoor positioning}
 
-	\begin{itemize}
-	
-		\item \todo{i think we can remove this slide}
-	
-		\item WiFi
-		\item Bluetooth (Low Energy)
-		\item NFC
-		\item QR-Code
-		\item Manual position pinning\cite{brimicombe2009location} (fallback)
-	
-	\end{itemize}
+    \begin{itemize}
+    
+        \item Bluetooth (Low Energy)
+        \item WiFi
+        \item Manual position pinning\cite{brimicombe2009location} (fallback)
+        \item NFC
+        \item QR-Code
+    
+    \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Technology matrix}
+\begin{frame}{WiFi positioning via \textbf{CISCO MSI API}}
 
-	\begin{center} \todo{replace with new graphics}
-	
-		\includegraphics[width=\textwidth]{matrix}
-	
-	\end{center}
+    \begin{itemize}
+    
+        \item With use of tubIT API.
+        \item Provides building name, floor, coordinates.
+        \item Problem: no coordinates in mensa and library, inaccurate coordinates elsewhere.
 
-\end{frame}
+    \end{itemize}
 
-\begin{frame}{Technology matrix}
-
-	\begin{center} \todo{replace with new graphics - highlighted}
-	
-		\includegraphics[width=\textwidth]{matrix}
-	
-	\end{center}
-
+    \todo{show snipp of measurements and show reference to cisco MSI API}
+    
 \end{frame}
 
 \begin{frame}{Bluetooth}
@@ -335,93 +315,62 @@
 	
 	\end{center}
 	
+    \todo{visualize it}
+
 \end{frame}
 
-\begin{frame}{Questions of concern}
+\begin{frame}{Resulting project questions}
 
-	\begin{itemize}
-	
-		\item Which \textbf{localisation technique} is the most \textbf{precise} one?
-		\item How much will location tracking \textbf{drain} the \textbf{battery}?
-		\item How can we ensure the \textbf{user's privacy} is \textbf{not violated}?
-		\item How much \textbf{interaction} with mobile device are \textbf{users} willing to do?
-		
-	\end{itemize}
+    \begin{itemize}
+    
+        \item How to get own position inside buildings?
+        \item How to find my colleagues inside buildings?
+        \item Which privacy and security concern can be addressed?
+    
+    \end{itemize}
+
+    \todo{should be delete this slide?}
 
 \end{frame}
 
 \begin{frame}{Possible future work}
 
-	\todo{I dont know where to put this slide}
+    \todo{I dont know where to put this slide}
 
-	\begin{itemize}
-		\item Smart watch application
-		\item Live Indoor-Location Feedback Navigation
-		\item D2D Indoor-Navigation via Virtual Beacons
-	\end{itemize}
+    \begin{itemize}
+        \item Smart watch application
+        \item Live Indoor-Location Feedback Navigation
+        \item D2D Indoor-Navigation via Virtual Beacons
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Questions of concern}
+    \begin{itemize}
+    
+        \item Which \textbf{localisation technique} is the most \textbf{precise} one?
+        \item How much will location tracking \textbf{drain} the \textbf{battery}?
+        \item How can we ensure the \textbf{user's privacy} is \textbf{not violated}?
+        \item How much \textbf{interaction} with mobile device are \textbf{users} willing to do?
+        
+    \end{itemize}
+
+    \todo{should be delete this slide?}
 
 \end{frame}
+
+
 
 \section{Our approach}
 
 \begin{frame}{Our approach - vision}
 
-	\begin{center}
+    \begin{center}
 
-		\includegraphics[width=\textwidth]{Version2_Region_LiveLocationUpdate_2}
-	
-	\end{center}
+        \includegraphics[width=\textwidth]{Version2_Region_LiveLocationUpdate_2}
+    
+    \end{center}
 
-\end{frame}
-
-\begin{frame}{Our approach - specifics}
-
-	\setbeamercovered{transparent}
-
-	\uncover<1->{
-	
-		\begin{block}{Location technique}
-				
-			\begin{itemize}
-				\setlength{\itemsep}{1ex}
-				\item Mixture between WiFi and BLE
-				\item Rough: tubIT WiFi localisation
-				\item Precise: Probably estimote beacons
-			\end{itemize}
-				
-		\end{block}
-	
-	}
-	
-	\uncover<2->{
-	
-		\begin{block}{Backend}
-				
-			\begin{itemize}
-				\setlength{\itemsep}{1ex}
-				\item Handles user management
-				\item Uses tubIT federation for authentication
-				\item Provides REST API for clients
-			\end{itemize}
-			
-		\end{block}
-		
-	}
-	
-	\uncover<3->{
-	
-		\begin{block}{Mobile}
-				
-			\begin{itemize}
-				\setlength{\itemsep}{1ex}
-				\item Android and iOS applications
-				\item Using vendor and probably estimote's SDKs
-				\item Only basic design
-			\end{itemize}
-			
-		\end{block}
-		
-	}
+    \todo{adjust the image to a more UML like one, not sequenze diagram, leave out websocket stuff}
 
 \end{frame}
 
@@ -429,47 +378,44 @@
 
 \begin{frame}{Timeline}
 
-	\begin{center}
-		
-		\includegraphics[width=\textwidth]{Timeline}%
+    \begin{center}
+        
+        \includegraphics[width=\textwidth]{Timeline}%
 
-	\end{center}
+    \end{center}
+
+    \todo{dont to gantt, make a table and name the first and the last once}
+    \todo{example: pinning (basic), pinning (advanced), postitioning (basic)...}
 
 \end{frame}
 
 \begin{frame}{Questions?}
 
-	\begin{center}
+    \begin{center}
 
-		{\Huge Do you have questions?}
-		
-		\vspace{1cm}
-		
-		{\Large If not - we have! :)}
-		
-	\end{center}
+        {\Huge Do you have questions?}
+        
+        \vspace{1cm}
+        
+        {\Large If not - we have! :)}
+        
+    \end{center}
 
 \end{frame}
 
 \begin{frame}{Survey}
 
-	\begin{center}
+    \begin{center}
 
-		\includegraphics[width=0.7\textwidth]{matrix}
-		
-	\end{center}
-
-	\begin{itemize}
-		\setlength{\itemsep}{1ex}
-		\item \textbf{Look} at the \textbf{matrix} above
-		\item \textbf{Decide} which of the \textbf{properties} is the biggest disadvantage for you
-		\item Vote for \textbf{2} properties
-	\end{itemize}
+        \includegraphics[width=0.7\textwidth]{matrix}
+        
+    \end{center}
 
 \end{frame}
 
 
 \begin{frame}[allowframebreaks]{References}
+
 	\nocite{*}
 	\bibliography{references}
 
