@@ -31,6 +31,7 @@
 \usepackage[english]{babel}     % hyphenation etc., alternatively use 'german' as parameter
 \usepackage{verbatim}           % comments and stuff
 \usepackage[right]{eurosym}
+\usepackage{booktabs}
 \usepackage{tikz}
 \newcommand{\todo}[1]{\raisebox{0pt}{\parbox{0pt}{\begin{large}\colorbox{red}{todo: #1}\end{large} \hspace*{0.05cm}}}}
 
@@ -398,12 +399,25 @@
 
     \begin{center}
         
-        \includegraphics[width=\textwidth]{Timeline}%
+        \begin{tabular}{ll}
+            week  &  topic \\
+            \midrule 
+            21.10 &  research \\
+            04.11 &  technology overview \\
+            18.11 &  prototype of iOS and android APP \\
+            02.12 &  basic pinning \\
+            16.12 &  \ldots \\
+            30.12 &  basic positioning \\
+            13.01 &  \ldots \\
+            27.01 &  preperation for presentation \\
+            10.02 &  final presentation \\
+        \end{tabular}
 
     \end{center}
 
-    \todo{dont to gantt, make a table and name the first and the last once}
-    \todo{example: pinning (basic), pinning (advanced), postitioning (basic)...}
+    \begin{itemize}
+        \item 2 week sprints
+    \end{itemize}
 
 \end{frame}
 
