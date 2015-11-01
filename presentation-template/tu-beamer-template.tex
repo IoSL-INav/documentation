@@ -69,19 +69,19 @@
 % TODO: get rid of the navigation symbols on the title page.
 %   actually, \frame[plain] *should* remove them...
 \setbeamertemplate{title page}{
-% upper right: FU logo
-\vskip2pt\hfill\pgfuseimage{big-university-logo} \\
-\vskip6pt\hskip3pt
-% title image of the presentation
-\begin{minipage}{11.6cm}
-\hspace{-1mm}\inserttitlegraphic
-\end{minipage}
+	
+	% upper right: FU logo
+	\hfill\pgfuseimage{big-university-logo} \\
+	
+	% title image of the presentation
+	\begin{minipage}{11.6cm}
+		\hspace{-1mm}\vspace{0.5cm}\inserttitlegraphic
+	\end{minipage}
 
-% set the title and the author
-\vskip14pt
-\parbox[top][1.35cm][c]{11cm}{\color{text-grey}\inserttitle \\ \small \insertsubtitle}
-\vskip11pt
-\parbox[top][1.35cm][c]{11cm}{\small \insertauthor \\ \insertinstitute \\[3mm] \insertdate}
+	% set the title and the author
+	\parbox[top][1.35cm][c]{11cm}{\inserttitle}
+	\vskip10pt
+	\parbox[top][1.35cm][c]{11cm}{\color{text-grey} {\tiny \insertauthor\\ \insertinstitute\\ \insertdate}}
 }
 %%% end title page
 
