@@ -102,8 +102,23 @@
 \setbeamertemplate{blocks}[rounded][shadow=false] % pdfpc fucks up the shadows, can be true for other viewers
 
 \setbeamertemplate{footline}[text line]{%
-    \parbox{0pt}{\vspace*{-20pt}\hspace*{-23pt}\color{tu-red}\rule{1.2\paperwidth}{0.4pt}}
-    \parbox{\linewidth}{\vspace*{-8pt}WS 2015/2016\hfill\insertsection\hfill\insertpagenumber}}
+    %\parbox{0pt}{\vspace*{-20pt}\hspace*{-23pt}\color{tu-red}\rule{1.2\paperwidth}{0.4pt}}
+    \parbox{\linewidth}{%
+        \color{text-grey}{%
+            \vspace*{-10pt}%
+            %WS 2015/2016%
+            %\hfill%
+            \insertsection%
+            \hfill%
+            \parbox{0pt}{%
+                \vspace*{-3pt}\hspace*{-90pt}%
+                \includegraphics[width=0.1\textwidth]{t-labs_logo}%
+                \includegraphics[width=0.15\textwidth]{snet_logo_long}%
+                \hspace{2ex}%
+            }\insertpagenumber%
+        }%
+    }%
+}
 %\setbeamertemplate{navigation symbols bibliography entry title}{}
 \setbeamertemplate{navigation symbols}{}
 
