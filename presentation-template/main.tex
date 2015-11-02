@@ -194,6 +194,18 @@
 
 \end{frame}
 
+\begin{frame}{Use case}
+
+	\todo{Add Mensa plan with colored dots (=> people) distributed over the floor}
+
+\end{frame}
+
+\begin{frame}{App idea}
+
+    \todo{draw image or show image of smartphone in use}
+    
+\end{frame}
+
 \begin{frame}{Requirements}
 
     \begin{itemize}
@@ -217,26 +229,6 @@
         
     \end{itemize}
 
-\end{frame}
-
-\begin{frame}{User stories}
-    
-    \textbf{Share location with friends:}
-
-	\begin{center}
-	
-		\includegraphics[width=.6\textwidth]{user-story}
-	
-	\end{center}
-    
-    \textbf{Main goal:} indoor region-based navigation
-
-\end{frame}
-
-\begin{frame}{App idea}
-
-    \todo{draw image or show image of smartphone in use}
-    
 \end{frame}
 
 \section{Technology overview}
@@ -287,7 +279,7 @@
 	\end{itemize}
 	
 	\only<2>{\includegraphics[width=\textwidth]{matrix_zweiteVersion_unhighlighted}}
-    \only<3>{\includegraphics[width=\textwidth]{matrix_zweiteVersion}}
+    \only<3>{\includegraphics[width=\textwidth]{matrix_zweiteVersion_wifi_beacon_highlighted}}
 
 \end{frame}
 
@@ -356,17 +348,29 @@
 
 \end{frame}
 
+\begin{frame}{User stories}
+    
+    \textbf{Share location with friends:}
+
+	\begin{center}
+	
+		\includegraphics[width=.6\textwidth]{user-story}
+	
+	\end{center}
+    
+    \textbf{Main goal:} indoor region-based navigation
+
+\end{frame}
+
 \section{Our approach}
 
 \begin{frame}{Our approach - vision}
 
     \begin{center}
 
-        \includegraphics[width=\textwidth]{Version2_Region_LiveLocationUpdate_2}
+        \includegraphics[width=\textwidth]{sequencediagram_sharelocation_extended}
     
     \end{center}
-
-    \todo{adjust the image to a more UML like one, not sequenze diagram, leave out websocket stuff}
 
 \end{frame}
 
@@ -374,9 +378,7 @@
 
 \begin{frame}{Possible future work}
 
-    \todo{I dont know where to put this slide}
-
-    \begin{itemize}
+	\begin{itemize}
         \item Smart watch application
         \item Live Indoor-Location Feedback Navigation
         \item D2D Indoor-Navigation via Virtual Beacons
