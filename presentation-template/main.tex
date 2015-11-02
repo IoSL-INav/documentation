@@ -74,6 +74,7 @@
   {}
   {}
 
+
 % image to be shown on the title page (without file extension, should be pdf or png)
 
 \titleimage{img/snet_logo} 
@@ -195,10 +196,28 @@
 
 \begin{frame}{Requirements}
 
-    \todo{fill requirements}
+    \begin{itemize}
+    
+    	\item Fallback when no localization available
+    	\item Little interaction
+    	\item ...
+    
+    \end{itemize}
 
 \end{frame}
 
+\begin{frame}{Questions of concern}
+
+    \begin{itemize}
+    
+        \item Accuracy?
+        \item Battery consumption?
+        \item Privacy and security?
+        \item User interaction?
+        
+    \end{itemize}
+
+\end{frame}
 
 \begin{frame}{User stories}
     
@@ -210,11 +229,7 @@
 	
 	\end{center}
     
-    \begin{itemize}
-    
-        \item Main goal: indoor-region based navigation
-    
-    \end{itemize}
+    \textbf{Main goal:} indoor region-based navigation
 
 \end{frame}
 
@@ -223,6 +238,8 @@
     \todo{draw image or show image of smartphone in use}
     
 \end{frame}
+
+\section{Technology overview}
 
 \begin{frame}{Localization ideas}
 
@@ -244,23 +261,16 @@
             \end{minipage}%
             \begin{minipage}[b]{0.75\linewidth}
                 \begin{itemize}
-                    \item use indoor \\location \\localisation
+                    \item use indoor \\location \\localization
                 \end{itemize}
             \end{minipage}
         \end{minipage}
             }
 \end{center}
-
-    %\begin{itemize}
-    %    \item \todo{show image of manual position pinning on a smartphone if possible}
-    %    \item \todo{show image of position methods within regions on a smartphone if possible}
-    %\end{itemize}
     
 \end{frame}
 
-\begin{frame}{Possible approaches to indoor positioning}
-	
-	\todo{this slide maybe still need a bit of work}
+\begin{frame}{Approaches to indoor positioning}
 
 	\begin{itemize}
 	
@@ -275,40 +285,13 @@
 		\item Localization technique
 	
 	\end{itemize}
+	
+	\only<2>{\includegraphics[width=\textwidth]{matrix_zweiteVersion_unhighlighted}}
+    \only<3>{\includegraphics[width=\textwidth]{matrix_zweiteVersion}}
 
 \end{frame}
 
-\section{Technology overview}
-
-\begin{frame}{Technology matrix}
-
-    \begin{center}
-    
-        \only<1>{\includegraphics[width=\textwidth]{matrix}}%
-        \only<2>{\includegraphics[width=\textwidth]{matrix}}%
-    
-    \end{center}
-
-    \todo{flip wifi row up and make a second picture with highlighting the first two rows}
-    \todo{replace with new graphics - highlighted}
-
-\end{frame}
-
-\begin{frame}{Possible approaches to indoor positioning}
-
-    \begin{itemize}
-    
-        \item Bluetooth (Low Energy)
-        \item WiFi
-        \item Manual position pinning (fallback) \cite{brimicombe2009location}
-        \item NFC
-        \item QR-Code
-    
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}{WiFi positioning via \textbf{CISCO MSI API}}
+\begin{frame}{WiFi positioning via \textbf{CISCO MSE API}}
     
     \uncover<1-> {
 	    
@@ -317,11 +300,7 @@
 	        \item For rough positioning
 	        \item Uses Cisco Mobility Services Engine
 	        \item Provides building name, floor, coordinates
-    	    \item Problems:
-	            \begin{itemize}
-	            	\setlength{\itemsep}{0.2ex}
-	                \item No coordinates in mensa and library
-	            \end{itemize}
+    	    \item Problem: No coordinates in mensa and library
     
 	    \end{itemize}
 	}
@@ -366,9 +345,9 @@
 
 \end{frame}
 
-\begin{frame}{Bluetooth}
+\begin{frame}{Bluetooth (Low Energy)}
 	
-	\large Region based navigation
+	\large Indoor region-based navigation
 	\begin{center}
 	
 		\includegraphics[width=\textwidth]{regions}
@@ -376,48 +355,6 @@
 	\end{center}
 
 \end{frame}
-
-\begin{frame}{Resulting project questions}
-
-    \begin{itemize}
-    
-        \item How to get own position inside buildings?
-        \item How to find my colleagues inside buildings?
-        \item Which privacy and security concern can be addressed?
-    
-    \end{itemize}
-
-    \todo{should be delete this slide?}
-
-\end{frame}
-
-\begin{frame}{Possible future work}
-
-    \todo{I dont know where to put this slide}
-
-    \begin{itemize}
-        \item Smart watch application
-        \item Live Indoor-Location Feedback Navigation
-        \item D2D Indoor-Navigation via Virtual Beacons
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Questions of concern}
-
-    \begin{itemize}
-    
-        \item Accuracy?
-        \item Battery consumption?
-        \item Privacy and security?
-        \item User interaction?
-        
-    \end{itemize}
-
-    \todo{should we delete this slide?}
-
-\end{frame}
-
-
 
 \section{Our approach}
 
@@ -435,22 +372,35 @@
 
 \section{Timeline}
 
+\begin{frame}{Possible future work}
+
+    \todo{I dont know where to put this slide}
+
+    \begin{itemize}
+        \item Smart watch application
+        \item Live Indoor-Location Feedback Navigation
+        \item D2D Indoor-Navigation via Virtual Beacons
+    \end{itemize}
+
+\end{frame}
+
 \begin{frame}{Timeline}
 
     \begin{center}
         
-        \begin{tabular}{ll}
-            week  &  topic \\
-            \midrule 
-            21.10 &  research \\
-            04.11 &  technology overview \\
-            18.11 &  prototype of iOS and android APP \\
-            02.12 &  basic pinning \\
-            16.12 &  \ldots \\
-            30.12 &  basic positioning \\
-            13.01 &  \ldots \\
-            27.01 &  preperation for presentation \\
-            10.02 &  final presentation \\
+        \begin{tabular}{ l | l }
+        
+            \textbf{week}	&	\textbf{topic} \\
+            \midrule
+            21.10			&	research \\
+            04.11			&	technology overview \\
+            18.11			&	prototype of iOS and Android app \\
+            02.12			&	basic pinning \\
+            16.12			&	\ldots \\
+            30.12			&	basic positioning \\
+            13.01			&	\ldots \\
+            27.01			&	preperation for final presentation \\
+            10.02			&	final presentation \\
         \end{tabular}
 
     \end{center}
@@ -467,24 +417,9 @@
 
         {\Huge Do you have questions?}
         
-        \vspace{1cm}
-        
-        {\Large If not - we have! :)}
-        
     \end{center}
 
 \end{frame}
-
-\begin{frame}{Survey}
-
-    \begin{center}
-
-        \includegraphics[width=0.7\textwidth]{matrix}
-        
-    \end{center}
-
-\end{frame}
-
 
 \begin{frame}[allowframebreaks]{References}
 
