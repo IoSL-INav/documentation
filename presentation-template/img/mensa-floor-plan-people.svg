@@ -16,7 +16,10 @@
    width="1202.4"
    height="770.40002"
    viewBox="0 0 1202.4 770.40002"
-   sodipodi:docname="mensa-floor-plan-people.svg">
+   sodipodi:docname="mensa-floor-plan-people.svg"
+   inkscape:export-filename="/home/lenny/Data/Code/Universitaet/Semester-05-SNET-Internet-of-Services-Lab/documentation/presentation-template/img/mensa-floor-plan-people-moving.png"
+   inkscape:export-xdpi="150.38264"
+   inkscape:export-ydpi="150.38264">
   <metadata
      id="metadata4196">
     <rdf:RDF>
@@ -10865,42 +10868,56 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      id="image4198"
      x="5.4533901"
      y="3.4940882"
-     style="fill-opacity:1;fill:url(#radialGradient4874)" />
+     style="fill-opacity:1;fill:url(#radialGradient4874)"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <rect
      style="fill:#ffffff;fill-opacity:0.58823532;fill-rule:evenodd;stroke:#0300c8;stroke-width:4.60070229;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect4925"
      width="285.66708"
      height="298.72473"
      x="371.31055"
-     y="11.857984" />
+     y="11.857984"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <rect
      style="fill:#ffffff;fill-opacity:0.58823532;fill-rule:evenodd;stroke:#0300c8;stroke-width:3.01673484;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="rect4929"
      width="1050.3042"
      height="440.43716"
      x="118.71191"
-     y="310.73483" />
+     y="310.73483"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <circle
      style="fill:#e48e00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4740-5"
      cx="939.33307"
      cy="361.53308"
-     r="21.42267" />
+     r="21.42267"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <circle
      style="fill:#cb0008;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4740-55"
      cx="789.98651"
      cy="666.75507"
-     r="21.42267" />
+     r="21.42267"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <circle
      style="fill:#efca00;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="path4740-9"
      cx="517.58203"
      cy="407.36774"
-     r="21.42267" />
+     r="21.42267"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <g
      id="g4779"
-     transform="matrix(0.76604444,0.64278761,-0.64278761,0.76604444,596.2407,17.045046)">
+     transform="matrix(0.76604444,0.64278761,-0.64278761,0.76604444,596.2407,17.045046)"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264">
     <rect
        y="362.34915"
        x="36.644066"
@@ -10932,7 +10949,9 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      height="290.91849"
      x="-273.01138"
      y="696.50195"
-     transform="matrix(0.29909566,-0.95422313,0.99511646,0.09870776,0,0)" />
+     transform="matrix(0.29909566,-0.95422313,0.99511646,0.09870776,0,0)"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <path
      sodipodi:type="star"
      style="fill:#0300c8;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -10949,10 +10968,14 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      inkscape:randomized="0"
      d="m 48.803651,547.26783 -10.119332,17.5272 -10.119333,-17.5272 z"
      inkscape:transform-center-y="2.596172"
-     transform="matrix(0.14868041,-0.87523503,0.84320849,0.15432755,433.57359,305.41564)" />
+     transform="matrix(0.14868041,-0.87523503,0.84320849,0.15432755,433.57359,305.41564)"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <g
      id="g4835"
-     transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,-70.85831,394.07393)">
+     transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,-70.85831,394.07393)"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264">
     <path
        inkscape:transform-center-x="-1.0692111"
        inkscape:transform-center-y="6.9116424"
@@ -10984,7 +11007,9 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      x="505.90036"
      y="379.81769"
      id="text4841"
-     sodipodi:linespacing="125%"><tspan
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264"><tspan
        sodipodi:role="line"
        id="tspan4843"
        x="505.90036"
@@ -10995,14 +11020,18 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      id="path4740-9-7"
      cx="245.64662"
      cy="492.10934"
-     r="21.42267" />
+     r="21.42267"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="390.42584"
      y="179.97035"
      id="text4880"
-     sodipodi:linespacing="125%"><tspan
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264"><tspan
        sodipodi:role="line"
        id="tspan4882"
        x="390.42584"
@@ -11014,7 +11043,9 @@ fw7WzJs88nyJAAAAAElFTkSuQmCC
      x="219.63361"
      y="630.8905"
      id="text4880-6"
-     sodipodi:linespacing="125%"><tspan
+     sodipodi:linespacing="125%"
+     inkscape:export-xdpi="150.38264"
+     inkscape:export-ydpi="150.38264"><tspan
        sodipodi:role="line"
        id="tspan4882-2"
        x="219.63361"
