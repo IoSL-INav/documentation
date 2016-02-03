@@ -14,3 +14,4 @@
   * strange behavior of beacons (battery empty)
 * what is done (list of user stories)
 * demo
+* future work and problems
