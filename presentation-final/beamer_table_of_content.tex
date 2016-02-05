@@ -1,0 +1,237 @@
+% Quelle: http://tex.stackexchange.com/questions/56417/list-of-figures-beamer
+\usepackage{ifthen}
+\usepackage{xstring}
+
+\makeatletter
+
+%\defbeamertemplate*{caption label separator}{colon}{:}
+
+\def\dotfill{%
+  \leavevmode
+  \cleaders \hb@xt@ .44em{\hss.\hss}\hfill
+  \kern\z@}
+
+\newcommand{\myVL}[2]{\tmpVL{#1}{#2}}
+
+\newcommand{\tmpVL}[2]{Page #1, last accessed: #2}
+
+\newcommand{\myhref}[2]{\tmphref{#1}{#2}}
+
+\newcommand{\tmphref}[2]{\href{#1}{Source}, last accessed: #2}
+
+\AtEndDocument{%
+  % sorgt dafür, dass die Dateien 
+  % *.lof -> list of figures
+  % *.lot -> list of tables
+  % geeleert werden oder ggf. neu erzeugt werden (erzwungen)
+  \clearpage
+  \beamer@tempcount=\c@page\advance\beamer@tempcount by -1%
+  \if@filesw
+  \newwrite\tf@lof
+  \immediate\openout\tf@lof\jobname.lof\relax
+  \newwrite\tf@lot
+  \immediate\openout\tf@lot\jobname.lot\relax
+  \fi
+}
+
+% beamer caption ändern....
+\long\def\beamer@makecaption#1#2#3#4{%
+  % [ von caption selbst]
+  % #1 == Typ == Bild / Tabelle....
+  % #2 == optionale Beschreibung
+  % #3 == caption Beschreibung
+  % bsp: \caption[optionale Beschreibung]{caption Beschreibung}
+
+  % calls: \beamer@makecaption{#1}{\ignorespaces #3}{yes/no}{\ignorespaces #2}  
+
+  % ----------------------------------------------
+
+  % #1 == Typ == Tabelle / Bild.....
+  % #2 == Captionbeschreibung
+  % #3 == yes/no if you want complete Text under picture
+  % #4 == optionale Beschreibung vom Bild
+  \hypertarget{\insertframenumber}{}{}
+  % \def\insertcaptionname{\csname#1name\endcsname}%
+  % liefert Figure, weil babel auf englisch....
+  \def\insertcaptionname{Fig.}%
+  \def\insertcaptionnumber{\csname the#1\endcsname}%
+  \edef\insertframenumber{\theframenumber}%
+%  \ifthenelse{\equal{#3}{\empty}}{%  
+    \def\insertlistcaption{#2}%
+%  }{%
+%    \def\insertlistcaption{#3}%
+%  }
+  	\def\insertsource{#4}%
+    %
+    \def\insertcaption{#2}%
+    \ifthenelse{\equal{#1}{figure}}{%  
+      \addtocontents{lof}{\relax\protect\listoffigureformat{\insertcaptionnumber}{\insertlistcaption}{\protect\hyperlink{\insertframenumber}{\insertframenumber}}{\insertsource}}{}{}%
+      }{}
+    \ifthenelse{\equal{#1}{table}}{%  
+      \addtocontents{lot}{\protect\listoftableformat{\insertcaptionnumber}{\insertlistcaption}{\insertframenumber}}{}{}%
+      }{}
+  \ifthenelse{\equal{#3}{no}}
+  { 
+  	% Text beim Bild
+    %\addtocontents{lof}{#4,jaaaaaaaaaaaaaaaaaaaaaaa}%
+  	\nobreak\vskip\abovecaptionskip\nobreak
+  	\sbox\@tempboxa{
+  		%\usebeamertemplate**{caption}
+  		%\raggedright
+    	{%	
+      		\usebeamercolor[fg]{caption name}%
+      		\usebeamerfont*{caption name}%
+      		\insertcaptionname~\insertcaptionnumber
+    	}
+    	\par
+  	}%
+  	\ifdim \wd\@tempboxa >\hsize
+    	%\usebeamertemplate**{caption}\par
+    	%\raggedright
+    	{%
+      		\usebeamercolor[fg]{caption name}%
+      		\usebeamerfont*{caption name}%
+      		\insertcaptionname~\insertcaptionnumber
+    	}
+    	\par
+ 	\else
+  		\global \@minipagefalse
+  		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  	\fi
+  	\nobreak\vskip\belowcaptionskip\nobreak%
+  }{ 
+	% Text beim Bild
+    %\addtocontents{lof}{#4,jaaaaaaaaaaaaaaaaaaaaaaa}%
+  	\nobreak\vskip\abovecaptionskip\nobreak
+  	\sbox\@tempboxa{
+  		%\usebeamertemplate**{caption}
+  		%\raggedright
+    	{%	
+% % nw: figure numbering in slides
+%      		\usebeamercolor[fg]{caption name}%
+%      		\usebeamerfont*{caption name}%
+%      		\insertcaptionname~\insertcaptionnumber
+%      		\usebeamertemplate{caption label separator}%
+    	}
+    	\insertcaption\par
+  	}%
+  	\ifdim \wd\@tempboxa >\hsize
+    	%\usebeamertemplate**{caption}\par
+    	%\raggedright
+    	{%
+      		\usebeamercolor[fg]{caption name}%
+      		\usebeamerfont*{caption name}%
+      		\insertcaptionname~\insertcaptionnumber
+      		\usebeamertemplate{caption label separator}%
+    	}
+    	\insertcaption\par
+ 	\else
+  		\global \@minipagefalse
+  		\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  	\fi
+  	\nobreak\vskip\belowcaptionskip\nobreak%  }
+  }
+}
+
+\def\listoffiguresectionformat#1#2{%
+  % \listoffiguresectionformat{\insertsectionhead}{\insertframenumber}
+  % #1 == Sectiontitel
+  % #2 == Seite
+  \setlength{\leftskip}{2ex}
+  \setlength{\rightskip}{-0.6ex}
+  \setlength{\parindent}{-3ex}
+  %
+  {\usebeamercolor[fg]{bibliography entry author} #1}%
+  \dotfill%
+  \hspace*{0.6ex}%
+  \makebox[3ex][r]{#2}\par%
+  %
+  \setlength{\leftskip}{3ex}
+  \setlength{\rightskip}{0ex}
+  \setlength{\parindent}{-3ex}
+}
+
+\newcounter{tmpImageCounter}
+\setcounter{tmpImageCounter}{0}
+
+\def\listoffigureformat#1#2#3#4{%
+	\ifnum\value{tmpImageCounter}=#1
+		\typeout{Counter \thetmpImageCounter  ist gleich #1. Das Muss das erste Bild sein...}
+		% \listoffigureformat{\insertcaptionnumber}{\insertlistcaption}{\insertframenumber}{\insertsource}
+		% #1 == Bildnummer
+		% #2 == Captionbeschreibung
+		% #3 == Seite, wo das Bild ist
+		% #4 == optionale Beschreibung vom Bild 
+		% \caption[optionale Beschreibung]{Captionbeschreibung}
+		\makebox[2ex][r]{#1}%
+		\hspace{1ex}%
+		{\usebeamercolor[fg]{bibliography entry author} #2}%
+		\ifthenelse{\equal{#4}{\empty}}{}{ -- #4}%
+		\dotfill%
+		\makebox[3ex][r]{#3}\par%
+		\refstepcounter{tmpImageCounter}
+	% Bild wurde schonmal gesetzt....nee nicht nochmal...
+  	\else
+		\PackageWarning{listoffigureformat}{Bild wurde doppelt gesetzt -- wird ignoriert!}
+		\typeout{Counter \thetmpImageCounter ist groesser oder kleiner #1.}
+	\fi
+
+}
+
+% der eigentliche Befehl, der am Ende die Liste der Figures anzeigt
+\def\listoffigures{%
+  \setlength{\leftskip}{3ex}
+  \setlength{\parindent}{-3ex}
+  \@starttoc{lof}%
+}
+
+\def\listoftableformat#1#2#3{%
+ % \listoftableformat{\insertcaptionnumber}{\insertlistcaption}{\insertframenumber}
+ % #1 == Tabellennummer
+ % #2 == Captionbeschreibung 
+ % #3 == Seite, wo die Tabelle ist
+ \makebox[2ex][r]{#1}\hspace{1ex}#2\dotfill\makebox[2ex][r]{#3}\par
+}
+
+\def\listoftables{%
+  \setlength{\leftskip}{3ex}
+  \setlength{\parindent}{-3ex}
+  \@starttoc{lot}%
+}
+
+% den eigentlichen Caption Befehl umschreiben
+\long\def\@caption#1[#2]#3{
+  % #1 == Typ == Bild / Tabelle....
+  % #2 == optionale Beschreibung
+  % #3 == caption Beschreibung
+  % bsp: \caption[optionale Beschreibung]{caption Beschreibung}
+  \par\nobreak
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \beamer@makecaption{#1}{\ignorespaces #3}{yes}{\ignorespaces  #2}\par\nobreak
+    \endgroup
+}
+
+\def\nocaption{\refstepcounter\@captype\@dblarg{\@nocaption\@captype}}
+
+\long\def\@nocaption#1[#2]#3{
+  % #1 == Typ == Bild / Tabelle....
+  % #2 == optionale Beschreibung
+  % #3 == caption Beschreibung
+  % bsp: \caption[optionale Beschreibung]{caption Beschreibung}
+  \par\nobreak
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \beamer@makecaption{#1}{\ignorespaces #3}{no}{\ignorespaces #2}\par\nobreak
+    \endgroup
+}
+
+
+
+\makeatother
