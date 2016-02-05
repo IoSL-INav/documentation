@@ -174,7 +174,7 @@
 % Section: group of navigation bubbles
 % Subsection: subgroup of navigation bubbles; black outline instead of grey
 
-\section{Problem scenario \& questions}
+\section{Problem scenario}
 
 \begin{frame}{Use case}
 
@@ -218,7 +218,7 @@
 
     \begin{itemize}
 
-    	\item Participants have a TUB account
+    	\item Participants have a TUB account (Edugain account)
     	\item Everyone has a smartphone
     	\item WiFi is available
     	\item Minimal interaction, easy to use
@@ -231,26 +231,47 @@
 
 \begin{frame}{Possible localications}
 
-     Wifi, Bluetooth token, Wifi fingerprints ...
+  \begin{itemize}
+     \item Wifi
+     \item Bluetooth token
+     \item Wifi fingerprints (OS API's)
+   \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Approaches to indoor positioning}
-
-
-\end{frame}
-
-\begin{frame}{Approches and decisions}
-
+\begin{frame}{Decisions}
+  \begin{itemize}
+    \item Cyclone-project as federation provider
+    \item Android App, IOS App
+    \item Backend is written in Node.js (supervisors)
+  \end{itemize}
+  \begin{center}
+    %rough architecture of who is communicating with who
+    %this is only a placeholer
+    \includegraphics[width=0.4\textwidth,draft]{navitablet}
+  \end{center}
 \end{frame}
 
 \begin{frame}{User stories}
 
-
+  \begin{itemize}
+    \item user opens app and get a login to his university
+    \item add friends
+    \item share a location via manual pin pointing
+    \item share a location automaticaly
+    \item get shared location from friends
+  \end{itemize}
+% probably here some screenshots? or later in our approche?
 \end{frame}
 
 \begin{frame}{Problems and limits}
 
+  \begin{itemize}
+    \item Cisco MSI API is not fully implemented
+    \item Bluetooth token have a limited range, specialy if the battery gets low
+    \item Cyclone had problems with the TUBit, therefore we also had problems
+    %more problems that we should tell them?
+  \end{itemize}
 \end{frame}
 
 
@@ -258,6 +279,15 @@
 
 \begin{frame}{Our approach - vision}
 
+  %screenshots here or above?
+
+\end{frame}
+
+\section{Demo}
+
+\begin{frame}{Demo}
+
+\centering \Huge DEMO
 
 \end{frame}
 

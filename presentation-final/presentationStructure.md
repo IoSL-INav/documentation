@@ -5,7 +5,7 @@
 * conditions resulting from the idea (Requirements)
 * possible localizations (Wifi, Bluetooth token, Wifi fingerprints ...)
   * what is possible (API's ...)
-* our approach and decisions
+* our approaches and decisions
   * Android App, IOs App, backend
   * image of architecture
 * User stories
