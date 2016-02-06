@@ -230,28 +230,75 @@
 \begin{frame}{Functionalities}
 
   \begin{itemize}
-    \item User opens app and gets a login to his university
+    \item User opens app and gets a login view for university account
     \item Add friends
     \item Share location via manual pin-pointing
     \item Share location automatically
     \item See shared locations of friends
   \end{itemize}
-% probably here some screenshots? or later in our approche?
+
+  % probably here some screenshots? or later in our approach?
+
 \end{frame}
 
 \section{Technology overview}
 
 \begin{frame}{Possible localization techniques}
 
-  WiFi
+  \begin{columns}[c]
+
+    \begin{column}{0.2\textwidth}
+      \includegraphics[width=\textwidth]{wifi-symbol}
+    \end{column}
+
+    \hfill
+
+    \begin{column}{0.85\textwidth}
+
+      \includegraphics[width=0.05\textwidth]{plus} Works all over the campus out of the box\\
+      \includegraphics[width=0.05\textwidth]{minus} No latitude \& longitude in mensa \& library
+
+    \end{column}
+
+  \end{columns}
 
   \hrulefill
 
-  Bluetooth beacon
+  \begin{columns}[c]
+
+    \begin{column}{0.2\textwidth}
+      \includegraphics[width=\textwidth]{beacon-symbol}
+    \end{column}
+
+    \hfill
+
+    \begin{column}{0.85\textwidth}
+
+      \includegraphics[width=0.05\textwidth]{plus} Precise location, automation possible\\
+      \includegraphics[width=0.05\textwidth]{minus} Extra hardware in hotspots (beacons)
+
+    \end{column}
+
+  \end{columns}
 
   \hrulefill
 
-  Manual position pinning
+  \begin{columns}[c]
+
+    \begin{column}{0.2\textwidth}
+      \includegraphics[width=\textwidth]{location-symbol}
+    \end{column}
+
+    \hfill
+
+    \begin{column}{0.85\textwidth}
+
+      \includegraphics[width=0.05\textwidth]{plus} Most precise technique, privacy friendly\\
+      \includegraphics[width=0.05\textwidth]{minus} User interaction needed
+
+    \end{column}
+
+  \end{columns}
 
 \end{frame}
 
