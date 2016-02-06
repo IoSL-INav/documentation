@@ -39,6 +39,14 @@
 \usepackage[fixlanguage]{babelbib}
 \selectbiblanguage{english}
 
+% for fix positioning
+\usepackage[absolute,overlay]{textpos}
+  \setlength{\TPHorizModule}{1mm}
+  \setlength{\TPVertModule}{1mm}
+% this allows this stuff below
+%  \begin{textblock}{7}(30,5)
+%      \includegraphics[width=\textwidth]{tech-stack-android}
+%  \end{textblock}
 
 % ``English''  <>  "`Deutsch"'
 \newcommand{\germanQuote}[1]{\glqq#1\grqq}
@@ -306,7 +314,7 @@
 
   \begin{center}
     % technology big picture
-    \includegraphics[width=0.8\textwidth,draft]{tech-stack-big-picture}
+    \includegraphics[width=\textwidth]{tech-stack-big-picture}
   \end{center}
 
   %\begin{itemize}
@@ -317,15 +325,23 @@
 
 \end{frame}
 
-\begin{frame}{Clients}
+\begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
 
   \begin{itemize}
-    \item Android, iOS work
+    \item Android
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Backend}
+\begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
+
+  \begin{itemize}
+    \item iOS work
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
 
   \begin{itemize}
     \item Flow image
@@ -372,6 +388,15 @@
 	\nocite{*}
 	{\tiny \bibliography{references}}
 
+  {\tiny
+  \begin{itemize}
+    \item \url{http://developer.android.com/images/brand/Android_Robot_200.png}
+    \item \url{https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/600px-Apple_logo_black.svg.png}
+    \item \url{https://nodejs.org/en/about/resources/}
+    \item \url{https://www.docker.com/brand-guidelines}
+    \item \url{https://www.mongodb.com/brand-resources}
+  \end{itemize}
+  }
 \end{frame}
 
 \end{document}
