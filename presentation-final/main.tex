@@ -218,76 +218,95 @@
 
     \begin{itemize}
 
+      \item Everyone has a smartphone
     	\item Participants have a TUB account (Edugain account)
-    	\item Everyone has a smartphone
-    	\item WiFi is available
+    	\item For manual pin-pointing: WiFi is available
     	\item Minimal interaction, easy to use
 
     \end{itemize}
 
 \end{frame}
 
-\section{Technology overview}
-
-\begin{frame}{Possible localications}
+\begin{frame}{Functionalities}
 
   \begin{itemize}
-     \item Wifi
-     \item Bluetooth token
-     \item Wifi fingerprints (OS API's)
-   \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Decisions}
-  \begin{itemize}
-    \item Cyclone-project as federation provider
-    \item Android App, IOS App
-    \item Backend is written in Node.js (supervisors)
-  \end{itemize}
-  \begin{center}
-    %rough architecture of who is communicating with who
-    %this is only a placeholer
-    \includegraphics[width=0.4\textwidth,draft]{navitablet}
-  \end{center}
-\end{frame}
-
-\begin{frame}{User stories}
-
-  \begin{itemize}
-    \item user opens app and get a login to his university
-    \item add friends
-    \item share a location via manual pin pointing
-    \item share a location automaticaly
-    \item get shared location from friends
+    \item User opens app and gets a login to his university
+    \item Add friends
+    \item Share location via manual pin-pointing
+    \item Share location automatically
+    \item See shared locations of friends
   \end{itemize}
 % probably here some screenshots? or later in our approche?
 \end{frame}
 
-\begin{frame}{Problems and limits}
+\section{Technology overview}
+
+\begin{frame}{Possible localization techniques}
+
+  WiFi
+
+  \hrulefill
+
+  Bluetooth beacon
+
+  \hrulefill
+
+  Manual position pinning
+
+\end{frame}
+
+\begin{frame}{Technologic decisions}
+
+  \begin{center}
+    % technology big picture
+    \includegraphics[width=0.8\textwidth,draft]{tech-stack-big-picture}
+  \end{center}
+
+  %\begin{itemize}
+  %  \item Cyclone-project as federation provider
+  %  \item Android App, IOS App
+  %  \item Backend is written in Node.js (supervisors)
+  %\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Clients}
 
   \begin{itemize}
-    \item Cisco MSI API is not fully implemented
-    \item Bluetooth token have a limited range, specialy if the battery gets low
-    \item Cyclone had problems with the TUBit, therefore we also had problems
+    \item Android, iOS work
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Backend}
+
+  \begin{itemize}
+    \item Flow image
+    \item Federation Provider
+    \item Docker
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Experienced issues}
+
+  \begin{itemize}
+    \item Cisco MSE API is not fully implemented
+    \item Bluetooth beacons have a limited range, especially when the battery gets low
+    \item Cyclone had problems with the tubIT, therefore we also had problems
     %more problems that we should tell them?
   \end{itemize}
 \end{frame}
 
-
-\section{Our approach}
-
-\begin{frame}{Our approach - vision}
-
-  %screenshots here or above?
-
-\end{frame}
-
 \section{Demo}
 
-\begin{frame}{Demo}
+\begin{frame}{DEMO}
 
-\centering \Huge DEMO
+  \begin{center}
+
+    {\Huge DEMO TIME}
+
+    \end{center}
 
 \end{frame}
 
