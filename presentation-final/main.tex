@@ -475,17 +475,17 @@ Automatic Pin Pointing:
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-  \item  \textbf{TUBIT MSE API} \\ 
+  \item  \textbf{TUBIT MSE API} \\
 provides floor Information \\
 no coordinates
 
-  \item \textbf{Apple Indoor Framework} \\ 
+  \item \textbf{Apple Indoor Framework} \\
 Wifi Indoor signal strength \\
 provides real coordinates, \\
-no floor information \\ 
+no floor information \\
 
 
-  
+
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -503,17 +503,17 @@ Automatic Pin Pointing:
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-  \item  \textbf{TUBIT MSE API} \\ 
+  \item  \textbf{TUBIT MSE API} \\
 provides floor Information \\
 no coordinates
 
-  \item \textbf{Apple Indoor Framework} \\ 
+  \item \textbf{Apple Indoor Framework} \\
 Wifi Indoor signal strength \\
 provides real coordinates, \\
-no floor information \\ 
+no floor information \\
 
 
-  
+
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -533,12 +533,12 @@ Automatic Pin Pointing:
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-  
 
-  \item  \textbf{ESTIMOTE Bluetooth} \\ 
-  \item Ranges between 3-15m and 3-70m 
+
+  \item  \textbf{ESTIMOTE Bluetooth} \\
+  \item Ranges between 3-15m and 3-70m
   \item Poor signal strength depending on battery level
-  \item Beacon Position is roughly user position 
+  \item Beacon Position is roughly user position
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -557,12 +557,12 @@ Automatic Pin Pointing:
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-  
 
-  \item  \textbf{ESTIMOTE Bluetooth} \\ 
-  \item Ranges between 3-15m and 3-70m 
+
+  \item  \textbf{ESTIMOTE Bluetooth} \\
+  \item Ranges between 3-15m and 3-70m
   \item Poor signal strength depending on battery level
-  \item Beacon Position is roughly user position 
+  \item Beacon Position is roughly user position
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -586,8 +586,8 @@ Manual Pin Pointing:
   \begin{itemize}
  \item Offline Coordinates enables Manual Pin Pointing
  \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497 
-    
+ \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
+
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -607,8 +607,8 @@ Manual Pin Pointing:
   \begin{itemize}
  \item Offline Coordinates enables Manual Pin Pointing
  \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497 
-    
+ \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
+
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -629,8 +629,8 @@ Manual Pin Pointing:
  \item Offline Coordinates enables Manual Pin Pointing
  \item Most precise positioning technique
  \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497 
-    
+ \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
+
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -683,7 +683,7 @@ Manual Pin Pointing:
 
   \begin{itemize}
     \item Service scanning tubIt MSI API -> building name, floor
-    \item Service scanning for nearby beacons -> beacon ID 
+    \item Service scanning for nearby beacons -> beacon ID
     \item User can pinpoint location on map
     \item Service updates user's location with most precise location info available \\(pinpointed coordinates > beacon ID > MSI info)
   \end{itemize}
@@ -697,7 +697,7 @@ Manual Pin Pointing:
 	\begin{itemize}
 		\item Friends shown on map
 		\item Different floors
-		\item Different markers for different accuracies 
+		\item Different markers for different accuracies
 	\end{itemize}
 	\end{column}
 	\begin{column}{.4\textwidth}
@@ -710,29 +710,40 @@ Manual Pin Pointing:
 
 \begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
 
-  \begin{itemize}
-    \item Flow image
-    \item Federation Provider
-    \item Docker
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
-
   \begin{center}
     \includegraphics[width=\textwidth]{architecture}
   \end{center}
 
 \end{frame}
 
-\begin{frame}{Experienced issues}
+\begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
+
+  \begin{center}
+    \includegraphics[width=\textwidth]{backend}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}{CYCLONE Federation Provider}
+
+    \begin{itemize}
+
+      \item Provides user management (authentication \& session)
+      \item Idea: One safe account scheme - multiple services accessable
+      \item Project still starting phase
+      \item Therefore: Some struggle throughout the project, but useful in the end
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Experienced issues in project}
 
   \begin{itemize}
     \item Cisco MSE API is not fully implemented
     \item Bluetooth beacons have a limited range, especially when the battery gets low
-    \item Cyclone had problems with the tubIT, therefore we also had problems
-    %more problems that we should tell them?
+    \item CYCLONE had problems with the tubIT, therefore we also had problems
+    \item Backend: new language and database scheme
   \end{itemize}
 \end{frame}
 
