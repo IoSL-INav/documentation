@@ -182,7 +182,49 @@
 % Section: group of navigation bubbles
 % Subsection: subgroup of navigation bubbles; black outline instead of grey
 
-\section{Problem scenario}
+\section{Demo time}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge DEMO TIME}
+
+  \end{center}
+
+\end{frame}
+
+
+\section{Agenda}
+
+\begin{frame}{Agenda}
+
+  \begin{enumerate}
+
+    \item Motivation
+    \item Backend
+    \item Mapping
+    \item Localization techniques
+    \item Mobile clients
+    \item Lessons learned
+
+  \end{enumerate}
+
+\end{frame}
+
+
+\section{Motivation}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge Motivation}
+
+  \end{center}
+
+\end{frame}
+
 
 \begin{frame}{Use case}
 
@@ -190,68 +232,160 @@
 
     \begin{center}
 
-        \includegraphics[width=.5\textwidth]{mensa}
-        \includegraphics[width=.5\textwidth]{Bibliothek}
+      \includegraphics[width=0.5\textwidth]{mensa}
+      \includegraphics[width=0.5\textwidth]{Bibliothek}
 
     \end{center}
 
 	\vspace{1cm}
 
-    \tiny{Source left: \url{http://www2.studentenwerk-berlin.de/uploads/pic_untenvonoben_737_full.jpg}}\\
-    \tiny{Source right: \url{http://www.berlin-studis.de/images/stories/TU-Universitaetsbibliothek.jpg}}
+  \tiny{Source left: \url{http://www2.studentenwerk-berlin.de/uploads/pic_untenvonoben_737_full.jpg}}\\
+  \tiny{Source right: \url{http://www.berlin-studis.de/images/stories/TU-Universitaetsbibliothek.jpg}}
 
 \end{frame}
 
-\begin{frame}{Use case}
-
-	\begin{center}
-
-        \includegraphics[width=\textwidth]{mensa-floor-plan-people-moving}
-
-    \end{center}
-
-\end{frame}
 
 \begin{frame}{App idea}
 
-    \begin{center}
+  \begin{center}
 
-        \vspace*{-14pt}\includegraphics[width=0.8\textwidth]{navitablet}
+    \vspace*{-14pt}\includegraphics[width=0.8\textwidth]{navitablet}
 
-    \end{center}
-
-\end{frame}
-
-\begin{frame}{Requirements}
-
-    \begin{itemize}
-
-      \item Everyone has a smartphone
-    	\item Participants have a TUB account (Edugain account)
-    	\item For manual pin-pointing: WiFi is available
-    	\item Minimal interaction, easy to use
-
-    \end{itemize}
+  \end{center}
 
 \end{frame}
 
-\begin{frame}{Functionalities}
+
+\begin{frame}{Constraints}
 
   \begin{itemize}
-    \item User opens app and gets a login view for university account
-    \item Add friends
-    \item Share location via manual pin-pointing
-    \item Share location automatically
-    \item See shared locations of friends
-  \end{itemize}
 
-  % probably here some screenshots? or later in our approach?
+    \item Everyone has a smartphone
+  	\item Participants have a TUB account (Edugain account)
+  	\item Minimal interaction,\\easy to use,\\low impact on device battery
+
+  \end{itemize}
 
 \end{frame}
 
-\section{Technology overview}
 
-\begin{frame}{Possible localization techniques}
+\begin{frame}{Functional requirements}
+
+  User is able to
+
+  \vspace{0.25cm}
+
+  \begin{itemize}
+    \item login via university account
+    \item add friends via university mail
+    \item share location
+    \item see shared locations of friends
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Backend}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge Backend}
+
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{System overview}
+
+  %\begin{center}
+  %  \includegraphics[width=0.8\textwidth, draft]{}
+  %\end{center}
+
+  TODO: ADD Merged tech stack and channel scheme IMAGE
+
+\end{frame}
+
+
+\begin{frame}{Resources}
+
+  \begin{itemize}
+    \item me info: /users/me
+    \item location: /users/me/location
+    \item groups: /users/me/groups
+    \item hotspots: /hotspots
+    \item friends: /companionrequests
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Authentication \& session}
+
+  \begin{itemize}
+    \item Tedious task
+    \item OpenID Connect standard
+    \item popular, verified
+    \item We use CYCLONE: edugain (1600 parties)
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{CYCLONE Federation Provider}
+
+  \begin{itemize}
+
+    \item Based on the Keycloak project
+    \item Project still starting phase
+    \item Therefore: Some struggle throughout the project, but useful in the end
+    \item But low effort integrating it into project
+
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Mapping}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge Mapping}
+
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{Mapping}
+
+  \begin{itemize}
+
+    \item TODO: MOVE THE MAPPING SLIDES FROM IOS HERE
+
+  \end{itemize}
+
+\end{frame}
+
+
+\section{Localization techniques}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge Localization techniques}
+
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}{Localization techniques}
 
   \begin{columns}[c]
 
@@ -270,9 +404,12 @@
 
   \end{columns}
 
-  \pause
+  TODO: FILL IN WIFI ADDITIONS
 
-  \hrulefill
+\end{frame}
+
+
+\begin{frame}{Localization techniques}
 
   \begin{columns}[c]
 
@@ -291,9 +428,12 @@
 
   \end{columns}
 
-  \pause
+  TODO: FILL IN BEACON ADDITIONS
 
-  \hrulefill
+\end{frame}
+
+
+\begin{frame}{Localization techniques}
 
   \begin{columns}[c]
 
@@ -312,24 +452,122 @@
 
   \end{columns}
 
+  TODO: FILL IN MANUAL POSITION PINNING ADDITIONS
+
 \end{frame}
 
-\begin{frame}{Technologic decisions}
+
+\begin{frame}{Localization techniques}
+
+  \begin{columns}[c]
+
+    %\begin{column}{0.2\textwidth}
+    %  \includegraphics[width=\textwidth, draft]{ios-framework}
+    %\end{column}
+
+    TODO: ADD ios-framework LOGO
+
+    \hfill
+
+    \begin{column}{0.8\textwidth}
+
+      \includegraphics[width=0.05\textwidth]{plus} TODO: ADVANTAGE\\
+      \includegraphics[width=0.05\textwidth]{minus} TODO: DISADVANTAGE
+
+    \end{column}
+
+  \end{columns}
+
+  TODO: FILL IN IOS FRAMEWORK ADDITIONS
+
+\end{frame}
+
+
+\section{Mobile clients}
+
+\begin{frame}{}
 
   \begin{center}
-    % technology big picture
-    \includegraphics[width=0.8\textwidth]{tech-stack-big-picture}
-  \end{center}
 
-  %\begin{itemize}
-  %  \item Cyclone-project as federation provider
-  %  \item Android App, IOS App
-  %  \item Backend is written in Node.js (supervisors)
-  %\end{itemize}
+    {\Huge Mobile clients}
+
+  \end{center}
 
 \end{frame}
 
 
+\begin{frame}{Mobile clients - General}
+
+  \begin{itemize}
+
+    \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
+    \item ADD HERE: GENERAL POINTS
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Mobile clients - Login}
+
+  \begin{itemize}
+
+    \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
+    \item ADD HERE: LOGIN
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Mobile clients - Mapping}
+
+  \begin{itemize}
+
+    \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
+    \item ADD HERE: MAPPING
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Mobile clients - Location sharing}
+
+  \begin{itemize}
+
+    \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
+    \item ADD HERE: LOCATION SHARING
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Mobile clients - Platform specifics}
+
+  Android
+
+  \begin{itemize}
+
+    \item TODO: ADD ANDROID ONLY ISSUES
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Mobile clients - Platform specifics}
+
+  iOS
+
+  \begin{itemize}
+
+    \item TODO: ADD IOS ONLY ISSUES
+
+  \end{itemize}
+
+\end{frame}
 
 
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
@@ -352,8 +590,6 @@ Map material:
 \end{frame}
 
 
-
-
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
 
 \framesubtitle{Subtitles can be in lowercase if they are full sentences.}
@@ -373,8 +609,6 @@ Overlay Map material:
 \end{columns}
 
 \end{frame}
-
-
 
 
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
@@ -398,9 +632,6 @@ Overlay Map material:
 \end{frame}
 
 
-
-
-
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
 
 \framesubtitle{Subtitles can be in lowercase if they are full sentences.}
@@ -420,8 +651,6 @@ Overlay Map material:
 \end{columns}
 
 \end{frame}
-
-
 
 
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
@@ -444,8 +673,6 @@ Overlay Map material:
 \end{frame}
 
 
-
-
 \begin{frame}{Indoor Map ~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
 
 \framesubtitle{Subtitles can be in lowercase if they are full sentences.}
@@ -463,8 +690,6 @@ Overlay Map material:
 \end{columns}
 
 \end{frame}
-
-
 
 
 \begin{frame}{Indoor Positioning:~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
@@ -494,6 +719,7 @@ no floor information \\
 \end{columns}
 
 \end{frame}
+
 
 \begin{frame}{Indoor Positioning:~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
 
@@ -533,8 +759,6 @@ Automatic Pin Pointing:
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-
-
   \item  \textbf{ESTIMOTE Bluetooth} \\
   \item Ranges between 3-15m and 3-70m
   \item Poor signal strength depending on battery level
@@ -555,25 +779,25 @@ Automatic Pin Pointing:
 Automatic Pin Pointing:
 
   \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
 
+    \begin{column}{.6\textwidth}
 
-  \item  \textbf{ESTIMOTE Bluetooth} \\
-  \item Ranges between 3-15m and 3-70m
-  \item Poor signal strength depending on battery level
-  \item Beacon Position is roughly user position
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mappinpointc}
-  \end{column}
-\end{columns}
+      \begin{itemize}
+        \item \textbf{ESTIMOTE Bluetooth} \\
+        \item Ranges between 3-15m and 3-70m
+        \item Poor signal strength depending on battery level
+        \item Beacon Position is roughly user position
+      \end{itemize}
+
+    \end{column}
+
+    \begin{column}{.4\textwidth}
+      \includegraphics[scale=0.25]{mappinpointc}
+    \end{column}
+
+  \end{columns}
 
 \end{frame}
-
-
-
 
 
 \begin{frame}{Indoor Positioning:~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
@@ -618,6 +842,7 @@ Manual Pin Pointing:
 
 \end{frame}
 
+
 \begin{frame}{Indoor Positioning:~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-apple}}}
 
 \framesubtitle{Subtitles can be in lowercase if they are full sentences.}
@@ -641,19 +866,13 @@ Manual Pin Pointing:
 \end{frame}
 
 
-
-
-
-
-
-
 \begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
 
 \begin{columns}[T]
 	\begin{column}{.6\textwidth}
 	\begin{itemize}
 		\item Login in web view
-		\item App don't handle user's credentials
+		\item App doesn't handle user's credentials
 	\end{itemize}
 	\end{column}
 	\begin{column}{.4\textwidth}
@@ -661,6 +880,7 @@ Manual Pin Pointing:
 	\end{column}
 \end{columns}
 \end{frame}
+
 
 \begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
 
@@ -679,6 +899,7 @@ Manual Pin Pointing:
 \end{columns}
 \end{frame}
 
+
 \begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
 
   \begin{itemize}
@@ -689,6 +910,7 @@ Manual Pin Pointing:
   \end{itemize}
 
 \end{frame}
+
 
 \begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
 
@@ -707,57 +929,40 @@ Manual Pin Pointing:
 \end{frame}
 
 
-
-\begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
-
-  \begin{center}
-    \includegraphics[width=\textwidth]{architecture}
-  \end{center}
-
-\end{frame}
-
-\begin{frame}{Backend~~~\raisebox{-6pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-backend}}}
-
-  \begin{center}
-    \includegraphics[width=\textwidth]{backend}
-  \end{center}
-
-\end{frame}
-
-\begin{frame}{CYCLONE Federation Provider}
-
-    \begin{itemize}
-
-      \item Provides user management (authentication \& session)
-      \item Idea: One safe account scheme - multiple services accessable
-      \item Project still starting phase
-      \item Therefore: Some struggle throughout the project, but useful in the end
-
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Experienced issues in project}
-
-  \begin{itemize}
-    \item Cisco MSE API is not fully implemented
-    \item Bluetooth beacons have a limited range, especially when the battery gets low
-    \item CYCLONE had problems with the tubIT, therefore we also had problems
-    \item Backend: new language and database scheme
-  \end{itemize}
-\end{frame}
-
-\section{Demo}
+\section{Lessons learned}
 
 \begin{frame}{}
 
   \begin{center}
 
-    {\Huge DEMO TIME}
+    {\Huge Lessons learned}
 
-    \end{center}
+  \end{center}
 
 \end{frame}
+
+
+\begin{frame}{Lessons learned: technology}
+
+  \begin{itemize}
+    \item beacons
+    \item Node.JS
+    \item Mongoose (MongoDB)
+    \item TODO: ADD MORE AND TURN INTO TEXT
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Lessons learned: team work}
+
+  \begin{itemize}
+    \item communication
+    \item TODO: ADD MORE
+  \end{itemize}
+
+\end{frame}
+
 
 \begin{frame}{}
 
@@ -768,6 +973,7 @@ Manual Pin Pointing:
     \end{center}
 
 \end{frame}
+
 
 \begin{frame}[allowframebreaks]{References}
 
