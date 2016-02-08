@@ -447,15 +447,18 @@
         \setlength{\itemsep}{1pt}
         \setlength{\parskip}{0pt}
         \setlength{\parsep}{0pt}
-        \item Estimote beacons
+        \item Estimote Beacons and Stickers
         \item Ranges between 3-15m and 3-70m
         \item Poor signal strength depending on battery level
         \item Beacon position is roughly user position
       \end{itemize}
+      \begin{center}
+      \includegraphics[width=0.5\textwidth]{box_devkit}
+      \end{center}
     \end{column}
     \hfill
     \begin{column}{0.3\textwidth}
-      \includegraphics[width=0.8\textwidth]{beaconsonthemapwithoutborder}%iOS or android screenshot without borders
+      \includegraphics[width=\textwidth]{beaconsonthemapwithoutborder}%iOS or android screenshot without borders
     \end{column}
   \end{columns}
 
@@ -481,15 +484,16 @@
 
   \end{columns}
 
-  TODO: FILL IN MANUAL POSITION PINNING ADDITIONS
-  \begin{columns}[t]
-    \begin{column}[b]{0.7\textwidth}
+  \begin{columns}[c]
+    \begin{column}{0.7\textwidth}
       \begin{itemize}
-        \setlength{\itemsep}{1pt}
-        \setlength{\parskip}{0pt}
-        \setlength{\parsep}{0pt}
-        \item todo todo
-        \item todo
+        %\setlength{\itemsep}{1pt}
+        %\setlength{\parskip}{0pt}
+        %\setlength{\parsep}{0pt}
+        \item User pinpoints position on map
+        \item Fallback option, if no other localization technique is available
+        \item Alternative for users with high privacy concerns
+        \item \todo{anything else?}
       \end{itemize}
     \end{column}
     \hfill
@@ -559,6 +563,13 @@
 
     \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
     \item ADD HERE: GENERAL POINTS
+  \end{itemize}
+    
+  Functionalities
+  \begin{itemize}
+    \item Manage companion requests and groups
+    \item Share location using different localization techniques 
+    \item Show friends on map
 
   \end{itemize}
 
@@ -594,15 +605,41 @@
 
 \end{frame}
 
+\begin{frame}{Mobile clients - Mapping}
+
+  Show friends
+  
+  \begin{columns}[T]
+	\begin{column}{.6\textwidth}
+	\begin{itemize}
+		\item Friends shown on map
+		\item Different floors
+		\item Different markers for different accuracies
+		\item \todo{maybe iOS screenshot instead text?}
+	\end{itemize}
+	\end{column}
+	\begin{column}{.4\textwidth}
+	\includegraphics[scale=0.27]{android_show_friends}
+	\end{column}
+\end{columns}
+
+\end{frame}
+
 
 \begin{frame}{Mobile clients - Location sharing}
 
+  Three localization techniques
   \begin{itemize}
     \item Scan tubIt MSE API -> building name, floor
     \item Scan for nearby beacons -> beacon ID
     \item Manually pinpoint location on map
-    \item \todo{anything else here?}
   \end{itemize}
+  \bigskip
+  Different precision levels
+  \begin{itemize}
+    \item pinpointed coordinates > beacon ID > MSE info
+    \item Always share the most precise location available
+  \end{itemize}   
 
 \end{frame}
 
@@ -613,8 +650,7 @@
 
   \begin{itemize}
 
-    \item MSE and Beacon scanning with services
-    \item Automatic service updating user's location with most precise location info available \\(pinpointed coordinates > beacon ID > MSE info)
+    \item MSE and Beacon scanning implemented with services
     \item \todo{will think of something else}
 
   \end{itemize}
@@ -931,41 +967,6 @@ Manual Pin Pointing:
 \end{frame}
 
 
-\begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
-
-\begin{columns}[T]
-	\begin{column}{.6\textwidth}
-	\begin{itemize}
-		\item Add companion
-		\item Accept companion request
-		\item Manage groups
-		\item Remove friends
-	\end{itemize}
-	\end{column}
-	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{android_add_friend}
-	\end{column}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}{Clients~~~\raisebox{-10pt}[0pt][0pt]{\includegraphics[width=0.08\textwidth]{tech-stack-android}}}
-
-\begin{columns}[T]
-	\begin{column}{.6\textwidth}
-	\begin{itemize}
-		\item Friends shown on map
-		\item Different floors
-		\item Different markers for different accuracies
-	\end{itemize}
-	\end{column}
-	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{android_show_friends}
-	\end{column}
-\end{columns}
-\end{frame}
-
-
 \section{Lessons learned}
 
 \begin{frame}{}
@@ -994,6 +995,7 @@ Manual Pin Pointing:
 
   \begin{itemize}
     \item Communication (talk more)
+    \item \todo{idea: Keep wanted application functionalities written down and up to date. (example, remove before presentation: frontend guys had some discussion, if we should show beacons on map, because our user stories said so.)}
     \item Tools (Waffle.io)
     \item Documentation
   \end{itemize}
