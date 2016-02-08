@@ -311,12 +311,14 @@
 
 \begin{frame}{Resources}
 
+  RESTful
+
   \begin{itemize}
-    \item me info: /users/me
-    \item location: /users/me/location
-    \item groups: /users/me/groups
-    \item hotspots: /hotspots
-    \item friends: /companionrequests
+    \item \textbf{/users/me}: Modifiable object of logged in user
+    \item \textbf{/users/me/location}: Update or delete location
+    \item \textbf{/users/me/groups}: Structure friends
+    \item \textbf{/hotspots}: Beacon, floor and building information
+    \item \textbf{/companionrequests}: Add, accept or deny requests
   \end{itemize}
 
 \end{frame}
@@ -325,10 +327,10 @@
 \begin{frame}{Authentication \& session}
 
   \begin{itemize}
-    \item Tedious task
-    \item OpenID Connect standard
-    \item popular, verified
-    \item We use CYCLONE: edugain (1600 parties)
+    \item Usually very tedious and error-prone tasks
+    \item Therefore we use the OpenID Connect standard
+    \item Widely used and well tested
+    \item We use the CYCLONE federation provider: specific implementation for edugain (ca. 1600 parties)
   \end{itemize}
 
 \end{frame}
@@ -339,9 +341,9 @@
   \begin{itemize}
 
     \item Based on the Keycloak project
+    \item Low effort integrating it into project
     \item Project still starting phase
     \item Therefore: Some struggle throughout the project, but useful in the end
-    \item But low effort integrating it into project
 
   \end{itemize}
 
