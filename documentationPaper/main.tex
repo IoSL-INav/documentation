@@ -11,7 +11,6 @@
 
 % Template Style
 \include{style}
-%\bibliography{main}
 \addbibresource{main.bib}
 
 % custom hyphenation					% add words to this list to prevent hyphenation
@@ -29,20 +28,12 @@ TCP
 	pdfsubject={Indoor Navigation}
 }
 
+
 \begin{document}
 
 %--------------------------------------------------------------
 \frontmatter
 
-%\begin{titlepage}
-%\AddToShipoutPicture*{
-%\put(0,0){
-%\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio=false]{images/titlepage.pdf}}}
-%\strut
-%\end{titlepage}
-%\thispagestyle{empty}
-
-%titlepage
 \begin{titlepage}
 	\AddToShipoutPicture*{
 		\put(0,0){
@@ -86,7 +77,6 @@ TCP
 \cleardoublepage
 
 \newpage
-%\input{acknowledgments}				% "I would like to thank my teddybear..." and such stuff...
 
 \input{00_abstract}
 \thispagestyle{empty}
@@ -121,7 +111,127 @@ TCP
 
 \begin{appendices}
 
-some appendix
+\section{Tool for performing tests on the CISCO MSE API wrapper}
+\label{appendix:cisco-mse-api-test}
+
+\begin{lstlisting}[language=go]
+package main
+
+import (
+    "fmt"
+    "log"
+    "os"
+    "syscall"
+    "time"
+
+    "encoding/xml"
+    "io/ioutil"
+    "net/http"
+    "os/signal"
+)
+
+type WiFiInfo struct {
+    XMLName          xml.Name `xml:"Info"`
+    ChangedOn        string   `xml:"changedOn,attr"`
+    ConfidenceFactor float32  `xml:"confidenceFactor,attr"`
+    Building         string   `xml:"building,attr"`
+    Floor            string   `xml:"floor,attr"`
+    Network          string   `xml:"WLAN-Status,attr"`
+    UserName         string   `xml:"username,atrr"`
+    Longitude        float64  `xml:"lon,attr"`
+    Latitude         float64  `xml:"lat,attr"`
+}
+
+type LogWiFiStruct struct {
+    Timestamp int     `json:"timestamp"`
+    Latitude  float64 `json:"latitude"`
+    Longitude float64 `json:"longitude"`
+    Building  string  `json:"building"`
+    Floor     string  `json:"floor"`
+}
+
+func handleUserExit(signalChannel chan os.Signal) {
+
+    for _ = range signalChannel {
+
+        // Define a useful result file name (format: "wifi-measurement-year-month-day-hour-minute-seconds.json")
+        fileName := fmt.Sprintf("wifi-measurement-%s.json", fileNameTime)
+
+        // Open measurement result file
+        fileResult, fileError := os.OpenFile(fileName, os.O_CREATE|os.O_RDWR|os.O_APPEND, 0666)
+
+        if fileError != nil {
+            log.Fatal(fileError)
+        }
+
+        // Close open logging file
+        defer fileResult.Close()
+
+        log.Printf("\nWritten measurement values to file %s. Good bye.\n", fileName)
+
+        os.Exit(0)
+    }
+}
+
+func main() {
+
+    // Put in here the API endpoint to the wifi location service.
+    const apiURL = "PUT THE API ENDPOINT IN HERE"
+
+    // Get time data
+    startTime := time.Now()
+    fileNameTime := startTime.Format("2006-1-2-3-4-5")
+
+    // Define a clean up channel
+    signalChannel := make(chan os.Signal)
+    signal.Notify(signalChannel, os.Interrupt, syscall.SIGTERM)
+    go handleUserExit(signalChannel)
+
+    log.Printf("Starting to measure WiFi API.\n")
+
+    for {
+
+        // Make a GET call on that URL
+        apiResp, apiError := http.Get(apiURL)
+
+        if apiError != nil {
+            log.Fatal(apiError)
+        }
+
+        // Read in all body content we got and close connection
+        xmlData, ioError := ioutil.ReadAll(apiResp.Body)
+        apiResp.Body.Close()
+
+        if ioError != nil {
+            log.Fatal(ioError)
+        }
+
+        // Our go struct representation of the tubIT XML
+        wInfo := WiFiInfo{}
+
+        // Parse received XML into struct
+        xmlError := xml.Unmarshal([]byte(xmlData), &wInfo)
+
+        if xmlError != nil {
+            log.Fatal("XML parsing error: %v.\n", xmlError)
+        }
+
+        // Get the current UNIX epoch timestamp for logging
+        timeResult := time.Now().Unix()
+
+        // Build up the log string
+        logResult := fmt.Sprintf("\t\t{\"timestamp\": %d, \"latitude\": \"%.15f\", \"longitude\": \"%.15f\", \"building\": \"%s\", \"floor\": \"%s\"},\n", timeResult, wInfo.Latitude, wInfo.Longitude, wInfo.Building, wInfo.Floor)
+
+        // Write log string to opened file
+        fileResult.WriteString(logResult)
+
+        log.Printf("Received: \"long\": %v, \"lat\": %v.\n", wInfo.Longitude, wInfo.Latitude)
+
+        // Let the execution wait for 2 seconds
+        time.Sleep(2 * time.Second)
+    }
+}
+\end{lstlisting}
 
 \end{appendices}
 

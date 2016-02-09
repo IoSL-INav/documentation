@@ -15,7 +15,7 @@
 
 % [0.1.4b]
 % backend=biber added in line 139
-% 
+%
 % [0.1.4a]
 % title page: image logo sizes and margins adjusted to printable area
 % removed separation of online and offline references
@@ -25,17 +25,17 @@
 % added "school" to the titlepage
 % paragraph indents
 % correctly placed footnote graphics
-% 
+%
 % [0.1.2]
 % new titlepage
 % some minor fixes
-% 
+%
 % [0.1.1]
 % changed titlepage logo
 % added listoffigures and listoftables
 % excluded abstract from toc
 % no (roman) numbering for frontmatter
-% 
+%
 % [0.1]
 % adapted version 0.991b from sascha hoellger @ rwth aachen
 
@@ -44,10 +44,10 @@
 % = MISC
 % =========================================================================
 
-\usepackage{a4wide}					% 
-\usepackage{verbatim}				% 
-\usepackage[toc,page]{appendix}			% 
-\usepackage[withpage]{acronym}			% 
+\usepackage{a4wide}					%
+\usepackage{verbatim}				%
+\usepackage[toc,page]{appendix}			%
+\usepackage[withpage]{acronym}			%
 \usepackage{amsthm}				% Definitions
 
 
@@ -97,16 +97,16 @@
 % =========================================================================
 
 \setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{3} 
+\setcounter{tocdepth}{3}
 
 
 % =========================================================================
 % = FONTS
 % =========================================================================
 
-\usepackage{mathpazo} 
-\usepackage[scaled=.95]{helvet} 
-\usepackage{courier} 
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\usepackage{courier}
 
 
 % =========================================================================
@@ -131,7 +131,7 @@
 
 \usepackage{amsmath}				% math fonts
 \usepackage{amssymb}				% math symbols
-\usepackage{setspace}				% line spacing 
+\usepackage{setspace}				% line spacing
 
 
 % =========================================================================
@@ -185,8 +185,6 @@
 
 \usepackage{units}					% unified way of setting values with units
 
-\usepackage{appendix}
-
 
 % =========================================================================
 % = CODE LISTINGS
@@ -194,7 +192,7 @@
 
 \usepackage{listings}
 
-% Listings Styles from Max 
+% Listings Styles from Max
 
 \definecolor{violet}{cmyk}{0.45,0.97,0.27,0.21}
 \definecolor{lstblue}{cmyk}{1,0.80,0,0}
@@ -204,64 +202,67 @@
 \definecolor{lstgrey}{cmyk}{0.55,0.44,0.42,0.32}
 
 \lstdefinelanguage{SQL}{
-     keywords={},
-     keywordstyle=\color{bluegrey}\bfseries,
-     morekeywords=[2]{CREATE,TABLE,IF,NOT,EXISTS,NULL,SET,DEFAULT,PRIMARY,KEY,COLLATE,CHARACTER,AUTO_INCREMENT,ENGINE,CHARSET},
-     keywordstyle={[2]\color{violet}\bfseries},
-     otherkeywords={int,varchar,double,text,tinyint},
-     sensitive=false,
-     morecomment=[l][\color{lstgreen}]{//},
-     morecomment=[s][\color{lstgreen}]{/*}{*/},
-     morecomment=[s][\color{javadoc}]{/**}{*/},
-     morestring=[b]',
-     morestring=[b]"
-  }
+   keywords={},
+   keywordstyle=\color{bluegrey}\bfseries,
+   morekeywords=[2]{CREATE,TABLE,IF,NOT,EXISTS,NULL,SET,DEFAULT,PRIMARY,KEY,COLLATE,CHARACTER,AUTO_INCREMENT,ENGINE,CHARSET},
+   keywordstyle={[2]\color{violet}\bfseries},
+   otherkeywords={int,varchar,double,text,tinyint},
+   sensitive=false,
+   morecomment=[l][\color{lstgreen}]{//},
+   morecomment=[s][\color{lstgreen}]{/*}{*/},
+   morecomment=[s][\color{javadoc}]{/**}{*/},
+   morestring=[b]',
+   morestring=[b]"
+}
+
 \lstdefinelanguage{PHP}{
-     keywords={},
-     keywordstyle=\color{bluegrey}\bfseries,
-     morekeywords=[2]{static,function,if,return,pow,sin,cos,asin,min,sqrt,int},
-     keywordstyle={[2]\color{violet}\bfseries},
-     otherkeywords={@param, @returns, @author, @type, @link, @see},
-     sensitive=false,
-     morecomment=[l][\color{lstgreen}]{//},
-     morecomment=[s][\color{lstgreen}]{/*}{*/},
-     morecomment=[s][\color{javadoc}]{/**}{*/},
-     morestring=[b]',
-     morestring=[b]"
-  }
+   keywords={},
+   keywordstyle=\color{bluegrey}\bfseries,
+   morekeywords=[2]{static,function,if,return,pow,sin,cos,asin,min,sqrt,int},
+   keywordstyle={[2]\color{violet}\bfseries},
+   otherkeywords={@param, @returns, @author, @type, @link, @see},
+   sensitive=false,
+   morecomment=[l][\color{lstgreen}]{//},
+   morecomment=[s][\color{lstgreen}]{/*}{*/},
+   morecomment=[s][\color{javadoc}]{/**}{*/},
+   morestring=[b]',
+   morestring=[b]"
+}
+
 \lstdefinelanguage{JavaScript}{
-     keywords={},
-     keywordstyle=\color{bluegrey}\bfseries,
-     morekeywords=[2]{attributes, class, classend, do, empty, endif, endwhile, fail, function, functionend, if, implements, in, inherit, inout, not, of, operations, out, return, set, then, types, while, use},
-     keywordstyle={[2]\color{violet}\bfseries},
-     otherkeywords={@param, @returns, @author, @type, @link, @see},
-     sensitive=false,
-     morecomment=[l][\color{lstgreen}]{//},
-     morecomment=[s][\color{lstgreen}]{/*}{*/},
-     morecomment=[s][\color{javadoc}]{/**}{*/},
-     morestring=[b]',
-     morestring=[b]"
-  }
+   keywords={},
+   keywordstyle=\color{bluegrey}\bfseries,
+   morekeywords=[2]{attributes, class, classend, do, empty, endif, endwhile, fail, function, functionend, if, implements, in, inherit, inout, not, of, operations, out, return, set, then, types, while, use},
+   keywordstyle={[2]\color{violet}\bfseries},
+   otherkeywords={@param, @returns, @author, @type, @link, @see},
+   sensitive=false,
+   morecomment=[l][\color{lstgreen}]{//},
+   morecomment=[s][\color{lstgreen}]{/*}{*/},
+   morecomment=[s][\color{javadoc}]{/**}{*/},
+   morestring=[b]',
+   morestring=[b]"
+}
+
 \lstdefinelanguage{Java}{
-     keywords={},
-     keywordstyle=\color{bluegrey}\bfseries,
-     morekeywords=[2]{abstract,boolean,break,byte,case,catch,char,class,
-      const,continue,default,do,double,else,extends,false,final,
-      finally,float,for,goto,if,implements,import,instanceof,int,
-      interface,label,long,native,new,null,package,private,protected,
-      public,return,short,static,super,switch,synchronized,this,throw,
-      throws,transient,true,try,void,volatile,while},
-     keywordstyle={[2]\color{violet}\bfseries},
-     morekeywords=[3]{@SuppressWarnings, @Capability, @Override},
-     keywordstyle={[3]\color{lstgrey}},
-     otherkeywords={@param, @return, @returns, @author, @link, @see},
-     sensitive,
-     morecomment=[l]//,
-     morecomment=[s]{/*}{*/},
-     morecomment=[s][\color{javadoc}]{/**}{*/},
-     morestring=[b]",
-     morestring=[b]',
-  }[keywords,comments,strings]
+   keywords={},
+   keywordstyle=\color{bluegrey}\bfseries,
+   morekeywords=[2]{abstract,boolean,break,byte,case,catch,char,class,
+    const,continue,default,do,double,else,extends,false,final,
+    finally,float,for,goto,if,implements,import,instanceof,int,
+    interface,label,long,native,new,null,package,private,protected,
+    public,return,short,static,super,switch,synchronized,this,throw,
+    throws,transient,true,try,void,volatile,while},
+   keywordstyle={[2]\color{violet}\bfseries},
+   morekeywords=[3]{@SuppressWarnings, @Capability, @Override},
+   keywordstyle={[3]\color{lstgrey}},
+   otherkeywords={@param, @return, @returns, @author, @link, @see},
+   sensitive,
+   morecomment=[l]//,
+   morecomment=[s]{/*}{*/},
+   morecomment=[s][\color{javadoc}]{/**}{*/},
+   morestring=[b]",
+   morestring=[b]',
+}[keywords,comments,strings]
 
 % some listings styles from Gregor Aisch
 % http://vis4.net/blog/2009/09/noch-mehr-sprach-definitionen-fuer-latex-listings/
@@ -381,7 +382,7 @@ sensitive=false, morecomment=[s]{<!--}{-->}, morestring=[b]", morestring=[d]'}
 \fancyhfoffset[RO,LE]{0.1cm} %{\marginparsep+\marginparwidth}
 \fancyhfoffset[RE,LO]{0.1cm}
 %\fancyheadoffset[RE,LO]{\hoffset + \oddsidemargin}
-\renewcommand{\headrule}{{\color{DarkRed}% 
+\renewcommand{\headrule}{{\color{DarkRed}%
   \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
 \fancyhf{}
 \fancyhead[RE]{\slshape \nouppercase{\leftmark}}    % Even page header: "page   chapter"
