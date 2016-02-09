@@ -663,7 +663,7 @@ Overlay Map material:
 
 \begin{frame}{Mobile clients - General}
 
-  Functionalities
+  Functionalities\\[1em]
   \begin{itemize}
     \item Provide indoor position
     \item Manage companion requests and groups
@@ -682,7 +682,7 @@ Overlay Map material:
 	\begin{itemize}
 		\item Login in web view
 		\item App doesn't handle user's credentials
-		\item \todo{add iOS screenshot instead of text maybe?}
+		%\item \todo{add iOS screenshot instead of text maybe?}
 	\end{itemize}
 	\end{column}
 	\begin{column}{.4\textwidth}
@@ -692,20 +692,9 @@ Overlay Map material:
 
 \end{frame}
 
+\begin{frame}{Mobile clients - Share your Position}
 
-\begin{frame}{Mobile clients}
-
-  \begin{itemize}
-
-    \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
-
-  \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Mobile clients - Share Position}
-
-  Share your Position
+  %Share your Position
   \begin{columns}[T]
 	%\begin{column}{.6\textwidth}
 	%\begin{itemize}
@@ -728,7 +717,7 @@ Overlay Map material:
 
 \begin{frame}{Mobile clients - Show Friends}
 
-  Show friends
+  %Show friends
 
   \begin{columns}[T]
 	%\begin{column}{.6\textwidth}
@@ -740,11 +729,11 @@ Overlay Map material:
 	%\end{itemize}
 	%\end{column}
 	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{mappinpointc}
+	   \includegraphics[scale=0.27]{mappinpointc}
 	\end{column}
 
 	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{android_show_friends}
+  	\includegraphics[scale=0.27]{android_show_friends}
 	\end{column}
 \end{columns}
 
@@ -753,14 +742,15 @@ Overlay Map material:
 
 \begin{frame}{Mobile clients - Location sharing}
 
-  Three localization techniques
+  Three localization techniques\\[1em]
   \begin{itemize}
     \item Scan tubIt MSE API -> building name, floor
     \item Scan for nearby beacons -> beacon ID
     \item Manually pinpoint location on map
   \end{itemize}
   \bigskip
-  Different precision levels
+  \pause
+  Different precision levels\\[1em]
   \begin{itemize}
     \item pinpointed coordinates > beacon ID > MSE info
     \item Always share the most precise location available
@@ -789,14 +779,14 @@ Overlay Map material:
 
   \begin{itemize}
 
-    \item Hotspot Geofencing (Location Service enabled)
+    \item Hotspot Geofencing (Location Service enabled)\\[1em]
     \begin{itemize}
          \item Notifies you on entering or leaving a hotspot
          \item Asks if you want to enable/disable Bluetooth
          \item Downloads Hotspot Informations from the Backend
      \end{itemize}
-
-    \item iBeacon Notification (Bluetooth enabled )
+     \pause
+    \item iBeacon Notification (Bluetooth enabled )\\[1em]
     \begin{itemize}
          \item iOS shows automatically if there are beacons in range on your homescreen
 
@@ -835,7 +825,8 @@ Overlay Map material:
 
   \begin{itemize}
     \item Communication (talk more)
-    \item \todo{idea: Keep wanted application functionalities written down and up to date. (example, remove before presentation: frontend guys had some discussion, if we should show beacons on map, because our user stories said so.)}
+    %\item \todo{idea: Keep wanted application functionalities written down and up to date. (example, remove before presentation: frontend guys had some discussion, if we should show beacons on map, because our user stories said so.)}
+    \item Keep wanted application functionalities written down and up to date
     \item Tools (Waffle.io)
     \item Documentation
   \end{itemize}
