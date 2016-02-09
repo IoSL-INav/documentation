@@ -363,9 +363,9 @@
 \end{frame}
 
 
-\begin{frame}[t]{Localization techniques}
+\begin{frame}{Localization techniques}
 
-  \begin{columns}[c]
+  \begin{columns}
 
     \begin{column}{0.2\textwidth}
       \includegraphics[width=\textwidth]{wifi-symbol}
@@ -382,15 +382,15 @@
 
   \end{columns}
 
+  \vspace{0.5cm}
+
   \begin{itemize}
-    \setlength{\itemsep}{1pt}
-    \setlength{\parskip}{0pt}
-    \setlength{\parsep}{0pt}
+    \setlength{\itemsep}{1.5ex}
     \item CISCO MSE API
-    \item Uses Cisco Mobility Services Engine
     \item Provides building name and floor
-    \item In some buildings also latitude \& longitude (roughly)
   \end{itemize}
+
+  \vspace{0.25cm}
 
   \begin{center}
 	\includegraphics[width=\textwidth]{tubitapi_response}
@@ -399,9 +399,9 @@
 \end{frame}
 
 
-\begin{frame}[t]{Localization techniques}
+\begin{frame}{Localization techniques}
 
-  \begin{columns}[c]
+  \begin{columns}
 
     \begin{column}{0.2\textwidth}
       \includegraphics[width=\textwidth]{beacon-symbol}
@@ -418,34 +418,32 @@
 
   \end{columns}
 
+  \begin{columns}
 
-  \begin{columns}[t]
-    \begin{column}[b]{0.7\textwidth}
+    \begin{column}{0.65\textwidth}
+
       \begin{itemize}
-        \setlength{\itemsep}{1pt}
-        \setlength{\parskip}{0pt}
-        \setlength{\parsep}{0pt}
-        \item Estimote Beacons and Stickers
-        \item Ranges between 3-15m and 3-70m
-        \item Poor signal strength depending on battery level
-        \item Beacon position is roughly user position
+        \setlength{\itemsep}{1.5ex}
+        \item Ranges between 3 - 15m\\and 3 - 70m
+        \item Signal strength depending\\on battery level
       \end{itemize}
-      \begin{center}
-      \includegraphics[width=0.5\textwidth]{box_devkit}
-      \end{center}
+
     \end{column}
+
     \hfill
-    \begin{column}{0.3\textwidth}
-      \includegraphics[width=\textwidth]{beaconsonthemapwithoutborder}%iOS or android screenshot without borders
+
+    \begin{column}{0.25\textwidth}
+      \includegraphics[width=\textwidth]{beaconsonthemapwithoutborder}
     \end{column}
+
   \end{columns}
 
 \end{frame}
 
 
-\begin{frame}[t]{Localization techniques}
+\begin{frame}{Localization techniques}
 
-  \begin{columns}[c]
+  \begin{columns}
 
     \begin{column}{0.2\textwidth}
       \includegraphics[width=\textwidth]{location-symbol}
@@ -462,30 +460,30 @@
 
   \end{columns}
 
-  \begin{columns}[c]
-    \begin{column}{0.7\textwidth}
+  \begin{columns}
+
+    \begin{column}{0.65\textwidth}
+
       \begin{itemize}
-        %\setlength{\itemsep}{1pt}
-        %\setlength{\parskip}{0pt}
-        %\setlength{\parsep}{0pt}
-        \item User pinpoints position on map
-        \item Fallback option, if no other localization technique is available
-        \item Alternative for users with high privacy concerns
-        \item \todo{anything else?}
+        \item Fallback option, if no other\\localization technique is available
       \end{itemize}
+
     \end{column}
+
     \hfill
-    \begin{column}{0.3\textwidth}
-      \includegraphics[width=0.8\textwidth]{mappinpointawithoutborder}%iOS or android screenshot without borders
+
+    \begin{column}{0.25\textwidth}
+      \includegraphics[width=\textwidth]{mappinpointawithoutborder}
     \end{column}
+
   \end{columns}
 
 \end{frame}
 
 
-\begin{frame}[t]{Localization techniques}
+\begin{frame}{Localization techniques}
 
-  \begin{columns}[c]
+  \begin{columns}
 
     \begin{column}{0.17\textwidth}
       \includegraphics[width=\textwidth]{apple}
@@ -493,31 +491,33 @@
 
     \hfill
 
-\begin{column}{0.8\textwidth}
+    \begin{column}{0.8\textwidth}
 
-      \includegraphics[width=0.05\textwidth]{plus} Precise indoor positioning out of the box\\
+      \includegraphics[width=0.05\textwidth]{plus} Precise coordinates for every indoor location\\
       \includegraphics[width=0.05\textwidth]{minus} Prone to distractions and poor signal strength
 
     \end{column}
 
   \end{columns}
 
-  \begin{columns}[c]
-    \begin{column}{0.7\textwidth}
+  \begin{columns}
+
+    \begin{column}{0.65\textwidth}
+
       \begin{itemize}
-        %\setlength{\itemsep}{1pt}
-        %\setlength{\parskip}{0pt}
-        %\setlength{\parsep}{0pt}
+        \setlength{\itemsep}{1.5ex}
         \item Apple Indoor Framework (Closed Beta)
-        \item Provides precise coordinates for every indoor location
-        \item Combines WiFi and Satellite signal strength
-        \item Works without additional technologies or installations
+        \item Combines WiFi and satellite signal strength
       \end{itemize}
+
     \end{column}
+
     \hfill
-    \begin{column}{0.3\textwidth}
-      \includegraphics[width=0.8\textwidth]{appleframework}%iOS or android screenshot without borders
+
+    \begin{column}{0.25\textwidth}
+      \includegraphics[width=\textwidth]{appleframework}
     \end{column}
+
   \end{columns}
 
 \end{frame}
@@ -850,12 +850,12 @@ Manual Pin Pointing:
     \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
     \item ADD HERE: GENERAL POINTS
   \end{itemize}
-    
+
   Functionalities
   \begin{itemize}
    \item Provide indoor position
     \item Manage companion requests and groups
-    \item Share location using different localization techniques 
+    \item Share location using different localization techniques
     \item Show friends on map
 
   \end{itemize}
@@ -874,7 +874,7 @@ Manual Pin Pointing:
 	\end{itemize}
 	\end{column}
 	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{android_login} 
+	\includegraphics[scale=0.27]{android_login}
 	\end{column}
 \end{columns}
 
@@ -895,7 +895,7 @@ Manual Pin Pointing:
 \begin{frame}{Mobile clients - Show Friends}
 
   Show friends
-  
+
   \begin{columns}[T]
 	\begin{column}{.6\textwidth}
 	\begin{itemize}
@@ -926,7 +926,7 @@ Manual Pin Pointing:
   \begin{itemize}
     \item pinpointed coordinates > beacon ID > MSE info
     \item Always share the most precise location available
-  \end{itemize}   
+  \end{itemize}
 
 \end{frame}
 
