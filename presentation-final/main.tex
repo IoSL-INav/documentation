@@ -203,7 +203,7 @@
 
     \item Motivation
     \item Backend
-    \item Mapping
+    \item Indoor Map
     \item Localization techniques
     \item Mobile clients
     \item Lessons learned
@@ -347,8 +347,140 @@
 
 \end{frame}
 
+\section{Indoor Map}
+
+\begin{frame}{}
+
+  \begin{center}
+
+    {\Huge Indoor Map}
+
+  \end{center}
+
+\end{frame}
 
 
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item Got Map Materialfiles from Studentenwerk and Tubit
+    \item Preferable files: SVG, PDF (scalable)
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mensaplan}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Overlay Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item Convert (Long/Lat) into (X/Y) coordinates
+    \item Define anchor-points to realworld coordinates (Google Maps)
+    \item Add file as overlay on top of the map
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mapfirststep}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Overlay Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item Convert (Long/Lat) into (X/Y) coordinates
+    \item Define Anchor Points to Realworld Coordinates (Google Maps)
+    \item Add File as Overlay on top of the Map
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mapsecondstep}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Overlay Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item With some effort on the Frameworks
+    \item Achieved: A lossless scale/zoom of the Map
+    \item Acurate mapping of points to coordinates
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mapisready}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Overlay Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item Enables to add annotations precisely to a position on the map
+    \item Cash Register, Foodstands, Stairs and so on...
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mapmensainfo}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Indoor Map}
+
+\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
+Overlay Map material:
+
+  \begin{columns}[T]
+  \begin{column}{.6\textwidth}
+  \begin{itemize}
+    \item New implemented scaling with provides zoomlevels right into a table
+    \item Enables us to precisely pin a position in a and very user friendly way.
+  \end{itemize}
+  \end{column}
+  \begin{column}{.4\textwidth}
+  \includegraphics[scale=0.25]{mappinpointa}
+  \end{column}
+\end{columns}
+
+\end{frame}
 
 \section{Localization techniques}
 
@@ -431,9 +563,8 @@
     \end{column}
 
     \hfill
-
-    \begin{column}{0.25\textwidth}
-      \includegraphics[width=\textwidth]{beaconsonthemapwithoutborder}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=\textwidth]{beaconfunctionality}%iOS or android screenshot without borders
     \end{column}
 
   \end{columns}
@@ -471,9 +602,8 @@
     \end{column}
 
     \hfill
-
-    \begin{column}{0.25\textwidth}
-      \includegraphics[width=\textwidth]{mappinpointawithoutborder}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[width=0.8\textwidth]{manualpinpoint}%iOS or android screenshot without borders
     \end{column}
 
   \end{columns}
@@ -536,313 +666,6 @@
 
 \end{frame}
 
-
-\begin{frame}{Indoor Mapping}
-
-
-    How to show yourself on the map?
-
-
-\end{frame}
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item Got Map Materialfiles from Studentenwerk and Tubit
-    \item Preferable files: SVG, PDF (scalable)
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapfirststep}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Overlay Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item Convert (Long/Lat) into (X/Y) coordinates
-    \item Define Anchor Points to Realworld Coordinates (Google Maps)
-    \item Add File as Overlay on top of the Map
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapfirststep}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Overlay Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item Convert (Long/Lat) into (X/Y) coordinates
-    \item Define Anchor Points to Realworld Coordinates (Google Maps)
-    \item Add File as Overlay on top of the Map
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapsecondstep}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Overlay Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item With some effort on the Frameworks
-    \item Achieved: A lossless scale/zoom of the Map
-    \item Acurate mapping of points to coordinates
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapisready}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Overlay Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item Enables to add annotations precisely to a position on the map
-    \item Cash Register, Foodstands, Stairs and so on...
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapmensainfo}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Mapping}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Overlay Map material:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item New implemented sacling with zoomlevel right into a table
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapzoomlevel}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Automatic Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-  \item  \textbf{TUBIT MSE API} \\
-provides floor Information \\
-no coordinates
-
-  \item \textbf{Apple Indoor Framework} \\
-Wifi Indoor signal strength \\
-provides real coordinates, \\
-no floor information \\
-
-
-
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{applesignalweak}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Automatic Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-  \item  \textbf{TUBIT MSE API} \\
-provides floor Information \\
-no coordinates
-
-  \item \textbf{Apple Indoor Framework} \\
-Wifi Indoor signal strength \\
-provides real coordinates, \\
-no floor information \\
-
-
-
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{applesignalgood}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Automatic Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-  \item  \textbf{ESTIMOTE Bluetooth} \\
-  \item Ranges between 3-15m and 3-70m
-  \item Poor signal strength depending on battery level
-  \item Beacon Position is roughly user position
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{beaconsonthemap}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Automatic Pin Pointing:
-
-  \begin{columns}[T]
-
-    \begin{column}{.6\textwidth}
-
-      \begin{itemize}
-        \item \textbf{ESTIMOTE Bluetooth} \\
-        \item Ranges between 3-15m and 3-70m
-        \item Poor signal strength depending on battery level
-        \item Beacon Position is roughly user position
-      \end{itemize}
-
-    \end{column}
-
-    \begin{column}{.4\textwidth}
-      \includegraphics[scale=0.25]{mappinpointc}
-    \end{column}
-
-  \end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Manual Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
- \item Offline Coordinates enables Manual Pin Pointing
- \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
-
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mappinpointa}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Manual Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
- \item Offline Coordinates enables Manual Pin Pointing
- \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
-
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mappinpointb}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Indoor Positioning}
-
-\framesubtitle{Subtitles can be in lowercase if they are full sentences.}
-Manual Pin Pointing:
-
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
- \item Offline Coordinates enables Manual Pin Pointing
- \item Most precise positioning technique
- \item Outdoor Coordinates: 52.509690,13.325614
- \item Indoor Coordinates: 52.50956691014301, 13.32614194619497
-
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mappinpointd}
-  \end{column}
-\end{columns}
-
-\end{frame}
-
-
-
-
 \begin{frame}{Mobile clients - General}
 
   \begin{itemize}
@@ -853,7 +676,7 @@ Manual Pin Pointing:
 
   Functionalities
   \begin{itemize}
-   \item Provide indoor position
+    \item Provide indoor position
     \item Manage companion requests and groups
     \item Share location using different localization techniques
     \item Show friends on map
@@ -874,7 +697,7 @@ Manual Pin Pointing:
 	\end{itemize}
 	\end{column}
 	\begin{column}{.4\textwidth}
-	\includegraphics[scale=0.27]{android_login}
+	   \includegraphics[scale=0.27]{loginview}
 	\end{column}
 \end{columns}
 
@@ -886,9 +709,32 @@ Manual Pin Pointing:
   \begin{itemize}
 
     \item TODO: RESTRUCTURE THE OLD CLIENT SLIDES HERE
-    \item Talk from here on about the general functions of the clients?
 
   \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Mobile clients - Share Position}
+
+  Share your Position
+  \todo{Need Share your position screenshot Android}
+  \begin{columns}[T]
+	%\begin{column}{.6\textwidth}
+	%\begin{itemize}
+	%	\item Friends shown on map
+	%	\item Different floors
+	%	\item Different markers for different accuracies
+	%	\item \todo{maybe iOS screenshot instead text?}
+	%\end{itemize}
+	%\end{column}
+	\begin{column}{.4\textwidth}
+	\includegraphics[scale=0.27]{mappinpointb}
+	\end{column}
+
+	\begin{column}{.4\textwidth}
+	\includegraphics[scale=0.27]{android_show_friends}
+	\end{column}
+\end{columns}
 
 \end{frame}
 
@@ -897,14 +743,18 @@ Manual Pin Pointing:
   Show friends
 
   \begin{columns}[T]
-	\begin{column}{.6\textwidth}
-	\begin{itemize}
-		\item Friends shown on map
-		\item Different floors
-		\item Different markers for different accuracies
-		\item \todo{maybe iOS screenshot instead text?}
-	\end{itemize}
+	%\begin{column}{.6\textwidth}
+	%\begin{itemize}
+	%	\item Friends shown on map
+	%	\item Different floors
+	%	\item Different markers for different accuracies
+	%	\item \todo{maybe iOS screenshot instead text?}
+	%\end{itemize}
+	%\end{column}
+	\begin{column}{.4\textwidth}
+	\includegraphics[scale=0.27]{mappinpointc}
 	\end{column}
+
 	\begin{column}{.4\textwidth}
 	\includegraphics[scale=0.27]{android_show_friends}
 	\end{column}
@@ -951,7 +801,18 @@ Manual Pin Pointing:
 
   \begin{itemize}
 
-    \item TODO: ADD IOS ONLY ISSUES
+    \item Hotspot Geofencing (Location Service enabled)
+    \begin{itemize}
+         \item Notifies you on entering or leaving a hotspot
+         \item Asks if you want to enable/disable Bluetooth
+         \item Downloads Hotspot Informations from the Backend
+     \end{itemize}
+
+    \item iBeacon Notification (Bluetooth enabled )
+    \begin{itemize}
+         \item iOS shows automatically if there are beacons in range on your homescreen
+
+     \end{itemize}
 
   \end{itemize}
 
