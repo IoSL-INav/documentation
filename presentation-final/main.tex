@@ -693,7 +693,28 @@
 
 \end{frame}
 
-\begin{frame}{Mobile clients - Share your Position}
+\begin{frame}{Mobile clients - Share your location}
+
+  \textbf{Usage of localization techniques}\\[1em]
+  \begin{itemize}
+    \item Scan tubIt MSE API $\rightarrow$ building name, floor
+    \item Scan for nearby beacons $\rightarrow$  beacon ID
+    \item Manually pinpoint location on map
+  \end{itemize}
+  \bigskip
+  \pause
+  \textbf{Different precision levels}\\[1em]
+  \begin{itemize}
+    %\item pinpointed coordinates > beacon ID > MSE info
+    \item \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{location-symbol}}~~~~>~~~~%
+          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{beacon-symbol}}~~~~>~~~~%
+          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{wifi-symbol}}
+    \item Always share the most precise location available
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Mobile clients - Share your location}
 
   %Share your Position
   \begin{columns}[T]
@@ -737,28 +758,6 @@
   	\includegraphics[scale=0.27]{android_show_friends}
 	\end{column}
 \end{columns}
-
-\end{frame}
-
-
-\begin{frame}{Mobile clients - Location sharing}
-
-  \textbf{Usage of localization techniques}\\[1em]
-  \begin{itemize}
-    \item Scan tubIt MSE API $\rightarrow$ building name, floor
-    \item Scan for nearby beacons $\rightarrow$  beacon ID
-    \item Manually pinpoint location on map
-  \end{itemize}
-  \bigskip
-  \pause
-  \textbf{Different precision levels}\\[1em]
-  \begin{itemize}
-    %\item pinpointed coordinates > beacon ID > MSE info
-    \item \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{location-symbol}}~~~~>~~~~%
-          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{beacon-symbol}}~~~~>~~~~%
-          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{wifi-symbol}}
-    \item Always share the most precise location available
-  \end{itemize}
 
 \end{frame}
 
