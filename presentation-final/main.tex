@@ -271,7 +271,7 @@
 
 \begin{frame}{Functional requirements}
 
-  User is able to\ldots
+  \textbf{User is able to\ldots}
 
   \vspace{0.25cm}
 
@@ -328,7 +328,7 @@
     \item Usually very tedious and error-prone tasks
     \item Therefore we use the OpenID Connect standard
     \item Widely used and well tested
-    \item We use the CYCLONE federation provider: specific implementation for edugain (ca. 1600 parties)
+    \item We use the CYCLONE Federation Provider: specific implementation for edugain (ca. 1600 parties)
   \end{itemize}
 
 \end{frame}
@@ -367,12 +367,12 @@
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-    \item Got Map Materialfiles from Studentenwerk and Tubit
-    \item Preferable files: SVG, PDF (scalable)
+    \item Got map material files from Studentenwerk and tubIT
+    \item Preferable file formats: SVG, PDF (scalable)
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mensaplan}
+    \includegraphics[scale=0.25]{mensaplan}
   \end{column}
 \end{columns}
 
@@ -381,14 +381,14 @@
 
 \begin{frame}{Indoor Map}
 
-\textbf{Overlay Map material}
+\textbf{Overlay map material}
 
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-    \item Convert (Long/Lat) into (X/Y) coordinates
-    \item Define anchor-points to realworld coordinates (Google Maps)
-    \item Add file as overlay on top of the map
+    \item Convert (long/lat) into (X/Y) coordinates
+    \item Define anchor points to real world coordinates (Google Maps)
+    \item Add file as overlay on top of map
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -401,14 +401,14 @@
 
 \begin{frame}{Indoor Map}
 
-\textbf{Overlay Map material}
+\textbf{Overlay map material}
 
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-    \item Convert (Long/Lat) into (X/Y) coordinates
-    \item Define Anchor Points to Realworld Coordinates (Google Maps)
-    \item Add File as Overlay on top of the Map
+    \item Convert (long/lat) into (X/Y) coordinates
+    \item Define anchor points to real world coordinates (Google Maps)
+    \item Add file as overlay on top of map
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
@@ -421,60 +421,61 @@
 
 \begin{frame}{Indoor Map}
 
-\textbf{Overlay Map material}
+\textbf{Overlay map material}
 
   \begin{columns}[T]
   \begin{column}{.6\textwidth}
   \begin{itemize}
-    \item With some effort on the Frameworks
-    \item Achieved: A lossless scale/zoom of the Map
-    \item Acurate mapping of points to coordinates
+    %\item With some effort on the Frameworks
+    \item Achieved: A lossless scale/zoom of the map
+    \item Accurate mapping of points to coordinates
+    \item Cash registers, food stands, stairs and so on\ldots
   \end{itemize}
   \end{column}
   \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapisready}
+    %\includegraphics[scale=0.25]{mapisready}
+    \includegraphics[scale=0.25]{mapmensainfo}
   \end{column}
 \end{columns}
 
 \end{frame}
 
 
-\begin{frame}{Indoor Map}
+%\begin{frame}{Indoor Map}
 
-\textbf{Overlay Map material}
+%\textbf{Overlay map material}
 
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item Enables to add annotations precisely to a position on the map
-    \item Cash Register, Foodstands, Stairs and so on...
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mapmensainfo}
-  \end{column}
-\end{columns}
+%  \begin{columns}[T]
+%  \begin{column}{.6\textwidth}
+%  \begin{itemize}
+%    \item Enables to add annotations precisely to a position on the map
+%    \item Cash Register, Foodstands, Stairs and so on...
+%  \end{itemize}
+%  \end{column}
+%  \begin{column}{.4\textwidth}
+%    \includegraphics[scale=0.25]{mapmensainfo}
+%  \end{column}
+%\end{columns}
 
-\end{frame}
+%\end{frame}
 
 
-\begin{frame}{Indoor Map}
+%\begin{frame}{Indoor Map}
 
-\textbf{Overlay Map material}
+%\textbf{Overlay map material}
 
-  \begin{columns}[T]
-  \begin{column}{.6\textwidth}
-  \begin{itemize}
-    \item New implemented scaling with provides zoomlevels right into a table
-    \item Enables us to precisely pin a position in a and very user friendly way.
-  \end{itemize}
-  \end{column}
-  \begin{column}{.4\textwidth}
-  \includegraphics[scale=0.25]{mappinpointa}
-  \end{column}
-\end{columns}
-
-\end{frame}
+%  \begin{columns}[T]
+%  \begin{column}{.6\textwidth}
+%  \begin{itemize}
+%    \item New implemented scaling with provides zoomlevels right into a table
+%    \item Enables us to precisely pin a position in a and very user friendly way.
+%  \end{itemize}
+%  \end{column}
+%  \begin{column}{.4\textwidth}
+%  \includegraphics[scale=0.25]{mappinpointa}
+%  \end{column}
+%\end{columns}
+%\end{frame}
 
 
 \section{Localization techniques}
@@ -513,7 +514,7 @@
 
   \begin{itemize}
     \setlength{\itemsep}{1.5ex}
-    \item CISCO MSE API
+    \item CISCO MSE API provided by tubIT
     \item Provides building name and floor
   \end{itemize}
 
@@ -742,7 +743,7 @@
 
 \begin{frame}{Mobile clients - Location sharing}
 
-  \textbf{Three localization techniques}\\[1em]
+  \textbf{Usage of localization techniques}\\[1em]
   \begin{itemize}
     \item Scan tubIt MSE API $\rightarrow$ building name, floor
     \item Scan for nearby beacons $\rightarrow$  beacon ID
@@ -753,9 +754,9 @@
   \textbf{Different precision levels}\\[1em]
   \begin{itemize}
     %\item pinpointed coordinates > beacon ID > MSE info
-    \item \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{wifi-symbol}}~~~~>~~~~%
+    \item \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{location-symbol}}~~~~>~~~~%
           \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{beacon-symbol}}~~~~>~~~~%
-          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{location-symbol}}
+          \raisebox{-8pt}[0pt][0pt]{\includegraphics[width=0.1\textwidth]{wifi-symbol}}
     \item Always share the most precise location available
   \end{itemize}
 
@@ -768,7 +769,7 @@
 
   \begin{itemize}
 
-    \item MSE and Beacon scanning implemented with services
+    \item MSE and beacon scanning implemented with services
     \item No native indoor positioning API
 
   \end{itemize}
@@ -781,22 +782,18 @@
   \textbf{iOS}
 
   \begin{itemize}
-
-    \item Hotspot Geofencing (Location Service enabled)\\[1em]
+    \item Hotspot geo-fencing (Location Service enabled)\\[1em]
     \begin{itemize}
          \item Notifies you on entering or leaving a hotspot
          \item Asks if you want to enable/disable Bluetooth
-         \item Downloads Hotspot Informations from the Backend
+         %\item Downloads Hotspot Informations from the Backend
      \end{itemize}
      \pause
-    \item iBeacon Notification (Bluetooth enabled )\\[1em]
+    \item iBeacon Notification (Bluetooth enabled)\\[1em]
     \begin{itemize}
          \item iOS shows automatically if there are beacons in range on your homescreen
-
      \end{itemize}
-
   \end{itemize}
-
 \end{frame}
 
 
@@ -819,7 +816,7 @@
     \item Beacons
     \item Node.JS (asynchronous)
     \item Mongoose (MongoDB - direct connection)
-    \item Cisco MSE API (lat/long)
+    \item CISCO MSE API (lat/long)
   \end{itemize}
 
 \end{frame}
@@ -830,7 +827,7 @@
     \item Communication (talk more)
     %\item \todo{idea: Keep wanted application functionalities written down and up to date. (example, remove before presentation: frontend guys had some discussion, if we should show beacons on map, because our user stories said so.)}
     \item Keep wanted application functionalities written down and up to date
-    \item Tools (Waffle.io)
+    \item Tools (waffle.io)
     \item Documentation
   \end{itemize}
 
