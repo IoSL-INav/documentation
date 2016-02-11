@@ -10,21 +10,26 @@ The state of the art goes here. This includes:
 
 \hline
 
+
 \vspace{0.5cm}
 
 We are now going to take a look into what technology is available to accomplish our project goals defined in the previous chapter. First, we are starting with an overview of localization technologies that are in the reach of our project. After that we evaluate which ones are suitable for the circumstances our project is positioned in. And at the end one specific available solution will be examined more deeply in order to determine its possible value for our implementation.
+
 
 \vspace{0.5cm}
 
 \section{Projects With Same Idea}
 
+
 \vspace{0.5cm}
 
 \section{Localization Technologies}
 
+
 \vspace{0.5cm}
 
 \section{Evaluation of Available Technologies}
+
 
 \vspace{0.5cm}
 
@@ -33,6 +38,11 @@ We are now going to take a look into what technology is available to accomplish 
 In order to determine whether the CISCO MSE API wrapper provided by tubIT would be sufficient for the project's requirements we were asked to perform tests on it. Especially it was asked for details on how the API worked where, so what values could be retrieved via the API wrapper in which locations on campus and how precise the values would turn out to be.
 
 Concerning use cases our project was focused on the mensa and the library, therefore we initially planned to be conducting tests in only these two locations. As the provided wrapper around the CISCO MSE API we had access to delivered back one short, simple XML line we decided to invest some time into developing a small tool which routinely queried the API for it's current status and saved the result into an easily readable JSON file for later investigation. The source code of the developed tool you can find in appendix \ref{appendix:cisco-mse-api-test}.
+
+\begin{center}
+    \includegraphics[width=\textwidth]{cisco-mse-api-response}\\
+    What the CISCO MSE API wrapper response looks like.
+\end{center}
 
 It was planned to be conducting the tests on one day in the mensa and on another day in the library. On the first day we started around noon and ran the test tool on one of our notebooks connected to university WiFi, \enquote{eduroam}. We started in the south-western corner near the windows, walked towards the south-eastern corner, went to the stairs in the northern part and upstairs and again at the window front to the south-western corner on the first floor. As it turned out, the results we got back were definitely not what we had hoped for, most importantly because longitude and latitude of the requesting user were missing completely. The following listing shows the first ten results logged in two second periods from the API wrapper:
 
