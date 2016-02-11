@@ -1,21 +1,11 @@
-TARGET = main
-BIBTEX = bibtex
-PDFOPT = -file-line-error -interaction=nonstopmode
-RERUN = "Rerun to get (cross-references|the bars|outlines) right"
-RERUNBIB = "No file.*\.bbl|Citation.*undefined"
+SOURCE = main
+PDFMAKER = pdflatex
+BIBMAKER = biber
 
-master:
-	pdflatex $(PDFOPT) $(TARGET).tex
-	make bib TARGET=$(TARGET)
-	make rerun TARGET=$(TARGET)
-	egrep -i "(Reference|Citation).*undefined" $(TARGET).log ; true
-
-bib:
-	egrep -c $(RERUNBIB) $(TARGET).log && bibtex $(TARGET).aux ; true
-
-rerun:
-	egrep $(RERUN) $(TARGET).log && pdflatex $(PDFOPT) $(TARGET).tex ; true
-	egrep $(RERUN) $(TARGET).log && make rerun TARGET=$(TARGET) ; true
+doc:
+	$(PDFMAKER) $(SOURCE).tex
+	$(BIBMAKER) $(SOURCE)
+	$(PDFMAKER) $(SOURCE).tex
 
 .PHONY: clean
 
