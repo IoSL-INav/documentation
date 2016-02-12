@@ -1,20 +1,30 @@
-\chapter{Related Work}
+\chapter{Localization Technologies}
 \label{cha:relatedwork}
 
 
-We are now going to take a look into what technology is available to accomplish our project goals defined in the previous chapter. First, we are starting with an overview of localization technologies that are in the reach of our project. After that we evaluate which ones are suitable for the circumstances our project is positioned in. And at the end one specific available solution will be examined more deeply in order to determine its possible value for our implementation.
+\section{Related Work}
+Before we started our project we did research on related work regarding applied indoor navigation and positioning techniques applied on mobile devices. Most of them rely on calculating Received Signal Strength (RSSI) triangulation and/or Bluetooth BLE Beacon techniques or Wi-Fi Based Fingerprinting. The latter is a core idea of an indoor navigation system developed by \cite{ChaSo2012}. They combine two methods in order to calculate a precise position. At first they use matching of pre-recorded received signal strength from nearby access points. This method is called "fingerprint matching". These data are combined with a distance-based trilateration approach with at least three known access point coordinates which are also detected on the device. By this combination of both methods they received a high accuracy of the user position in an indoor environment.
+
+\cite{FelKyaZap2012} implemented an indoor Bluetooth-based positioning system on Bluetooth-capable devices as a PDA, which is comparable to the smartphones of today. They calculated range estimations based on approximations of relations between RSSI and distance between sender and receiver. The location estimation was also calculated via triangulation method.
+ 
+Apple Inc presented on WWDC2015 new features of there well known Core Location Frameworks providing Indoor positions and Floor information \cite{wwdc15}. The closed beta is restricted by access to developers that are registered on Apples Indoor Program Maps Connect. Although Apple do not publish their algorithms, as stated on WWDC2015 by Apple Software Engineer Vitali Lovich
+the Core Location Frameworks also takes advantage of indoor Wi-fi signals in combination with motion- and altitude sensors in order to provide the users with accurate position information as latitude and longitude.
+
+In 2013 Apple also developed the iBeacon protocol which is a BLE bluetooth communication standard supported by iOS and android devices \cite{appleIBeacon}. The iBeacon protocol opened the door for new Beacon technologys in order to improve indoor navigation on mobile devices. The standard is incorporated by Estimote inc with Estimote Beacons.
+These indoor technique has successfully been installed in Museums such as the metropolitan museum of art project called: MediaLab Beacon Art Walk \cite{MuseumArt}. However, this project aimed to provide additional locative information to the visitors rather than providing indoor positions. Next to the battery issues also faced in the MediaLab Project, Beacons having difficulties  in cases of many people covering the clear line of sight to a device, makes actual retrieving of Latitude/Longitude coordinates in a room more difficult. Next to this, installed beacons made  temporarily maintaining of Beacons mandatory, since one missing Beacon could prevent successful indoor navigation in a calibrated system.
+
+The Cisco MSE approach moves the calculation of a position away from a device\cite{oreilly11}. Correctly installed cisco mse determines the location of any wireless device in a Building. The access points listen for Wi-Fi signals of devices and estimate its position also via trilateration. This solution can be seen at the American Museum of Natural History \cite{AMNH15}
+
+The Cisco MSE determines the location of any wireless device in a specific building. 
+One approach is to make the building do the work instead of the device. Some Wi-Fi installations, such as the Cisco MSE, can determine the location of any wireless device in the building. The access points themselves listen for the Wi-Fi signals created by your phone, then estimate its position via trilateration. This solution has been deployed successfully at a few locations as mobile application for visitors, like the Explorer App  at the American Museum of Natural History.
+
 
 
 \vspace{0.5cm}
 
-\section{Projects With Same Idea}
 
 
-\vspace{0.5cm}
-
-\section{Localization Technologies}
-
-\subsection{Estimote Beacons}
+\section{Estimote Beacons}
 Estimote Beacons and Stickers are wireless sensors that can be attached to any location or object, embodying a wireless sensor network. The Beacons consists of a 32-bit ARM Cortex CPUs, equipped with an accelerometer, temperature sensor and a 2.4 Ghz radio. Using Smart Bluetooth 4.0.(Bluetooth low energy), the beacons send out signals with a range of up to 70 meters (Beacons) and 15 meters (Stickers). Though the signals are oftenly distracted under real world conditions, a range of about 40-50 and (Beacons) can be suspected. The battery can as stated by  \cite{developerDocsEstimote} last more than 3 years on default settings on a single CR2477 battery.
 
 Estimote beacons are working with the Apple iBeacon protocol as well as the Eddystone  open beacon format introduced by Google. These protocols working on top of the BLE technology standard are implemented in all smartphones devices enabling them to support new technologys like Apple Watch or Fitness trackers.
@@ -23,7 +33,7 @@ Using the Estimote SDK \cite{developerDocsEstimote} mobile applications are enab
 
 By the detecting a beacon signal a phone can estimate the distance by measuring the received signal strength \cite{developerDocsEstimote} Since Bluetooth Low Energy does not need any pairing process between sender and receiver, the phone can constantly process new signals. this opens the doors for new technologic opportunities as indoor location/ indoor positioning.
 
-\subsubsection{IBeacon Protocol}
+\subsection{IBeacon Protocol}
 The iBeacon protocol is a Bluetooth low energy communication protocol developed by Apple Inc. in 2013 and was introduced in iOS7 for indoor navigation. The protocol is supported by iOS7 devices as well as Android from version 4.3 up. The signal which is sent by a beacon is called advertisement. 
 
 These advertisements provides a so called iBeacon identifier, that is is 20 bytes long and divided into three sections:
@@ -38,10 +48,10 @@ These advertisements provides a so called iBeacon identifier, that is is 20 byte
 These values provided by the advertisement can be modified according to own wishes.
 The hierarchical configuration of these values provides identifying informations about the beacon. While the UUID can be destinguished to a corporation, major and minor values can be used to distinguish between regions and sub-regions of a corporation.
 
-\subsubsection{Region Monitoring}
+\subsection{Region Monitoring}
 Region monitoring triggers actions on the device on entering or exiting a beacon defined regions range. This works in depending the devices capabilities while an app is in foreground background or suspended. An app is limited to 20 regions being monitored. However by using a single UUID in multiple locations, a device can monitor many physical locations simultaneously \cite{appleIBeacon}.
 
-\subsubsection{Ranging}
+\subsection{Ranging}
 Ranging however triggeres actions on the devise based on the proximity to a beacon.
 The iBeacon protocol applies filters to the accuracy of a advertisement of one beacon. The filterestimation regarding the proximity to a beacon is indicated using one of four proximity states.
 
@@ -60,12 +70,12 @@ The Far proximity state indicates a detected beacon without much confidence in t
 The Unknown proximity state indicates a state where beacons are can not be determined. This my happen if the ranging has just begun or that the accuracy level is insufficient for measurements to determine a state that is either Far, Near or Immediate.
 \end{itemize}
 
-\subsubsection{Estimote Beacon Drawbacks}
+\subsection{Estimote Beacon Drawbacks}
 For the implementation of Estimote Indoor Navigation for the project we decided to use Monitoring on the devices in order to detect the beacons, specifiyng a certain region. However, the devices still take at least about 30 seconds to recognize the fact that a beacon is out of range. This is a  built-in and non adjustable delay in order to prevent "false" exit events.\cite{developerDocsEstimote} This is a major drawback regarding a use-case of the project, that a user might pass multiple beacons of a location and constantly update new locations without the need to stop at each beacon.
 
 This is solved by in additional applied ranging of all beacons that are monitored in order to process the "nearest" beacon as a users location. The devices report then the beacons in an order that is best guess of their proximity regarding issues of signal attenuation. This order however may still not be correct.\cite{appleIBeacon}
 
-\subsubsection{Apple Core Location Framework}
+\section{Apple Core Location Framework}
 As firstly presented on WWDC2015 \cite{wwdc15}  Apple presented new functionalities to the already existing Core Location Framework which is the major Framework on iOS devices for location service \cite{CLlocation}. This Framework takes the user in charge of wether the app can use locations services on the device or not.
 
 The Core Location Framework uses Cellular data to provide an aproximity in which area in a city a user is. Additionally it uses GPS based on Satellite signals to improve the position of the user as well as sorounding Wi-Fi signals.
