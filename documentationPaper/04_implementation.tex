@@ -27,7 +27,9 @@ Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Reso
 
 \subsubsection{models}
 
+Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we definded four schemas companionrequest, hotspot, location and user. But not every information have to be an extra collection in the mongoDB so we definded subdocuments for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is now need for an extra collection.
 
+%define models
 
 \subsubsection{middleware}
 \label{backend-middleware}
