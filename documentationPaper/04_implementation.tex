@@ -55,6 +55,223 @@ Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs 
 \section{Android}
 
 
+
+
 \vspace{0.5cm}
 
 \section{iOS}
+\subsection{Login}
+
+In order to use the application, the user has to login via Federation Provider, in order to get
+a security token which grants access to the application server. \\
+
+The app handles the login process using a UIWebView. The login request will then be redirected
+to the Tubit login page ~\ref{fig:login1}, where the user finally can type in Tubit username and password.
+If the user credentials are correct, the webview gets redirected to the piazza application server.
+
+If the WebView was able to access the application server successfully, the WebView closes and grants the user access to the application. The WebView can not be bypassed without a successful login via Federation Provider ~\ref{fig:login2}. Each request to the application server reopens the WebView again, if the used security token is invalid or if the user has been logged out. 
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{login1}
+  \captionof{figure}{Federation Provider}
+  \label{fig:login1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{login2}
+  \captionof{figure}{Tubit Login}
+  \label{fig:login2}
+\end{minipage}
+\end{figure}
+
+\subsection{Hotspots/ Buildings}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[width=.5\linewidth]{showbuildings}
+\caption{TableView with a list of Buildings}
+\label{fig:showbuildings}
+\end{minipage}
+\end{figure}
+
+The Buildings View ~\ref{fig:showbuildings} is the first view the user sees after login. This view enlists all available Hotspots delivered by the Backend.
+
+\begin{enumerate}
+  \item The reload button, calls the Backend to get a list of available hotspots. The list contains the hotspots and the available beacon and floor information.
+  \item The Tableview lists all available hotspots from the Backend. Each cell contains the name of a Hotspot.
+  \item The Application is divided into three contextual distinct parts: Buildings, Friends and Groups. This subdivision is implemented in a UITabBar which is the leading element of the application architecture. 
+\end{enumerate}
+
+\subsection{Friends}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{friendlist}
+  \captionof{figure}{Available Friends and Open Requests}
+  \label{fig:friendlist}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{addfriend}
+  \captionof{figure}{Add Friends}
+  \label{fig:addfriend}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{showgroups}
+  \captionof{figure}{Available Groups}
+  \label{fig:showgroups}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{addgroup}
+  \captionof{figure}{Add Group}
+  \label{fig:addgroup}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{showgroups}
+  \captionof{figure}{Available Groups}
+  \label{fig:showgroups}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{addgroup}
+  \captionof{figure}{Add Group}
+  \label{fig:addgroup}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{shareposition}
+  \captionof{figure}{Share Position Mode}
+  \label{fig:shareposition}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{synchronizedme}
+  \captionof{figure}{Synchronized Position Mode}
+  \label{fig:synchronizedme}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{settings1}
+  \captionof{figure}{Share Position Mode}
+  \label{fig:settings1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{settings2}
+  \captionof{figure}{Synchronized Position Mode}
+  \label{fig:settings2}
+\end{minipage}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+\includegraphics[width=.5\linewidth]{request1}
+\caption{TableView with a list of Buildings}
+\label{fig:request1}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{cllocationframework1}
+  \captionof{figure}{Share Position Mode}
+  \label{fig:cllocationframework1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{cllocationframework2}
+  \captionof{figure}{Synchronized Position Mode}
+  \label{fig:cllocationframework2}
+\end{minipage}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{additionalinfo}
+  \captionof{figure}{Share Position Mode}
+  \label{fig:additionalinfo}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{showfriends}
+  \captionof{figure}{Synchronized Position Mode}
+  \label{fig:showfriends}
+\end{minipage}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{map1}
+  \captionof{figure}{Share Position Mode}
+  \label{fig:map1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{map2}
+  \captionof{figure}{Synchronized Position Mode}
+  \label{fig:map2}
+\end{minipage}
+\end{figure}
+
+
+\begin{enumerate}
+  \item The first item
+  \begin{enumerate}
+    \item Nested item 1
+    \item Nested item 2
+  \end{enumerate}
+  \item The second item
+  \item The third etc \ldots
+\end{enumerate}
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.2]{addfriend}
+\caption{A prototype of the Add Friend}
+\label{fig:addFriendDialog}
+\end{figure}
+
+
