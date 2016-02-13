@@ -61,3 +61,12 @@ This authentication environment helped us to achieve multiple goals in our imple
 
 \section{Database Design}
 
+Part of the template we received at the beginning of the project from our supervisors at the SNET department was the integration of a MongoDB\footnote{\url{https://www.mongodb.org/}} as the database for our service. The communication with the database was not done directly via the officially supported Node.JS MongoDB drivers but instead via another layer inbetween, an object mapping library called Mongoose\footnote{\url{http://mongoosejs.com/}}.
+
+MongoDB is a representative of the class of the NoSQL databases. These kind of databases reject the traditional database approach of laying out the whole data landscape in a relational, table-based fashion prior to implementing an architecture. In the class of NoSQL databases again multiple different data models are used, including columns, documents, key-value stores, graphs or multi-modal databases. MongoDB itself is a document-oriented data store based on the \enquote{Binary JSON} (BSON, pronouned \enquote{bison}) data format.
+
+The NoSQL schema provides multiple features favourable for distributed, scalable environments such as big web applications are. NoSQL databases are generally simpler in design, are able to scale horizontally through sharding and provide greater operation speed in some settings. Also MongoDB incorporates a replication mechanism for high availability in which sets of at least two representations of data exist, one being the primary, the other ones being secondary replicas. In case of a failure of the primary replica, the remaining members perform a leader election in order to retain availability.
+
+In our case we defined models consistent to the representation of data in our architecture. The models included an \texttt{user}, a \texttt{location}, a \texttt{companionrequest} and a \texttt{hotspot} model which in turn got converted into MongoDB collections. Via Mongoose we were able to perform operations on these collections by invoking methods on such a specified model. Further discussion of our model structure will be given in chapter \ref{mongodb-models}.
+
+Of course this setup did not only provide advantages but also yielded quite a lot of headaches during the project. We will be reviewing our issues with MongoDB, or more specifically Mongoose, in our chapter about the evaluation.

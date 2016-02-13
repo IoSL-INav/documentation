@@ -26,6 +26,7 @@ We designed four controllers which are also part of our API endpoints to handle 
 Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Resource Identifier}. Our routes link mostly with the same name to the controllers which we defined above. Since we have an RESTful API the expressjs framework also allows us to define GET,POST,PUT and UPDATE functionality. All endpoints are secured via our middleware which we will describe in section \ref{backend-middleware}.
 
 \subsection{Models}
+\label{mongodb-models}
 
 Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we definded four schemas companionrequest, hotspot, location and user. But not every information have to be an extra collection in the mongoDB so we definded subdocuments for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is now need for an extra collection.
 
