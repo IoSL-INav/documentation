@@ -28,12 +28,14 @@ Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Reso
 \subsection{Models}
 \label{mongodb-models}
 
-Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we definded four schemas companionrequest, hotspot, location and user. But not every information have to be an extra collection in the mongoDB so we definded subdocuments for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is now need for an extra collection.
+Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we definded four schemas companionrequest, hotspot, location and user. But not every information have to be an extra collection in the mongoDB. We definded subdocuments for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is no need for an extra collection.
 
 %define models
 
 \subsection{Middleware}
 \label{backend-middleware}
+
+The middleware is provided by the cyclone projekt which handels the authentication and session management to the federation provider. If the user doesn't exist in our database the authentication middleware will add it with the informations which he gets from the federation provider. This includes the name, email and the ID which is also given from the authentication token of the user. We overloaded this middleware for the test section below. Which allows us to have a valid authentication against the database.
 
 \subsection{Test}
 
@@ -274,5 +276,3 @@ The Buildings View ~\ref{fig:showbuildings} is the first view the user sees afte
 \caption{A prototype of the Add Friend}
 \label{fig:addFriendDialog}
 \end{figure}
-
-
