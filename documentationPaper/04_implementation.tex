@@ -6,35 +6,35 @@
 
 \subsection{Architecture}
 
-In this section we will focus on the architecture and our decision for the backend and its communication. We build a RESTful API which allows the clients to communicate with the backend in a JSON\footnote{\url{http://json.org/index.html}} format. The Figure \ref{fig:system-overview} shows how the architecture is build up. We had two diffrent client applications which are communicating with the backend and a federation provider, we will describe the federation provider in chapter \ref{federation-provider}. The backend persists the data into a mongoDB database. The SNET department provided us a virtual machine with the url \url{piazza.snet.tu-berlin.de} where we could setup our environment.
+In this section we will focus on the architecture and our decisions on backend side and its communication. We built a RESTful API which allows clients to communicate with the backend via the JSON format. The figure \ref{fig:system-overview} shows what the architecture consisted of. We had two different client applications which were communicating with the backend and a federation provider,further backend specific information about the federation provider will follow in chapter \ref{federation-provider}. The backend persisted the data into a mongoDB database. The SNET department provided us a virtual machine at the address \url{http://piazza.snet.tu-berlin.de}, where we could setup our environment.
 
-We developed the backend with node.js\footnote{\url{https://nodejs.org/en/}} under the purpose that the SNET department can use or integrate it later to other projects which are mostly written in node.js. For our webapplication we uses the expressjs\footnote{\url{http://expressjs.com/}} framework which influnced us in the structure of how to build a application. Our file structure consists of five main directories:
+We developed the backend with Node.JS\footnote{\url{https://nodejs.org/en/}} with the purpose that the SNET department could use or integrate it later into other projects which are mostly written in Node.JS. For our web application we used the Express web framework which influenced us in the structure of how our application is built. Our file structure consisted of five main directories:
 \begin{itemize}
-  \item \textbf{controllers} are the specific implementation of a function
-  \item \textbf{routes} links an endpoint to an controller
-  \item \textbf{models} are schemas for the presistant data in the database
-  \item \textbf{middleware} takes care for our authentication
-  \item \textbf{test} are made for some of the important conrollers
+  \item \textbf{Controllers} are the specific implementation for an API endpoint request.
+  \item \textbf{Routes} link an endpoint to a controller.
+  \item \textbf{Models} are schemas for the presistent data in the database.
+  \item \textbf{Middleware} takes care of our authentication.
+  \item \textbf{Tests} are provided for some of the important controllers.
 \end{itemize}
 
-\subsubsection{controllers}
+\subsection{Controllers}
 
-We designed four controllers which are also part of our API endpoints to handle all requests to our API. Companionrequests handels the creation and modification of companion request which means, if a user wants to add a colleague to his friends list, he had first ask his friend/companion for permission. If he accepted it, both parties get added to each others friend list. If he deny it, the requester will be notified that it was not acceped. The controller hotspot gives back all information of the defined hotspots like mensa or library. This contains GPS coordinates, companyUUID, major and minor of estimote bluetooth beacons. For getting or modifying user specific information like his location, groups and settings the users controller is the handler of this requests. The last controller is the login controller which gives back if the login was successful or not. He also adds some userinformation.
+We designed four controllers which are also part of our API endpoints to handle all requests to our API. \texttt{companionrequests} handles the creation and modification of a companion request. This means that a user wants to add a colleague to her/his friends list and she/he asks her/his friend for permission. If she/he accepts it, both parties are added to each others friends list. If she/he denies it, the requesting user will be notified about the changed status. The controller \texttt{hotspot} gives back all information about the defined hotspots like mensa or library. This includes GPS coordinates, companyUUID, major and minor of the Estimote Bluetooth Beacons contained in the area. For retrieving or modifying user specific information like her/his location, groups and settings the \texttt{users} controller is the handler for these kind of requests. The last controller is the \texttt{login} controller which on successful login returns some information about the logged in user.
 
-\subsubsection{routes}
+\subsection{Routes}
 
 Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Resource Identifier}. Our routes link mostly with the same name to the controllers which we defined above. Since we have an RESTful API the expressjs framework also allows us to define GET,POST,PUT and UPDATE functionality. All endpoints are secured via our middleware which we will describe in section \ref{backend-middleware}.
 
-\subsubsection{models}
+\subsection{Models}
 
 Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we definded four schemas companionrequest, hotspot, location and user. But not every information have to be an extra collection in the mongoDB so we definded subdocuments for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is now need for an extra collection.
 
 %define models
 
-\subsubsection{middleware}
+\subsection{Middleware}
 \label{backend-middleware}
 
-\subsubsection{test}
+\subsection{Test}
 
 - Server setup\\
 - Docker deployment\\
@@ -69,7 +69,7 @@ The app handles the login process using a UIWebView. The login request will then
 to the Tubit login page ~\ref{fig:login1}, where the user finally can type in Tubit username and password.
 If the user credentials are correct, the webview gets redirected to the piazza application server.
 
-If the WebView was able to access the application server successfully, the WebView closes and grants the user access to the application. The WebView can not be bypassed without a successful login via Federation Provider ~\ref{fig:login2}. Each request to the application server reopens the WebView again, if the used security token is invalid or if the user has been logged out. 
+If the WebView was able to access the application server successfully, the WebView closes and grants the user access to the application. The WebView can not be bypassed without a successful login via Federation Provider ~\ref{fig:login2}. Each request to the application server reopens the WebView again, if the used security token is invalid or if the user has been logged out.
 
 
 \begin{figure}
@@ -105,7 +105,7 @@ The Buildings View ~\ref{fig:showbuildings} is the first view the user sees afte
 \begin{enumerate}
   \item The reload button, calls the Backend to get a list of available hotspots. The list contains the hotspots and the available beacon and floor information.
   \item The Tableview lists all available hotspots from the Backend. Each cell contains the name of a Hotspot.
-  \item The Application is divided into three contextual distinct parts: Buildings, Friends and Groups. This subdivision is implemented in a UITabBar which is the leading element of the application architecture. 
+  \item The Application is divided into three contextual distinct parts: Buildings, Friends and Groups. This subdivision is implemented in a UITabBar which is the leading element of the application architecture.
 \end{enumerate}
 
 \subsection{Friends}
