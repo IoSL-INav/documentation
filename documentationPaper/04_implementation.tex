@@ -55,15 +55,17 @@ The middleware is provided by the cyclone projekt which handels the authenticati
 
 \vspace{0.5cm}
 
-\section{Android}
-
-
-
-
-\vspace{0.5cm}
-
 \section{iOS}
 
+\begin{description}
+\item[System Requirements:] \hfill \\
+\begin{itemize}
+  \item \textbf{Operating System:} Version: iOS9; Build:13A340
+  \item \textbf{Screen Size} 640 x 1136 pixels (~326 ppi pixel density); 4 inches
+  \item \textbf{Bluetooth:} v4.0, A2DP, LE
+  \item \textbf{Internet Technology:} Wi-Fi
+\end{itemize}
+\end{description}
 
 The iOS application provides the user with a map of the specific hotspot. For this project the example of indoor navigation inside the mensa has been implemented. The app shows two floors of the mensa, together with additional informations about the location.
 
@@ -169,7 +171,7 @@ The Buildings View \textbf{(see Figure:~\ref{fig:showbuildings})} is the first v
 
 
 If the user taps on one of the buildings enlisted, the app opens respectively
-the coresponding floorplan in an MKMapView\textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floorplan on a large scale. This improved scale functionality was added additionaly in order to increase the usability and accuracy of manual pin-pointing.
+the coresponding floorplan in an MKMapView \textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floorplan on a large scale. This improved scale functionality was added additionaly in order to increase the usability and accuracy of manual pin-pointing.
 
 \begin{enumerate}
 \item The the MapView shows the first floor of the mensa by default, if the Tubit-MSE api which provides the floor and building information is not available. In cases of availability of the Tubit-MSE api, the MapView shows the corresponding floor as soon as the MapView appears on the screen.
@@ -312,8 +314,12 @@ The iOS client build for the project shows a propper solution of mobile indoor n
   \item[Remote Notifications] \hfill \\
   Remote notification handling is state of the art in mobile applications of these days. It should be considered to equip the backend with the ability to notify a user if one of his friends shared his position in a specific hotspot, instead of constantly polling for updates. Remote Notifications would also be used to notify the user for new companion requests. Also sheduled polling for Hotspot updates is not a best practice and should be exchanged by a publish-subscribe pattern.
   \item[CLLocation Framework] \hfill \\
-  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program. With a successfull enrollment, floor informations as well as the accuracy of the users position would be improved.
+  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program \cite{mapsConnect}. With a successfull enrollment, floor informations as well as the accuracy of the users position would be improved.
   \item[Friends/Group Management] \hfill \\
   In future work, the client should give the user more posibilities to manage his friends as moving friends to specific groups or edit groups. The map should also be equipped with the posibilities to show specific groups instead of only all friends in a hotspot.
   
 \end{description}
+
+\vspace{0.5cm}
+
+\section{Android}
