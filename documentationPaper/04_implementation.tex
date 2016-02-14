@@ -75,7 +75,7 @@ In order to show positions of the user and friends with the exact coordinates on
 Apple also provides registered iOS developers with a framework to manage the mapping of x/y coordinates of the PDF file with the exact Latitude/Longitude real world coordinates of the map 
 \textbf{(see Figure:~\ref{fig:map1})}.
 
-This framework has been used for this project to integrate the floorplan of the mensa. The GeoAnchor class provided by Apple converts each corner of a PDF rectangle into a MKMapPoint. The collection of MKMapPoints is combined to a MKPolygon which is used to draw elements and annotations on top of a map. This technology is used to divide the floorplan material into multiple maptiles that can be added to the map \textbf{(see Figure:~\ref{fig:map2})}.
+This framework has been used for this project to integrate the floorplan of the mensa \cite{AppleFootprint}. The GeoAnchor class provided by Apple converts each corner of a PDF rectangle into a MKMapPoint. The collection of MKMapPoints is combined to a MKPolygon which is used to draw elements and annotations on top of a map. This technology is used to divide the floorplan material into multiple maptiles that can be added to the map \textbf{(see Figure:~\ref{fig:map2})}.
 
 
 \begin{figure}
@@ -266,7 +266,7 @@ As soon as the user taps on the All Friends button of the TabBar, the applicatio
 \begin{enumerate}
 \item The Reloadbutton is implemented in order to update the list of friends or new companion requests. In future work the server should be able to send remote notifications in order to inform the user of new companion requests.
 
-\item The Plus button is implemented to open a new view \textbf{(see Figure:~\ref{fig:addfriend}} where the user can add new friends and send new companion requests.
+\item The Plus button is implemented to open a new view \textbf{(see Figure:~\ref{fig:addfriend})} where the user can add new friends and send new companion requests.
 
 \item The listview is managed by a UISegmentControl. The content is divided into available friends and available companion requests which are shown by numbers. A tap on one of the segments will either change the content of the TableView to friends or companion requests. The entry of the list contains the provided name of a friend.
 \end{enumerate}
@@ -314,7 +314,7 @@ The iOS client build for the project shows a propper solution of mobile indoor n
   \item[Remote Notifications] \hfill \\
   Remote notification handling is state of the art in mobile applications of these days. It should be considered to equip the backend with the ability to notify a user if one of his friends shared his position in a specific hotspot, instead of constantly polling for updates. Remote Notifications would also be used to notify the user for new companion requests. Also sheduled polling for Hotspot updates is not a best practice and should be exchanged by a publish-subscribe pattern.
   \item[CLLocation Framework] \hfill \\
-  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program \cite{mapsConnect}. With a successfull enrollment, floor informations as well as the accuracy of the users position would be improved.
+  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program \cite{MapsConnect}. With a successfull enrollment, floor informations as well as the accuracy of the users position would be improved.
   \item[Friends/Group Management] \hfill \\
   In future work, the client should give the user more posibilities to manage his friends as moving friends to specific groups or edit groups. The map should also be equipped with the posibilities to show specific groups instead of only all friends in a hotspot.
   
