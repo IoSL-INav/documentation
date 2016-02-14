@@ -35,7 +35,7 @@ Our system setup required a certain workload split between the two logical parti
 The general idea is to have the clients handle all direct user interaction with the service in a consistent, user-friendly manner. The other important task on client side is to gather the position information of the requesting user and performing priorization logic on all available information. This was needed to deliver only the most important position to backend where it would replace the old value. The following priorization order was chosen:
 \begin{center}
     \includegraphics[width=0.75\textwidth]{position-priorization-order}\\
-    Position priorization order.
+    Position priorization order: pin-pointed better than Bluetooth better than WiFi position.
     \label{fig:position-priorization}
 \end{center}
 
