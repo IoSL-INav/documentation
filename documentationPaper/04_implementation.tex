@@ -294,12 +294,15 @@ As seen on ~\ref{fig:addfriend}, the app opens modally a new view that enables t
 \end{minipage}
 \end{figure}
 
-The backend enables the user to manage groups. Each user has a group named All friends, containing all of the users friends. Additionally the user may have different friends that can be added to own groups. These groups will be enlisted in this TableView as shown in ~\ref{fig:showgroups}. 
+The backend enables the user to manage groups. Each user has a group named All friends, containing all of the users friends. Additionally the user may have different friends that can be added to own groups. These groups will be enlisted in this Table View as shown in ~\ref{fig:showgroups}. 
 
 \begin{enumerate}
  \item The plus-button will open a new view modally that enables the user to create a new group (see ~\ref{fig:addgroup}).
  \item This tableview shows all available groups of the user. Each cell contains of the Name of the group together with the GroupID as subtitle. For future work if the user taps a group, it will open a new list showing the members of this group. The user should also be able to add specific friends to a group as well as edit or delete a group.
 \end{enumerate} 
+
+\subsection{Geofencing}
+The iOS client supports Geofencing abilities for registered Hotspots. Geofencing notifies the app when its device enters or leaves the geographical region of a Hotspot. For this project the triggered notification greats the user and acts as a reminder to use the app if the user enters the mensa. The notification can also be used to take the user in charge of the decision wether he wants to download updates about the hotspot. The notification will also act as a reminder to deactivate bluetooth if the user leaves the mensa.
 
 
 \subsection{Future Work on iOS}
