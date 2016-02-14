@@ -39,7 +39,7 @@ The middleware is provided by the cyclone projekt which handels the authenticati
 
 \subsection{Test}
 
-We wrote tests for the \testtt{users/me}, \testtt{users/me/groups} and \testtt{hotspot} endpoint. In nodejs a popular test framework is supertest which allows tests for HTTP-GET,POST,PUT and UPDATE functionality. We combined that with the chai framework which is a BDD (Behavior Driven Development) / TDD (Test-driven development) assertion library. For the tests we had to overloaded the middleware because we can not test against the federation provider with a dummy user. With the command \textbf{npm test} all 10 written test will start to be execuded. Our 10 tests are the following:
+We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{hotspot} endpoint. In nodejs a popular test framework is supertest which allows tests for HTTP-GET,POST,PUT and UPDATE functionality. We combined that with the chai framework which is a BDD (Behavior Driven Development) / TDD (Test-driven development) assertion library. For the tests we had to overloaded the middleware because we can not test against the federation provider with a dummy user. With the command \textbf{npm test} all 10 written test will start to be execuded. Our 10 tests are the following:
 
 \begin{enumerate}
   \item delete the user
