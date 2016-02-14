@@ -154,6 +154,26 @@ For the Project the new CLLocation Framework was used to show the users Positon 
 
 The Frameworks started in an early beta when this project started and is constantly improved. To enable the full abilities of CLLocation Framework indoors, the venue needs to be registered and enabled by apple, using Maps Connect program \cite{mapsConnect} in order to unlock CLLocation Frameworks full potential.
 
+Regarding this project we tested the indoor navigation framework to see if its accuracy is already sufficient for our use case in the mensa. As shown in  ~\ref{fig:cllocationframework1} and ~\ref{fig:cllocationframework2} The user location is shown precisely on the indoor floorplan. The accuracy as shown in ~\ref{fig:cllocationframework1} started with a large circle but constantly improved while moving through the building. We also accounted situations in which the framework lost precision dramatically as we moved to the upper left corner of the Mensa which is surrounded by walls. However the provided coordinates of the shared position of the user to the system was still accurate enough in order to find a friend.
+
+We decided to use this technology, since it is the only solution for this project in order to show the user position on the floors without any additional installations into the environment of the mensa, out of the box and without any additional user interaction.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{cllocationframework1}
+  \captionof{figure}{Indoor Position on start}
+  \label{fig:cllocationframework1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{cllocationframework2}
+  \captionof{figure}{Accuracy drastically improved after a couple of seconds }
+  \label{fig:cllocationframework2}
+\end{minipage}
+\end{figure}
+
 
 \vspace{0.5cm}
 
