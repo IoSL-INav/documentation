@@ -65,7 +65,7 @@ We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{h
 
 \subsection{Deployment}
 
-The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker application. Docker is an open source application which automates deployment of software applications in linux containers.
+The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker\footnote{\url{https://www.docker.com/}} application. Docker is an open source application which automates deployment of software applications in linux containers. One of the biggest advantages of the linux containers in Docker is that you have an isolated linux container for each application. Another positiv effect of Docker is the Dockerfile. This allows us to define how the software should be deployed and also the dependencies in the application. Our software depends on the mongoDB database so we also liked to have the mongoDB as a own linux container, because we were not sure where the database run in a produktiv environment. Docker give us the ability to define a sequence of how to start the created containers, because the database have to run befor our applications starts. For this we needed a docker-compose.yml file which defines all necessary settings for the containers to start.
 
 \vspace{0.5cm}
 
