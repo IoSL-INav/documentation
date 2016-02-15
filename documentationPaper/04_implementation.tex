@@ -57,10 +57,14 @@ We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{h
 \subsection{CYCLONE Federation Provider}
 \label{federation-provider}
 
-%TODO
+Authentication and session managment is necessary in mostly every software project that deals with the web. But in our case we included the CYCLONE Federation Provider which lead to less development overhead for our project. Because the Federation Provider takes care of the authentication of a user. It also give as the ability for a single-sign-on solution. We will focus on this section mostly on the including development part and not the concept of the CYCLONE Federation Provider which is written in chapter \ref{concept-authentication}.
+
+On the development we dig into a bug in the implementation of \texttt{keycloak-nodejs}. But thanks to Mathias Slawik how fixed it fast to get the implementation of the keycloak done. The bug was that the redirection of a user how is not logged-in was broken. But after this we secure every endpoint with an \texttt{authenticate} function of keycloak which redirects the user automaticaly to the Federation Providers login page (Figure \ref{fig:federation-provider-login}). After a successful login we receive the \textbf{userID}, \textbf{username} and \textbf{mail} in the \texttt{JSON Web Token} whish we persist in our mongoDB and also create a default group called \enquote{All friends} and save it also into the userobject. In this default group will all friends be added which the user accept the companionrequest.
+
 \begin{center}
     \includegraphics[width=\textwidth]{cyclone-federation-provider-login}\\
-    Login screen to CYCLONE Federation Provider.
+    \captionof{figure}{Login screen to CYCLONE Federation Provider.}
+    \label{fig:federation-provider-login}
 \end{center}
 
 \subsection{Deployment}
