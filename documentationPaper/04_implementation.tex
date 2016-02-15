@@ -87,13 +87,13 @@ The SNET department wish to have an easy way to deploy our software. So we looke
 
 The iOS application provides the user with a map of the specific hotspot. For this project the example of indoor navigation inside the mensa has been implemented. The app shows two floors of the mensa, together with additional informations about the location.
 
-\subsection{Floorplans}
-In order to show positions of the user and friends with the exact coordinates on the map, the floorplan material is added as MKOverlay on top of the MKMapView provided by Apple. We use the PDF files provided by Studentenwerk Berlin for this project.
+\subsection{Floor plans}
+In order to show positions of the user and friends with the exact coordinates on the map, the floor plan material is added as MKOverlay on top of the MKMapView provided by Apple. We use the PDF files provided by Studentenwerk Berlin for this project.
 
 Apple also provides registered iOS developers with a framework to manage the mapping of x/y coordinates of the PDF file with the exact Latitude/Longitude real world coordinates of the map
 \textbf{(see Figure:~\ref{fig:map1})}.
 
-This framework has been used for this project to integrate the floorplan of the mensa \cite{AppleFootprint}. The GeoAnchor class provided by Apple converts each corner of a PDF rectangle into a MKMapPoint. The collection of MKMapPoints is combined to a MKPolygon which is used to draw elements and annotations on top of a map. This technology is used to divide the floorplan material into multiple maptiles that can be added to the map \textbf{(see Figure:~\ref{fig:map2})}.
+This framework has been used for this project to integrate the floor plan of the mensa \cite{AppleFootprint}. The GeoAnchor class provided by Apple converts each corner of a PDF rectangle into a MKMapPoint. The collection of MKMapPoints is combined to a MKPolygon which is used to draw elements and annotations on top of a map. This technology is used to divide the floor plan material into multiple maptiles that can be added to the map \textbf{(see Figure:~\ref{fig:map2})}.
 
 
 \begin{figure}
@@ -107,7 +107,7 @@ This framework has been used for this project to integrate the floorplan of the 
 \begin{minipage}{.5\textwidth}
   \centering
   \includegraphics[width=.5\linewidth]{map2}
-  \captionof{figure}{Applied Floorplan to the defined Boundaries}
+  \captionof{figure}{Applied Floor plan to the defined Boundaries}
   \label{fig:map2}
 \end{minipage}
 \end{figure}
@@ -189,7 +189,7 @@ The Buildings View \textbf{(see Figure:~\ref{fig:showbuildings})} is the first v
 
 
 If the user taps on one of the buildings enlisted, the app opens respectively
-the coresponding floorplan in an MKMapView \textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floorplan on a large scale. This improved scale functionality was added additionaly in order to increase the usability and accuracy of manual pin-pointing.
+the coresponding floor plan in an MKMapView \textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floor plan on a large scale. This improved scale functionality was added additionaly in order to increase the usability and accuracy of manual pin-pointing.
 
 \begin{enumerate}
 \item The the MapView shows the first floor of the mensa by default, if the Tubit-MSE api which provides the floor and building information is not available. In cases of availability of the Tubit-MSE api, the MapView shows the corresponding floor as soon as the MapView appears on the screen.
@@ -213,7 +213,7 @@ the coresponding floorplan in an MKMapView \textbf{(see Figure:~\ref{fig:sharepo
 \end{enumerate}
 
 
-The Settings view (\textbf{see Figure:~\ref{fig:settings1} and ~\ref{fig:settings2}}) provides additional options to indoor positioning and information markers that are shown on the floorplan.
+The Settings view (\textbf{see Figure:~\ref{fig:settings1} and ~\ref{fig:settings2}}) provides additional options to indoor positioning and information markers that are shown on the floor plan.
 
 \begin{figure}
 \centering
@@ -242,7 +242,7 @@ The Settings view (\textbf{see Figure:~\ref{fig:settings1} and ~\ref{fig:setting
 
 If the user activates \textbf{Show all Friends} on settings and has already shared the own position, the mapview adds markers for each friend located in the same hotspot. The friend markers are equipped with Accuracy-Circles placed underneath the marker. The radius of the Accuracy-Circles decreases with the accuracy of the shared position. If a position is manually shared, no Accuracy-Circle will be shown. However, if the position is shared via Bluetooth or Wi-Fi, the Accuracy-Circle increases to show the region the friends position \textbf{(see Figure:~\ref{fig:showfriends})}.
 
-If the user activates \textbf{Show Specific Hotspot Informations} on settings, the mapview will show the user specific Informations regarding the Hotspot such as Cashregister or Foodstands. This functionality has been added in order to improve the usability of the floorplan and helps the user to orientate using the map while navigating in the building \textbf{(see Figure:~\ref{fig:additionalinfo})}.
+If the user activates \textbf{Show Specific Hotspot Informations} on settings, the mapview will show the user specific Informations regarding the Hotspot such as Cashregister or Foodstands. This functionality has been added in order to improve the usability of the floor plan and helps the user to orientate using the map while navigating in the building \textbf{(see Figure:~\ref{fig:additionalinfo})}.
 
 \begin{figure}
 \centering
