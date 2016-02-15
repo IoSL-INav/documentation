@@ -57,13 +57,15 @@ We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{h
 \subsection{CYCLONE Federation Provider}
 \label{federation-provider}
 
+%TODO
 \begin{center}
     \includegraphics[width=\textwidth]{cyclone-federation-provider-login}\\
     Login screen to CYCLONE Federation Provider.
 \end{center}
 
 \subsection{Deployment}
-%TODO
+
+The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker application. Docker is an open source application which automates deployment of software applications in linux containers.
 
 \vspace{0.5cm}
 
@@ -336,7 +338,7 @@ The iOS client build for the project shows a propper solution of mobile indoor n
 
 \section{Android}
 
-Android application enables user to manage companions, automatically and manually retrieve users indoor position using different localization techniques available, share position with friends and show friend's positions on indoor maps. Application currently includes indoor maps of the Mensa in Hardenbergstraße at TU Berlin. 
+Android application enables user to manage companions, automatically and manually retrieve users indoor position using different localization techniques available, share position with friends and show friend's positions on indoor maps. Application currently includes indoor maps of the Mensa in Hardenbergstraße at TU Berlin.
 
 Application requires Android version 5.0 or higher. It uses API level 21. Application was tested on Nexus 4 and Nexus 5 devices.
 
@@ -344,7 +346,7 @@ Application requires Android version 5.0 or higher. It uses API level 21. Applic
 Application show floor plans as overlays over Google Maps. We use floor plans in the PDF format provided by Studentenwerk Berlin for purpose of this project. PDF files were converted to PNG files and shown on top of Google Maps using \textit{GroundOverlay} class. Different floors are represented with multiple floor plans.
 
 \subsection{Login}
-To authenticate with backend server, application has to send authentication token with every requests it sends. Application retrieves authentication token during login procedure. Login is done with Federation Provider project. During login procedure, user is shown login page in web view inside the mobile application. After successful login application stores the retrieved authentication token in \textit{shared preferences} and user it for future requests. 
+To authenticate with backend server, application has to send authentication token with every requests it sends. Application retrieves authentication token during login procedure. Login is done with Federation Provider project. During login procedure, user is shown login page in web view inside the mobile application. After successful login application stores the retrieved authentication token in \textit{shared preferences} and user it for future requests.
 
 \subsection{Communication with backend server}
 Application communicates with backend server using REST requests. For performing REST requests application uses \textit{Volley} library.
@@ -398,7 +400,7 @@ User can manually pinpoint position on the indoor map of selected hotspost. With
 Sharing user's position is implemented with a background service. Every 15 seconds service sends the most accurate location data stored in \textit{LocationSharingSingleton} instance to the backend server. Determining the most accurate position goes as follows; most accurate are manually pinpointed coordinated and floor, followed by beacon identifier that defines a region. The least precise is the MSI retrieved building name and floor information.
 
 \subsection{Showing friends}
-Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:android_show_friends}. For different accuracies different markers are used. Pinpointed position is shown with single marker (1). Position shared with beacon ID is shown with marker surrounded by circle representing the region defined by beacon signal strength (2). 
+Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:android_show_friends}. For different accuracies different markers are used. Pinpointed position is shown with single marker (1). Position shared with beacon ID is shown with marker surrounded by circle representing the region defined by beacon signal strength (2).
 
 \subsection{Future work}
 Implemented client application provides basic functionalities for indoor positioning. Proposed future work suggest the functionalities that should be considered in further development of the project.
@@ -409,4 +411,4 @@ Implemented client application provides basic functionalities for indoor positio
   \item[Friends/Group Management] \hfill \\
   Current application enables user to list all available groups and friends inside them. Adding and deleting friends is already implemented. Group management is already supported on backend, so mobile application should implement options to add, edit and delete groups and to assign user to one or more groups.
 
-\end{description}	
+\end{description}
