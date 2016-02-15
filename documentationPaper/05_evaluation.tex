@@ -1,9 +1,18 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
 
-Evaluate:
-\begin{itemize}
-    \item What does work so far? What does not?
-    \item What were the observed issues (see final presentation)?
-    \item $\rightarrow$ MSE API, beacons, interplay server with clients, Node.JS, Mongoose (MongoDB), etc.
-\end{itemize}
+Indoor navigation is a very interesting topic and get more important in context of mobile applications. We researched diffrent technologies for indoor navigation and implemented those in an Android and iOS application. Both devices can locate a user via manual pin pointing on a map,CISCO MSE API and Estimote beacons. First we had really create expectations to the CISCO MSE API but the didn't offer us the longitude and latitude for each building only for some sporadic buildings. So we only could use it for a rough localication of a user. The Estimote beacons give us quite nice expectations on the range from the datasheet but we didn't get the specified range and after sometime the get really bad until the stopped working. We found out that the battery was empty. So we changed it and the worked again but according to the datasheet the beacons should work near to three years without changing the battery.
+
+We had some struggle at the beginning what is possible on the devices and what can we really implement on iOS and Android. We had some specific implementations on both devices like the Apple CLLocation Framework or how we can execute threads in background. The communication between the mobile application is completely in JSON to a RESTful backend in the web. This was very good and useful because we dont had to implement specifics for the devices at the backend.
+
+At the backend we tried to implement some geo-fencing possibilities because the mongoDB should offer us some of these functionalities but the mongoose framework was not implementing it right and we discovered some bugs that hindered us to implement it. The backend technology of nodejs was quite interesting because we had no expirence with an asynchrone programming language but our learning curve was high and it would have been possible that we implement functionalities which are now future work. The CYCLONE Federation Provider was a nice project to include in our work but sometimes we had some struggles with them but mostly to get specific information from the tubIT which we didn't get until now.
+
+In total we dont get everything implemented what we thought we could do at the beginning but we get the main functionalities of sharing a position manuel and automaticaly working on two diffrent devices including the communication to the backend.
+
+%TODO remove itemes below
+%Evaluate:
+%\begin{itemize}
+%    \item What does work so far? What does not?
+%    \item What were the observed issues (see final presentation)?
+%    \item $\rightarrow$ MSE API, beacons, interplay server with clients, Node.JS, Mongoose (MongoDB), etc.
+%\end{itemize}
