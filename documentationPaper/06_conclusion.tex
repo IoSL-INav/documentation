@@ -1,21 +1,22 @@
 \chapter{Conclusion}
 \label{cha:conclusion}
 
-Conclusion:
-\begin{itemize}
-    \item What did we do, how did it work out?
-      \begin{itemize}
-        \item functionalities for group modifications are implemented on backend
-      \end{itemize}
-    \item Mention \enquote{team work issues}?
-    \item Future work
-      \begin{itemize}
-        \item share location for a specific group /active\_friends
-        \item only share information with a specific group
-      \end{itemize}
-\end{itemize}
+In our project we focused on locating people in indoor environments. We firstly defined a use-case to state the importance of our work and provide motivation. We tried to constrain our project so that the final solution could be used by as many different users as possible. Our typical user is a TU student or employee with a WiFi and Bluetooth enables smart phone in their pocket. 
 
+To solve problem of positioning people in indoor environments, we firstly made a research on available indoor location techniques. We chose the techniques that were available by the TU infrastructure and by smart phones of our typical users.
+
+Our indoor positioning solution consists of backend application server and client application. Backend application handles user authentication, persisting of data and location data exchange between users. Client applications were developed for Android and iOS mobile devices. They provides functionalities of automatically locating users, sharing their locations and showing their friends on indoor maps. 
+
+Implemented indoor positioning solution fulfilled all major goals that we defined at the beginning of the project. We successfully implemented automatic indoor location retrieving, with manual fall-back option, sharing of retrieved location with friends and showing friends on indoor maps.
+
+Overall, the topic of indoor navigation turned out to be very interesting one from both research and implementation perspective. It helped us to get to know the ropes of indoor navigation and understand the user's and the technology perspective of it.
 
 \vspace{0.5cm}
 
 \section{Future Work}
+
+One of the scenarios we prepared at the beginning of the project defined the case, when a user shares his location with only a specified subset of his friends. Implemented backend application already provides functionalities to create and modify different user groups and to classify friends into them. 
+
+Functionalities to manage user groups and to classify friends into them are not jet fully implemented in both client applications. Future work should implement an intuitive and user friendly way to achieve that.
+
+Furthermore, when sharing his position, user should be able to select a group with which he want his position to be shared. This functionality should become part of client applications. Backend application should extend its functionalities so that users location is shared only with groups of friends he specified and not with all of his friends.
