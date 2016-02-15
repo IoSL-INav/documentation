@@ -19,7 +19,7 @@ The Cisco MSE determines the location of any wireless device in a specific build
 \vspace{0.5cm}
 
 \section{Short range localization techniques}
-
+\label{short_range_localization_techniques}
 Different localization techniques are presented and compared in book~\cite{brimicombe2009location}. For purpose of this project, we were interested mostly in short range positioning technologies. Short range positioning technologies cover small areas and are frequently employed for positioning in indoor environments. Most popular technologies are WiFi and Bluetooth, which are most commonly used to determine proximity location of mobile device connected to network. Other available technologies are Radio Frequency Identification (RDIF), Ultra Wide Band Positioning, ultrasonic positioning, infrared positioning, camera-assisted and sensor-assisted positioning. We focused our research on WiFi and Bluetooth as those were the technologies provided for us by our supervisors.
 
 \subsection{WiFi based positioning}
@@ -261,3 +261,8 @@ In the end, our conclusion at that point in the project progress was to use the 
 \vspace{0.5cm}
 
 \section{Evaluation of Available Technologies}
+As mentioned in \ref{short_range_localization_techniques}, WiFi and Bluetooth based positioning technologies are the most suitable and most widely used for indoor positioning. With technology development such as Bluetooth Low Energy and different wrapper implementations such as CISCO MSE API those two technologies became even more important players in indoor navigation. Review of related work confirms this statement, as majority of related work use those two technologies.
+
+This research and related work presented the basics for our decision on which technologies to use. Our decision was also biased by the infrastructure and equipment we had at our disposal. TubIT provides the wrapper for CISCO MSE API in the university campus and because WiFi based localization techniques are widely used for indoor positioning, we decided to give it a try. It turned out to be quite ineffective at retrieving exact coordinates of user. However, since it provides quality information about building name and floor all over the university campus, we decided to include it in our project as least accurate positioning technique. We also had 3 Estimote Beacons and 6 Stickers at our disposal. Since Bluetooth positioning techniques are widely used for indoor positioning, we considered Estimote Beacons and Stickers as possible localization technique for our project. Their usage of Bluetooth Low Energy which provides low cost, robustness and low power usage represented big plus in their favour. The biggest plus was their support for iBeacon protocol which makes them compatible with all modern mobile devices. All those factors supported our decision to use Estimote Beacons and Stickers in our project.
+
+Since we planned to implement both Android and iOS client, we decided to use Apple Core Location Framework on iOS devices. Decision was supported by the fact that this new technology provides quality indoor location information using wildly deployed and available technology WiFi and that it may play an important role as indoor navigation technology in future releases of iOS operating system.
