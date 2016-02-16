@@ -1,10 +1,51 @@
 \chapter{Evaluation}
 \label{cha:evaluation}
 
-Indoor navigation is a very interesting topic and get more important in context of mobile applications. We researched diffrent technologies for indoor navigation and implemented those in an Android and iOS application. Both devices can locate a user via manual pin pointing on a map,CISCO MSE API and Estimote beacons. First we had really create expectations to the CISCO MSE API but the didn't offer us the longitude and latitude for each building only for some sporadic buildings. So we only could use it for a rough localication of a user. The Estimote beacons give us quite nice expectations on the range from the datasheet but we didn't get the specified range and after sometime the get really bad until the stopped working. We found out that the battery was empty. So we changed it and the worked again but according to the datasheet the beacons should work near to three years without changing the battery.
 
-We had some struggle at the beginning what is possible on the devices and what can we really implement on iOS and Android. We had some specific implementations on both devices like the Apple CLLocation Framework or how we can execute threads in background. The communication between the mobile application is completely in JSON to a RESTful backend in the web. This was very good and useful because we dont had to implement specifics for the devices at the backend.
+The CISCO MSE lack of providing user coordinates was a huge drawback for this project. This disadvantage is due to the not completed installation of the api by Tubit. The informations the MSE API provides has been shown as only these that the user is already aware of while beeing at the location, instead of coordinates which has not been aware for indoor positioning.
 
+The use case to provide the service to TU-Berlin students with access to eduroam restrained the effords of taking more development time into the actual part of indoor mobile client based navigation. Having access to eduroam via Federation Provider was mandatory in order to get access to the MSE API. However the implementations of the backend together with the multiple issues faced while working with the Federation Provider had a huge time consuming impact into the backend work and so to the whole project. 
+
+The project requirements to automatically download and update hotspot informations from the server once a week did not pay off as expected. A user without an ongoing session on the server would be forced to actively open the app to login into the Federation Provider in order to get access to the servers. 
+
+An early renunciation of the Federation Provider as well as the CISCO MSE requirements would have given more posibilities to focus on the indoor navigation it self as the main idea of the project.
+
+
+
+The project requirements to implemented a permanently polling mobile client to update 
+ active friends positions in a building, instead of implementing a remote notification scheme that works on update of new positions, forces the clients to download data, multiple times per minute even though the retreived data is redundant.
+This client behaviour might get even worse since the client must also automatically upload its position on the server repeatedly at the same time. Additionally the client must also query the MSE API multiple times per minute for informations that are redundant if the user is not even changing the floor.
+  
+  The excessive data workload combined with monitoring of bluetooth beacons tends to a huge impact on 
+especially older mobile clients batteries, causing a massive drain that could empty the battery even before the user has finished his meal.
+
+
+Nevertheless the project benefits from the usage of the federation provider in that way, that the service can be now provided to multiple universities in europe. The mobile client also does not handle or store user credentials locally which is a good security approach. 
+However using a WebView to pass username and password can be dangerous not only for this project especially on Android clients prior to Android 4.3 (Jelly Bean) \footnote{https://www.rapid7.com/db/modules/exploit/android/browser/webview_addjavascriptinterface}.
+
+
+
+The estimote beacons have indeed been shown as very useful to locate the user indoors without having coordinates. The combination of ranging and monitoring methods offered by the Estimote SDK enables the clients to detect available beacons and share the position of the beacon regarding the closest range. This technology would also be useful in future work if the mensa would be equipped with multiple nearable stickers which are cheaper than Beacons. Using BLE did not reveal it self as extremely battery draining on the client side, rather than on the beacon side. The latter one has constantly been an issue through the whole project. 
+While monitoring and ranging beacons, the system does not give the user active feedback about a current state. This systemspecific behaviour could not have been altered on either clients. The delays of detecting a beacon and recognizing the unavailability of a beacon had an negative influence on usability. This is shown in cases where the user is not informed if a beacon is already
+detected, how long it takes until the correct beacon is detected or which beacon has been shared to the server. 
+
+
+
+Against our expectations the manual sharing of positions has revealed it self as most accurate and user friendliest way of sharing postions. It is more accurate, since the user exactly decides which position is shared rather then the system. The user is also in charge to delete his shared position from the servers when he wants. The direct feedback of interaction, and the posibilitiy to actively engage into the process instead of relying backend- or automated services improves the users experience in indoor navigation. 
+
+We have been successful in implementing floorplans on Android and iOS that indead helps a user to find friends and join them in the mensa. Our clients have shown that this technology is now also possible indoors as expected for comparable applications outdoors. 
+
+The Apple indoor Framework on iOS has been shown as a profient solution for indoor navigation. Although the framework used for this project leaves some serious issues with memory management that can lead to crashes on older devices it shows that it is not yet ready for a release. However in this case it is, regarding the fact that there is more to come from, a really good solution to show the users position in an indoor location.
+
+
+
+
+
+
+
+
+
+%TODO rework this please for backend evaluation.
 At the backend we tried to implement some geo-fencing possibilities because the mongoDB should offer us some of these functionalities but the mongoose framework was not implementing it right and we discovered some bugs that hindered us to implement it. The backend technology of nodejs was quite interesting because we had no expirence with an asynchrone programming language but our learning curve was high and it would have been possible that we implement functionalities which are now future work. The CYCLONE Federation Provider was a nice project to include in our work but sometimes we had some struggles with them but mostly to get specific information from the tubIT which we didn't get until now.
 
 In total we dont get everything implemented what we thought we could do at the beginning but we get the main functionalities of sharing a position manuel and automaticaly working on two diffrent devices including the communication to the backend.
