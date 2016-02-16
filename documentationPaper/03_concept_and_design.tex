@@ -32,14 +32,14 @@ Furthermore a widely supported and light-weight format for interchanging data be
 
 Our system setup required a certain workload split between the two logical parties, the client side and the backend side. The modification of data on backend side was designed to be very transparent to clients but still some values submitted on the endpoints needed preprocessing to be done on mobile application side.
 
-The general idea is to have the clients handle all direct user interaction with the service in a consistent, user-friendly manner. The other important task on client side is to gather the position information of the requesting user and performing prioritization logic on all available information. This was needed to deliver only the most important position to backend where it would replace the old value. The following prioritization order was chosen:
+The general idea is to have the clients handle all direct user interaction with the service in a consistent, user-friendly manner. The other important task on client side is to gather the position information of the requesting user and performing prioritization logic on all available information. This was needed to deliver only the most accurate position to backend where it would replace the old value. The following position accuracy prioritization order was chosen:
 \begin{center}
     \includegraphics[width=0.75\textwidth]{position-priorization-order}\\
-    Position priorization order: pin-pointed better than Bluetooth better than WiFi position.
+    Position prioritization order: pin-pointed better than Bluetooth better than WiFi position.
     \label{fig:position-priorization}
 \end{center}
 
-On backend side received data would than be sanitized, error and security checked and processed in its according request handler function. Therefore backend would handle everything concerning long term user state management, data persistence and API response aggregation.
+On backend side received data would then be sanitized, error and security checked and processed in its according request handler function. Therefore backend would handle everything concerning long term user state management, data persistence and API response aggregation.
 
 
 \vspace{0.5cm}
@@ -55,7 +55,7 @@ The OAuth 2.0 Authorization Framework is an IETF RFC \cite{hardt2012oauth} which
 
 JWTs (pronouned: \enquote{jots}) are another IETF RFC \cite{bradley2015json} standardizing the transfer of a set of claims as a JSON object in a compact and URL-safe manner. The standard defines three parts of an JWT with the first one being the algorithm and token part, the second being the payload and the third used to verify the transported JWT. Encoding and concatenating these fields with dots yields the mentioned URL-safe representation predestined to be transported in HTTP Authorization headers or URI query parameters.
 
-This authentication environment helped us to achieve multiple goals in our implementation. First of all users were able to authenticate via their university account as it is part of the edugain collaboration for which CYCLONE acts as an federation provider. Therefore we had a single-sign-on mechanism available by simply integrating CYCLONE. The other major advantage was that we never saw the user's credentials used to authenticate. We were able to rely on the well-tested user authentication code base provided implicitly through the layered mechanisms the CYCLONE Federation Provider contained.
+This authentication environment helped us to achieve multiple goals in our implementation. First of all, users were able to authenticate via their university account as it is part of the edugain collaboration for which CYCLONE acts as an federation provider. Therefore we had a single-sign-on mechanism available by simply integrating CYCLONE. The other major advantage was that we never saw the user's credentials used to authenticate. We were able to rely on the well-tested user authentication code base provided implicitly through the layered mechanisms the CYCLONE Federation Provider contained.
 
 
 \vspace{0.5cm}
@@ -66,7 +66,7 @@ Part of the template we received at the beginning of the project from our superv
 
 MongoDB is a representative of the class of the NoSQL databases. These kind of databases reject the traditional database approach of laying out the whole data landscape in a relational, table-based fashion prior to implementing an architecture. In the class of NoSQL databases again multiple different data models are used, including columns, documents, key-value stores, graphs or multi-modal databases. MongoDB itself is a document-oriented data store based on the \enquote{Binary JSON} (BSON, pronounced \enquote{bison}) data format.
 
-The NoSQL schema provides multiple features favorable for distributed, scalable environments such as big web applications are. NoSQL databases are generally simpler in design, are able to scale horizontally through shading and provide greater operation speed in some settings. Also MongoDB incorporates a replication mechanism for high availability in which sets of at least two representations of data exist, one being the primary, the other ones being secondary replicas. In case of a failure of the primary replica, the remaining members perform a leader election in order to retain availability.
+The NoSQL schema provides multiple features favourable for distributed, scalable environments such as big web applications are. NoSQL databases are generally simpler in design, are able to scale horizontally through shading and provide greater operation speed in some settings. Also MongoDB incorporates a replication mechanism for high availability in which sets of at least two representations of data exist, one being the primary, the other ones being secondary replicas. In case of a failure of the primary replica, the remaining members perform a leader election in order to retain availability.
 
 In our case we defined models consistent to the representation of data in our architecture. The models included an \texttt{user}, a \texttt{location}, a \texttt{companionrequest} and a \texttt{hotspot} model which in turn got converted into MongoDB collections. Via Mongoose we were able to perform operations on these collections by invoking methods on such a specified model. Further discussion of our model structure will be given in chapter \ref{mongodb-models}.
 
