@@ -6,13 +6,13 @@
 
 \subsection{Architecture}
 
-In this section we will focus on the architecture and our decisions on backend side and its communication. We built a RESTful API which allows clients to communicate with the backend via the JSON format. The figure \ref{fig:system-overview} shows what the architecture consisted of. We had two different client applications which were communicating with the backend and a federation provider,further backend specific information about the federation provider will follow in chapter \ref{federation-provider}. The backend persisted the data into a mongoDB database. The SNET department provided us a virtual machine at the address \url{http://piazza.snet.tu-berlin.de}, where we could setup our environment.
+In this section we will focus on the architecture and our decisions on backend side and its communication. We built a RESTful API which allows clients to communicate with the backend via the JSON format. The figure \ref{fig:system-overview} shows what the architecture consisted of. We had two different client applications which were communicating with the backend and a federation provider, further backend specific information about the federation provider will follow in chapter \ref{federation-provider}. The backend persisted the data into a mongoDB database. The SNET department provided us a virtual machine at the address \url{http://piazza.snet.tu-berlin.de}, where we could setup our environment.
 
 We developed the backend with Node.JS\footnote{\url{https://nodejs.org/en/}} with the purpose that the SNET department could use or integrate it later into other projects which are mostly written in Node.JS. For our web application we used the Express web framework which influenced us in the structure of how our application is built. Our file structure consisted of five main directories:
 \begin{itemize}
   \item \textbf{Controllers} are the specific implementation for an API endpoint request.
   \item \textbf{Routes} link an endpoint to a controller.
-  \item \textbf{Models} are schemas for the presistent data in the database.
+  \item \textbf{Models} are schemas for the persistent data in the database.
   \item \textbf{Middleware} takes care of our authentication.
   \item \textbf{Tests} are provided for some of the important controllers.
 \end{itemize}
@@ -23,23 +23,23 @@ We designed four controllers which are also part of our API endpoints to handle 
 
 \subsection{Routes}
 
-Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Resource Identifier}. Our routes link mostly with the same name to the controllers which we defined above. Since we have an RESTful API the express.js framework also allows us to define GET,POST,PUT and UPDATE functionality. All endpoints are secured via our middleware which we will describe in section \ref{backend-middleware}.
+Routes specifies a specific endpoint for a defined URI\footnote{URI=Uniform Resource Identifier}. Our routes link mostly with the same name to the controllers which we defined above. Since we have an RESTful API the express.js framework also allows us to define GET, POST, PUT and UPDATE functionality. All endpoints are secured via our middleware which we will describe in section \ref{backend-middleware}.
 
 \subsection{Models}
 \label{mongodb-models}
 
-Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we defined four schemes companion-request, hotspot, location and user. But not every information have to be an extra collection in the mongoDB. We defined sub-documents for those information which dont need an extra collection. For example the beacons are always in a hotspot so there is no need for an extra collection.
+Mongoose\footnote{\url{http://mongoosejs.com/}} is a powerful plugin for nodejs which allows us to have an easier connection to the mongoDB database. For this we have to define schema's for our models. So we defined four schemes companion-request, hotspot, location and user. But not every information have to be an extra collection in the mongoDB. We defined sub-documents for those information which do not need an extra collection. For example the beacons are always in a hotspot so there is no need for an extra collection.
 
 %define models
 
 \subsection{Middleware}
 \label{backend-middleware}
 
-The middleware is provided by the cyclone project which handles the authentication and session management to the federation provider. If the user doesn't exist in our database the authentication middleware will add it with the information which he gets from the federation provider. This includes the name, email and the ID which is also given from the authentication token of the user. We overloaded this middleware for the test section below. Which allows us to have a valid authentication against the database.
+The middleware is provided by the cyclone project which handles the authentication and session management to the federation provider. If the user does not exist in our database the authentication middleware will add it with the information which he gets from the federation provider. This includes the name, email and the ID which is also given from the authentication token of the user. We overloaded this middleware for the test section below. Which allows us to have a valid authentication against the database.
 
 \subsection{Test}
 
-We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{hotspot} endpoint. In node.js a popular test framework is a supertest which allows tests for HTTP-GET,POST,PUT and UPDATE functionality. We combined that with the chai framework which is a BDD (Behavior Driven Development) / TDD (Test-driven development) assertion library. For the tests we had to overloaded the middleware because we can not test against the federation provider with a dummy user. With the command \textbf{npm test} all 10 written test will start to be executed. Our 10 tests are the following:
+We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{hotspot} endpoint. In node.js a popular test framework is a supertest which allows tests for HTTP GET, POST, PUT and UPDATE functionality. We combined that with the chai framework which is a BDD (Behavior Driven Development) / TDD (Test-driven development) assertion library. For the tests we had to overloaded the middleware because we can not test against the federation provider with a dummy user. With the command \textbf{npm test} all 10 written test will start to be executed. Our 10 tests are the following:
 
 \begin{enumerate}
   \item delete the user
@@ -47,9 +47,9 @@ We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{h
   \item update user information
   \item create a group with the name "Some Groupname here"
   \item get the created group back
-  \item update the groupname
+  \item update the group name
   \item delete the created group
-  \item get hotspots back and check struct of hotspot, also inner structs
+  \item get hotspots back and check structure of hotspot, also inner structures
   \item get one specific hotspot back
   \item get one specific hotspot and there beacons back
 \end{enumerate}
@@ -59,7 +59,7 @@ We wrote tests for the \texttt{users/me}, \texttt{users/me/groups} and \texttt{h
 
 Authentication and session management is necessary in mostly every software project that deals with the web. But in our case we included the CYCLONE Federation Provider which lead to less development overhead for our project. Because the Federation Provider takes care of the authentication of a user. It also give as the ability for a single-sign-on solution. We will focus on this section mostly on the including development part and not the concept of the CYCLONE Federation Provider which is written in chapter \ref{concept-authentication}.
 
-On the development we dig into a bug in the implementation of \texttt{keycloak-nodejs}. But thanks to Mathias Slawik how fixed it fast to get the implementation of the keycloak done. The bug was that the redirection of a user how is not logged-in was broken. But after this we secure every endpoint with an \texttt{authenticate} function of keycloak which redirects the user automatically to the Federation Providers login page (Figure \ref{fig:federation-provider-login}). After a successful login we receive the \textbf{userID}, \textbf{username} and \textbf{mail} in the \texttt{JSON Web Token} wish we persist in our mongoDB and also create a default group called \enquote{All friends} and save it also into the userobject. In this default group will all friends be added which the user accept the companion-request.
+On the development we dig into a bug in the implementation of \texttt{keycloak-nodejs}. But thanks to Mathias Slawik how fixed it fast to get the implementation of the Keycloak done. The bug was that the redirection of a user how is not logged-in was broken. But after this we secure every endpoint with an \texttt{authenticate} function of Keycloak which redirects the user automatically to the Federation Providers login page (Figure \ref{fig:federation-provider-login}). After a successful login we receive the \textbf{userID}, \textbf{username} and \textbf{mail} in the \texttt{JSON Web Token} wish we persist in our mongoDB and also create a default group called \enquote{All friends} and save it also into the userobject. In this default group will all friends be added which the user accept the companion-request.
 
 \begin{center}
     \includegraphics[width=\textwidth]{cyclone-federation-provider-login}\\
@@ -69,7 +69,7 @@ On the development we dig into a bug in the implementation of \texttt{keycloak-n
 
 \subsection{Deployment}
 
-The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker\footnote{\url{https://www.docker.com/}} application. Docker is an open source application which automates deployment of software applications in linux containers. One of the biggest advantages of the linux containers in Docker is that you have an isolated linux container for each application. Another positive effect of Docker is the Dockerfile. This allows us to define how the software should be deployed and also the dependencies in the application. Our software depends on the mongoDB database so we also liked to have the mongoDB as a own linux container, because we were not sure where the database run in a produktiv environment. Docker give us the ability to define a sequence of how to start the created containers, because the database have to run befor our applications starts. For this we needed a docker-compose.yml file which defines all necessary settings for the containers to start.
+The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker\footnote{\url{https://www.docker.com/}} application. Docker is an open source application which automates deployment of software applications in linux containers. One of the biggest advantages of the linux containers in Docker is that you have an isolated linux container for each application. Another positive effect of Docker is the Dockerfile. This allows us to define how the software should be deployed and also the dependencies in the application. Our software depends on the mongoDB database so we also decided to have the mongoDB as a own linux container, because we were not sure where the database will run in a production environment. Docker give us the ability to define a sequence of how to start the created containers, because the database have to run before our applications starts. For this we needed a docker-compose.yml file which defines all necessary settings for the containers to start.
 
 
 
@@ -110,14 +110,14 @@ Menu view is the main screen of application as shown in figure \ref{fig:android_
 \end{figure}
 
 \subsection{Retrieving user's position}
-\subsubsection{Cisco MSI API}
-Retrieving position from Cisco MSI API provided by tubIT is implemented as a background service. If mobile device has WiFi enabled and it is connected to \textit{eduroam}, service scans the API in 30 seconds intervals. API response is processed and building name and floor information are stored in \textit{LocationSharingSingleton} instance.
+\subsubsection{CISCO MSI API}
+Retrieving position from CISCO MSI API provided by tubIT is implemented as a background service. If mobile device has WiFi enabled and it is connected to \textit{eduroam}, service scans the API in 30 seconds intervals. API response is processed and building name and floor information are stored in \textit{LocationSharingSingleton} instance.
 
 \subsubsection{Estimote Beacons}
-Searching for nearby Estimote Beacons and Nearables is done using ranging method and nearable discovery method provided by Estimote SDK. All detected Beacons and Nearables are represented as internal \textit{Beacon}. Closest beacon is determined as the one with the best signal strength (RSSI). Information about detected beacons is then stored in \textit{LocationSharingSingleton} instance.
+Searching for nearby Estimote Beacons and Stickers is done using ranging method and nearable discovery method provided by Estimote SDK. All detected Beacons and Stickers are represented as internal \textit{Beacon} class. Closest beacon is determined as the one with the best signal strength (RSSI). Information about detected beacons is then stored in \textit{LocationSharingSingleton} instance.
 
 \subsubsection{Manual position pinning}
-User can manually pinpoint position on the indoor map of selected hotspost. With checkbox \textit{Share position} (1) user enable manual pinpointing. Position can then be set with marker (2). Manual pinpointing is shown in figure \ref{fig:android_pinpoint}. Pinpointed coordinates and floor are stored in \textit{LocationSharingSingleton} instance.
+User can manually pinpoint position on the indoor map of selected hotspost. With checkbox \textit{Share position} (1) user enable manual pinpointing. Position can then be set with marker (2). Manual pinpointing is shown in figure \ref{fig:android_pinpoint}. Pinpointed coordinates and floor information are stored in \textit{LocationSharingSingleton} instance.
 
 \begin{figure}
 \centering
@@ -136,7 +136,7 @@ User can manually pinpoint position on the indoor map of selected hotspost. With
 \end{figure}
 
 \subsection{Sharing user's position}
-Sharing user's position is implemented with a background service. Every 15 seconds service sends the most accurate location data stored in \textit{LocationSharingSingleton} instance to the backend server. Determining the most accurate position goes as follows; most accurate are manually pinpointed coordinated and floor, followed by beacon identifier that defines a region. The least precise is the MSI retrieved building name and floor information.
+Sharing user's position is implemented with a background service. Every 15 seconds service sends the most accurate location data stored in \textit{LocationSharingSingleton} instance to the backend server. Determining the most accurate position goes as follows; most accurate are manually pinpointed coordinated and floor information, followed by beacon identifier that defines a region. The least precise is the MSI retrieved building name and floor information.
 
 \subsection{Showing friends}
 Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:android_show_friends}. For different accuracies different markers are used. Pinpointed position is shown with single marker (1). Position shared with beacon ID is shown with marker surrounded by circle representing the region defined by beacon signal strength (2).
@@ -145,9 +145,9 @@ Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:andr
 Implemented client application provides basic functionalities for indoor positioning. Proposed future work suggest the functionalities that should be considered in further development of the project.
 
 \begin{description}
-  \item[Remote Notifications] \hfill \\
+  \item[Remote notifications] \hfill \\
   Backend and could implement sending remote notifications to inform mobile clients about events such as friend entering hotspot.
-  \item[Friends/Group Management] \hfill \\
+  \item[Friends and group Management] \hfill \\
   Current application enables user to list all available groups and friends inside them. Adding and deleting friends is already implemented. Group management is already supported on backend, so mobile application should implement options to add, edit and delete groups and to assign user to one or more groups.
   
 \end{description}
@@ -167,9 +167,9 @@ Implemented client application provides basic functionalities for indoor positio
 \end{itemize}
 \end{description}
 
-The iOS application provides the user with a map of the specific hotspot. For this project the example of indoor navigation inside the Mensa has been implemented. The app shows two floors of the Mensa, together with additional information about the location.
+The iOS application provides the user with a map of the specific hotspot. For this project the example of indoor navigation inside the Mensa has been implemented. The app shows both floors of the Mensa, together with additional information about the location.
 
-\subsection{Floorplans}
+\subsection{Floor plans}
 In order to show positions of the user and friends with the exact coordinates on the map, the floor plan material is added as MKOverlay on top of the MKMapView provided by Apple. We use the PDF files provided by \textit{Studentenwerk Berlin} for this project.
 
 Apple also provides registered iOS developers with a framework to manage the mapping of x/y coordinates of the PDF file with the exact Latitude/Longitude real world coordinates of the map
@@ -198,13 +198,12 @@ This framework has been used for this project to integrate the floor plan of the
 \subsection{Login}
 
 In order to use the application, the user has to login via Federation Provider, to get
-a security token which grants access to the application server. \\
+a security token which grants access to the application server.
 
 The app handles the login process using a UIWebView. The login request will then be redirected
-to the tubIT login page \textbf{(see Figure:~\ref{fig:login1})}, in which the user finally can type in tubIT username and password.
-If the user credentials are correct, the web-view gets redirected to the piazza application server.
+to the tubIT login page \textbf{(see Figure:~\ref{fig:login1})}, in which the user finally can type in tubIT username and password. If the user credentials are correct, the web view gets redirected to the piazza application server.
 
-If the web-view was able to access the application server successfully, the web-view closes and grants the user access to the application. The web-view can not be bypassed without a successful login via Federation Provider \textbf{(see Figure:~\ref{fig:login2})}. Each request to the application server re-opens the web-view again, if the used security token is invalid or if the user has been logged out.
+If the web view was able to access the application server successfully, the web view closes and grants the user access to the application. The web view can not be bypassed without a successful login via Federation Provider \textbf{(see Figure:~\ref{fig:login2})}. Each request to the application server re-opens the web view again, if the used security token is invalid or if the user has been logged out.
 
 
 \begin{figure}
@@ -270,15 +269,14 @@ The Buildings View \textbf{(see Figure:~\ref{fig:showbuildings})} is the first v
 \end{figure}
 
 
-If the user taps on one of the buildings enlisted, the app opens respectively
-the corresponding floor plan in an MKMapView \textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floor plan on a large scale. This improved scale functionality was added additionally in order to increase the usability and accuracy of manual pin-pointing.
+If the user taps on one of the buildings enlisted, the app opens respectively the corresponding floor plan in an MKMapView \textbf{(see Figure:~\ref{fig:shareposition})} that shows the mensa floor plan on a large scale. This improved scale functionality was added additionally in order to increase the usability and accuracy of manual pin-pointing.
 
 \begin{enumerate}
 \item The the Map-view shows the first floor of the Mensa by default, if the Tubit-MSE api which provides the floor and building information is not available. In cases of availability of the Cisco-MSE api, the Map-view shows the corresponding floor as soon as the Map-view appears on the screen.
 
 \item The manual pin pointing of the users position is triggered by a so called long press on the map which was additionally implemented. The long press is a distinct user-interaction mode. It is applied as solution for manual pin pointing on iOS in order to prevent the user from mistakenly share  positions by inadvertently touching the map. After a long press is registered by the system, it drops a red pin on the position where the user pressed. This switches the Map-view into a share position mode. In this mode the user can touch on any place on the map to easily edit or remove the pin, if the position to share is not correct.
 
-\item The information panel is used to give the user the possibility to change the floor by pressing the plus (up) or minus(down) button. The Information-Panel also flips with an animation, signaling the user of the changed mode of the MapView. The flip animation is triggered as soon as the system successfully registers a long press. In Share Position Mode the Information-Panel prompts the user to share the location.
+\item The information panel is used to give the user the possibility to change the floor by pressing the plus (up) or minus (down) button. The Information-Panel also flips with an animation, signalling the user of the changed mode of the MapView. The flip animation is triggered as soon as the system successfully registers a long press. In Share Position Mode the Information-Panel prompts the user to share the location.
 
 \item The File-Button modally opens a settings view with further options.
 \end{enumerate}
@@ -314,11 +312,11 @@ The Settings view (\textbf{see Figure:~\ref{fig:settings1} and ~\ref{fig:setting
 \end{figure}
 
 \begin{enumerate}
-\item \textbf{Show all Friends} activates markers for friends in the same hotspot. \textbf{(Note: Friends will only be shown on the map if the user has shared his own position before)}
+\item \textbf{Show all Friends} activates markers for friends in the same hotspot. \textbf{(Note: Friends will only be shown on the map if the user has shared his own position before).}
 \item \textbf{Automatic Update} activates a routine that constantly requests the server for location updates of friends.
-\item \textbf{Wi-Fi Indoor-Positioning} activates the CLLocation Framework positioning. This will automatically update the user position while moving through the building.
-\item \textbf{Bluetooth-Positioning} activates location sharing via Bluetooth beacons
-\item \textbf{Show Beacons/Regions} activates annotations showing Beacons placed in the hotspot
+\item \textbf{WiFi Indoor Positioning} activates the CLLocation Framework positioning. This will automatically update the user position while moving through the building.
+\item \textbf{Bluetooth-Positioning} activates location sharing via Bluetooth beacons.
+\item \textbf{Show Beacons/Regions} activates annotations showing Beacons placed in the hotspot.
 \item \textbf{Show Specific Hotspot-Information} activates annotations showing specific hotspot informations.
 \end{enumerate}
 
@@ -345,7 +343,7 @@ If the user activates \textbf{Show Specific Hotspot Informations} on settings, t
 
 \subsection{Friends}
 
-As soon as the user taps on the All Friends button of the TabBar, the application shows the All my Friends List \textbf{(see Figure:~\ref{fig:friendlist})}. This view shows either the friends of the user or opens companion requests that the user needs to accept in order to add a person into his friends-list. Note that all available friends will be shown in this list regardless of their group affiliation.
+As soon as the user taps on the All Friends button of the TabBar, the application shows the All my Friends List \textbf{(see Figure:~\ref{fig:friendlist})}. This view shows either the friends of the user or opens companion requests that the user needs to accept in order to add a person into his friends list. Note that all available friends will be shown in this list regardless of their group affiliation.
 
 \begin{figure}
 \centering
@@ -404,7 +402,7 @@ The backend enables the user to manage groups. Each user has a group named All f
 \end{enumerate}
 
 \subsection{Geofencing}
-The iOS client supports Geofencing abilities for registered hotspots. Geofencing notifies the app when its device enters or leaves the geographical region of a hotspot. For this project the triggered notification greats the user and acts as a reminder to use the app if the user enters the Mensa. The notification can also be used to take the user in charge of the decision whether he wants to download updates about the hotspot. The notification will also act as a reminder to deactivate Bluetooth if the user leaves the Mensa to save battery.(\textbf{(see Figure:~\ref{fig:reminder notification 1} and ~\ref{fig:reminder notification 2}})
+The iOS client supports Geofencing abilities for registered hotspots. Geofencing notifies the app when its device enters or leaves the geographical region of a hotspot. For this project the triggered notification greats the user and acts as a reminder to use the app if the user enters the Mensa. The notification can also be used to take the user in charge of the decision whether he wants to download updates about the hotspot. The notification will also act as a reminder to deactivate Bluetooth if the user leaves the Mensa to save battery \textbf{(see Figure:~\ref{fig:reminder notification 1} and ~\ref{fig:reminder notification 2}}).
 
 \begin{figure}
 \centering
@@ -430,7 +428,7 @@ The iOS client build for the project shows a proper solution of mobile indoor na
   \item[Remote Notifications] \hfill \\
   Remote notification handling is state of the art in mobile applications of these days. It should be considered to equip the backend with the ability to notify a user if one of his friends shared his position in a specific hotspot, instead of constantly polling for updates. Remote Notifications would also be used to notify the user for new companion requests. Also scheduled polling for hotspot updates is not a best practice and should be exchanged by a publish-subscribe pattern.
   \item[CLLocation Framework] \hfill \\
-  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program \cite{MapsConnect}. With a successfull enrollment, floor information as well as the accuracy of the users position would be improved.
+  In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrolment in Apples Map Connect program \cite{MapsConnect}. With a successful enrolment, floor information as well as the accuracy of the users position would be improved.
   \item[Friends/Group Management] \hfill \\
-  In future work, the client should give the user more posibilities to manage his friends as moving friends to specific groups or edit groups. The map should also be equipped with the posibilities to show specific groups instead of only all friends in a hotspot.
+  In future work, the client should give the user more possibilities to manage his friends as moving friends to specific groups or edit groups. The map should also be equipped with the possibilities to show specific groups instead of only all friends in a hotspot.
 \end{description}
