@@ -2,58 +2,31 @@
 \label{cha:evaluation}
 
 
-The CISCO MSE lack of providing user coordinates was a huge drawback for this project. This disadvantage is due to the not completed installation of the api by Tubit. The information the MSE API provides has been shown as only these that the user is already aware of while being at the location, instead of coordinates which has not been aware for indoor positioning.
+The CISCO MSE's lack of providing user coordinates was a huge drawback for this project. This disadvantage is due to the not completed installation of the API by tubIT. The information the MSE API provides has been shown as only these that the user is already aware of while being at the location, instead of coordinates which has not been aware for indoor positioning.
 
-The use case to provide the service to TU-Berlin students with access to eduroam restrained the efforts of taking more development time into the actual part of indoor mobile client based navigation. Having access to eduroam via Federation Provider was mandatory in order to get access to the MSE API. However the implementations of the backend together with the multiple issues faced while working with the Federation Provider had a huge time consuming impact into the backend work and so to the whole project. 
+The use case to provide the service to TU Berlin students with access to eduroam restrained the efforts of taking more development time into the actual part of indoor mobile client based navigation. Having access to eduroam via Federation Provider was mandatory in order to get access to the MSE API. However the implementations of the backend together with the multiple issues faced while working with the Federation Provider had a huge time consuming impact into the backend work and so to the whole project. 
 
 The project requirements to automatically download and update hotspot information from the server once a week did not pay off as expected. A user without an ongoing session on the server would be forced to actively open the app to login into the Federation Provider in order to get access to the servers. 
 
-An early renunciation of the Federation Provider as well as the CISCO MSE requirements would have given more posibilities to focus on the indoor navigation it self as the main idea of the project.
-
-
+An early renunciation of the Federation Provider as well as the CISCO MSE requirements would have given more possibilities to focus on the indoor navigation it self as the main idea of the project.
 
 The project requirements to implemented a permanently polling mobile client to update 
- active friends positions in a building, instead of implementing a remote notification scheme that works on update of new positions, forces the clients to download data, multiple times per minute even though the retrieved data is redundant.
-This client behavior might get even worse since the client must also automatically upload its position on the server repeatedly at the same time. Additionally the client must also query the MSE API multiple times per minute for information that are redundant if the user is not even changing the floor.
+active friends positions in a building, instead of implementing a remote notification scheme that works on update of new positions, forces the clients to download data, multiple times per minute even though the retrieved data is redundant. This client behaviour might get even worse since the client must also automatically upload its position on the server repeatedly at the same time. Additionally the client must also query the MSE API multiple times per minute for information that are redundant if the user is not even changing the floor.
   
-  The excessive data workload combined with monitoring of Bluetooth beacons tends to a huge impact on 
-especially older mobile clients batteries, causing a massive drain that could empty the battery even before the user has finished his meal.
-
+The excessive data workload combined with monitoring of Bluetooth beacons tends to a huge impact on especially older mobile clients batteries, causing a massive drain that could empty the battery even before the user has finished his meal.
 
 Nevertheless the project benefits from the usage of the federation provider in that way, that the service can be now provided to multiple universities in Europe. The mobile client also does not handle or store user credentials locally which is a good security approach. 
 
+The Estimote beacons have indeed been shown as very useful to locate the user indoors without having coordinates. The combination of ranging and monitoring methods offered by the Estimote SDK enables the clients to detect available beacons and share the position of the beacon regarding the closest range. This technology would also be useful in future work if the mensa would be equipped with multiple Stickers which are cheaper than Beacons. Using BLE did not reveal itself as extremely battery draining on the client side, rather than on the beacon side. The latter one has constantly been an issue through the whole project. 
 
+While monitoring and ranging beacons, the system does not give the user active feedback about a current state. This system specific behaviour could not have been altered on either clients. The delays of detecting a beacon and recognizing the unavailability of a beacon had an negative influence on usability. This is shown in cases where the user is not informed if a beacon is already detected, how long it takes until the correct beacon is detected or which beacon has been shared to the server. 
 
-
-The estimote beacons have indeed been shown as very useful to locate the user indoors without having coordinates. The combination of ranging and monitoring methods offered by the Estimote SDK enables the clients to detect available beacons and share the position of the beacon regarding the closest range. This technology would also be useful in future work if the mensa would be equipped with multiple nearable stickers which are cheaper than Beacons. Using BLE did not reveal it self as extremely battery draining on the client side, rather than on the beacon side. The latter one has constantly been an issue through the whole project. 
-While monitoring and ranging beacons, the system does not give the user active feedback about a current state. This system specific behavior could not have been altered on either clients. The delays of detecting a beacon and recognizing the unavailability of a beacon had an negative influence on usability. This is shown in cases where the user is not informed if a beacon is already
-detected, how long it takes until the correct beacon is detected or which beacon has been shared to the server. 
-
-
-
-Against our expectations the manual sharing of positions has revealed it self as most accurate and user friendliest way of sharing positions. It is more accurate, since the user exactly decides which position is shared rather then the system. The user is also in charge to delete his shared position from the servers when he wants. The direct feedback of interaction, and the possibility to actively engage into the process instead of relying backend- or automated services improves the users experience in indoor navigation. 
+Against our expectations, the manual sharing of positions has revealed it self as most accurate and user friendliest way of sharing positions. It is more accurate, since the user exactly decides which position is shared rather then the system. The user is also in charge to delete his shared position from the servers when he wants. The direct feedback of interaction, and the possibility to actively engage into the process instead of relying backend or automated services improves the users experience in indoor navigation. 
 
 We have been successful in implementing floor plans on Android and iOS that indeed helps a user to find friends and join them in the mensa. Our clients have shown that this technology is now also possible indoors as expected for comparable applications outdoors. 
 
 The Apple indoor Framework on iOS has been shown as a proficient solution for indoor navigation. Although the framework used for this project leaves some serious issues with memory management that can lead to crashes on older devices it shows that it is not yet ready for a release. However in this case it is, regarding the fact that there is more to come from, a really good solution to show the users position in an indoor location.
 
+At the backend we tried to implement some geofencing possibilities because the mongoDB should offer us some of these functionalities but the mongoose framework was not implementing it right and we discovered some bugs that hindered us to implement it. The backend technology of nodejs was quite interesting because we had no experience with an asynchronous programming language but our learning curve was high and it would have been possible that we implement functionalities which are now future work. The CYCLONE Federation Provider was a nice project to include in our work but sometimes we had some struggles with them but mostly to get specific information from the tubIT which we didn't get until now.
 
-
-
-
-
-
-
-
-%TODO rework this please for backend evaluation.
-At the backend we tried to implement some geo-fencing possibilities because the mongoDB should offer us some of these functionalities but the mongoose framework was not implementing it right and we discovered some bugs that hindered us to implement it. The backend technology of nodejs was quite interesting because we had no expirence with an asynchrone programming language but our learning curve was high and it would have been possible that we implement functionalities which are now future work. The CYCLONE Federation Provider was a nice project to include in our work but sometimes we had some struggles with them but mostly to get specific information from the tubIT which we didn't get until now.
-
-In total we dont get everything implemented what we thought we could do at the beginning but we get the main functionalities of sharing a position manuel and automaticaly working on two diffrent devices including the communication to the backend.
-
-%TODO remove itemes below
-%Evaluate:
-%\begin{itemize}
-%    \item What does work so far? What does not?
-%    \item What were the observed issues (see final presentation)?
-%    \item $\rightarrow$ MSE API, beacons, interplay server with clients, Node.JS, Mongoose (MongoDB), etc.
-%\end{itemize}
+In total we did not get everything implemented what we thought we could do at the beginning but we got the main functionalities of sharing a position manually and automatically working on two different devices including the communication to the backend.
