@@ -71,7 +71,89 @@ On the development we dig into a bug in the implementation of \texttt{keycloak-n
 
 The SNET department wish to have an easy way to deploy our software. So we looked into the recommended Docker\footnote{\url{https://www.docker.com/}} application. Docker is an open source application which automates deployment of software applications in linux containers. One of the biggest advantages of the linux containers in Docker is that you have an isolated linux container for each application. Another positive effect of Docker is the Dockerfile. This allows us to define how the software should be deployed and also the dependencies in the application. Our software depends on the mongoDB database so we also liked to have the mongoDB as a own linux container, because we were not sure where the database run in a produktiv environment. Docker give us the ability to define a sequence of how to start the created containers, because the database have to run befor our applications starts. For this we needed a docker-compose.yml file which defines all necessary settings for the containers to start.
 
+
+
 \vspace{0.5cm}
+
+\section{Android}
+
+Android application enables user to manage companions, automatically and manually retrieve users indoor position using different localization techniques available, share position with friends and show friend's positions on indoor maps. Application currently includes indoor maps of the Mensa in Hardenbergstraße at TU Berlin.
+
+Application requires Android version 5.0 or higher. It uses API level 21. Application was tested on Nexus 4 and Nexus 5 devices.
+
+\subsection{Floor plans}
+Application show floor plans as overlays over Google Maps. We use floor plans in the PDF format provided by \textit{Studentenwerk Berlin} for purpose of this project. PDF files were converted to PNG files and shown on top of Google Maps using \textit{GroundOverlay} class. Different floors are represented with multiple floor plans.
+
+\subsection{Login}
+To authenticate with backend server, application has to send authentication token with every requests it sends. Application retrieves authentication token during login procedure. Login is done with Federation Provider project. During login procedure, user is shown login page in web view inside the mobile application. After successful login application stores the retrieved authentication token in \textit{shared preferences} and user it for future requests.
+
+\subsection{Communication with backend server}
+Application communicates with backend server using REST requests. For performing REST requests application uses \textit{Volley} library.
+
+\subsection{Menu view}
+Menu view is the main screen of application as shown in figure \ref{fig:android_menu_view}. It enables user to open a map of a hotspot (1), show groups (2), add companions (3) and manage companion requests (4). User can add friends using email address as shown in figure \ref{fig:android_add_friend}.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{android_menu_view}
+  \captionof{figure}{Menu friend}
+  \label{fig:android_menu_view}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{android_add_friend}
+  \captionof{figure}{Add friend}
+  \label{fig:android_add_friend}
+\end{minipage}
+\end{figure}
+
+\subsection{Retrieving user's position}
+\subsubsection{Cisco MSI API}
+Retrieving position from Cisco MSI API provided by tubIT is implemented as a background service. If mobile device has WiFi enabled and it is connected to \textit{eduroam}, service scans the API in 30 seconds intervals. API response is processed and building name and floor information are stored in \textit{LocationSharingSingleton} instance.
+
+\subsubsection{Estimote Beacons}
+Searching for nearby Estimote Beacons and Nearables is done using ranging method and nearable discovery method provided by Estimote SDK. All detected Beacons and Nearables are represented as internal \textit{Beacon}. Closest beacon is determined as the one with the best signal strength (RSSI). Information about detected beacons is then stored in \textit{LocationSharingSingleton} instance.
+
+\subsubsection{Manual position pinning}
+User can manually pinpoint position on the indoor map of selected hotspost. With checkbox \textit{Share position} (1) user enable manual pinpointing. Position can then be set with marker (2). Manual pinpointing is shown in figure \ref{fig:android_pinpoint}. Pinpointed coordinates and floor are stored in \textit{LocationSharingSingleton} instance.
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{android_pinpoint}
+  \captionof{figure}{Manual pinpointing}
+  \label{fig:android_pinpoint}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{android_show_friends}
+  \captionof{figure}{Showing friends}
+  \label{fig:android_show_friends}
+\end{minipage}
+\end{figure}
+
+\subsection{Sharing user's position}
+Sharing user's position is implemented with a background service. Every 15 seconds service sends the most accurate location data stored in \textit{LocationSharingSingleton} instance to the backend server. Determining the most accurate position goes as follows; most accurate are manually pinpointed coordinated and floor, followed by beacon identifier that defines a region. The least precise is the MSI retrieved building name and floor information.
+
+\subsection{Showing friends}
+Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:android_show_friends}. For different accuracies different markers are used. Pinpointed position is shown with single marker (1). Position shared with beacon ID is shown with marker surrounded by circle representing the region defined by beacon signal strength (2).
+
+\subsection{Future work}
+Implemented client application provides basic functionalities for indoor positioning. Proposed future work suggest the functionalities that should be considered in further development of the project.
+
+\begin{description}
+  \item[Remote Notifications] \hfill \\
+  Backend and could implement sending remote notifications to inform mobile clients about events such as friend entering hotspot.
+  \item[Friends/Group Management] \hfill \\
+  Current application enables user to list all available groups and friends inside them. Adding and deleting friends is already implemented. Group management is already supported on backend, so mobile application should implement options to add, edit and delete groups and to assign user to one or more groups.
+  
+\end{description}
+\pagebreak
+
+%\vspace{0.5cm}
 
 \section{iOS}
 
@@ -87,7 +169,7 @@ The SNET department wish to have an easy way to deploy our software. So we looke
 
 The iOS application provides the user with a map of the specific hotspot. For this project the example of indoor navigation inside the Mensa has been implemented. The app shows two floors of the Mensa, together with additional information about the location.
 
-\subsection{Floor plans}
+\subsection{Floorplans}
 In order to show positions of the user and friends with the exact coordinates on the map, the floor plan material is added as MKOverlay on top of the MKMapView provided by Apple. We use the PDF files provided by \textit{Studentenwerk Berlin} for this project.
 
 Apple also provides registered iOS developers with a framework to manage the mapping of x/y coordinates of the PDF file with the exact Latitude/Longitude real world coordinates of the map
@@ -322,10 +404,26 @@ The backend enables the user to manage groups. Each user has a group named All f
 \end{enumerate}
 
 \subsection{Geofencing}
-The iOS client supports Geofencing abilities for registered Hotspots. Geofencing notifies the app when its device enters or leaves the geographical region of a hotspot. For this project the triggered notification greats the user and acts as a reminder to use the app if the user enters the Mensa. The notification can also be used to take the user in charge of the decision whether he wants to download updates about the hotspot. The notification will also act as a reminder to deactivate Bluetooth if the user leaves the Mensa to save battery.
+The iOS client supports Geofencing abilities for registered hotspots. Geofencing notifies the app when its device enters or leaves the geographical region of a hotspot. For this project the triggered notification greats the user and acts as a reminder to use the app if the user enters the Mensa. The notification can also be used to take the user in charge of the decision whether he wants to download updates about the hotspot. The notification will also act as a reminder to deactivate Bluetooth if the user leaves the Mensa to save battery.(\textbf{(see Figure:~\ref{fig:reminder notification 1} and ~\ref{fig:reminder notification 2}})
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{remindernotification1}
+  \captionof{figure}{Greating on entering a Hotspot}
+  \label{fig:reminder notification 1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=.5\linewidth]{remindernotification2}
+  \captionof{figure}{Reminder on leaving a Hotspot}
+  \label{fig:reminder notification 2}
+\end{minipage}
+\end{figure}
 
 
-\subsection{Future Work on iOS}
+\subsection{Future Work}
 The iOS client build for the project shows a proper solution of mobile indoor navigation backed with a scalable backend system. However some functionalities may be added to the client as they have been out of scope to this project.
 
 \begin{description}
@@ -335,84 +433,4 @@ The iOS client build for the project shows a proper solution of mobile indoor na
   In future work, the new CLLocation framework should be considered as first choice technology for indoor navigation on iOS devices. Authorities of locations that are interested in indoor navigation on iOS should consider an enrollment on Apples Map Connect program \cite{MapsConnect}. With a successfull enrollment, floor information as well as the accuracy of the users position would be improved.
   \item[Friends/Group Management] \hfill \\
   In future work, the client should give the user more posibilities to manage his friends as moving friends to specific groups or edit groups. The map should also be equipped with the posibilities to show specific groups instead of only all friends in a hotspot.
-
-\end{description}
-
-\vspace{0.5cm}
-
-\section{Android}
-
-Android application enables user to manage companions, automatically and manually retrieve users indoor position using different localization techniques available, share position with friends and show friend's positions on indoor maps. Application currently includes indoor maps of the Mensa in Hardenbergstraße at TU Berlin.
-
-Application requires Android version 5.0 or higher. It uses API level 21. Application was tested on Nexus 4 and Nexus 5 devices.
-
-\subsection{Floor plans}
-Application show floor plans as overlays over Google Maps. We use floor plans in the PDF format provided by \textit{Studentenwerk Berlin} for purpose of this project. PDF files were converted to PNG files and shown on top of Google Maps using \textit{GroundOverlay} class. Different floors are represented with multiple floor plans.
-
-\subsection{Login}
-To authenticate with backend server, application has to send authentication token with every requests it sends. Application retrieves authentication token during login procedure. Login is done with Federation Provider project. During login procedure, user is shown login page in web view inside the mobile application. After successful login application stores the retrieved authentication token in \textit{shared preferences} and user it for future requests.
-
-\subsection{Communication with backend server}
-Application communicates with backend server using REST requests. For performing REST requests application uses \textit{Volley} library.
-
-\subsection{Menu view}
-Menu view is the main screen of application as shown in figure \ref{fig:android_menu_view}. It enables user to open a map of a hotspot (1), show groups (2), add companions (3) and manage companion requests (4). User can add friends using email address as shown in figure \ref{fig:android_add_friend}.
-
-\begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{android_menu_view}
-  \captionof{figure}{Menu friend}
-  \label{fig:android_menu_view}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{android_add_friend}
-  \captionof{figure}{Add friend}
-  \label{fig:android_add_friend}
-\end{minipage}
-\end{figure}
-
-\subsection{Retrieving user's position}
-\subsubsection{Cisco MSI API}
-Retrieving position from Cisco MSI API provided by tubIT is implemented as a background service. If mobile device has WiFi enabled and it is connected to \textit{eduroam}, service scans the API in 30 seconds intervals. API response is processed and building name and floor information are stored in \textit{LocationSharingSingleton} instance.
-
-\subsubsection{Estimote Beacons}
-Searching for nearby Estimote Beacons and Nearables is done using ranging method and nearable discovery method provided by Estimote SDK. All detected Beacons and Nearables are represented as internal \textit{Beacon}. Closest beacon is determined as the one with the best signal strength (RSSI). Information about detected beacons is then stored in \textit{LocationSharingSingleton} instance.
-
-\subsubsection{Manual position pinning}
-User can manually pinpoint position on the indoor map of selected hotspost. With checkbox \textit{Share position} (1) user enable manual pinpointing. Position can then be set with marker (2). Manual pinpointing is shown in figure \ref{fig:android_pinpoint}. Pinpointed coordinates and floor are stored in \textit{LocationSharingSingleton} instance.
-
-\begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{android_pinpoint}
-  \captionof{figure}{Manual pinpointing}
-  \label{fig:android_pinpoint}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=.5\linewidth]{android_show_friends}
-  \captionof{figure}{Showing friends}
-  \label{fig:android_show_friends}
-\end{minipage}
-\end{figure}
-
-\subsection{Sharing user's position}
-Sharing user's position is implemented with a background service. Every 15 seconds service sends the most accurate location data stored in \textit{LocationSharingSingleton} instance to the backend server. Determining the most accurate position goes as follows; most accurate are manually pinpointed coordinated and floor, followed by beacon identifier that defines a region. The least precise is the MSI retrieved building name and floor information.
-
-\subsection{Showing friends}
-Friends in hotspots are shown on the indoor map as shown in figure \ref{fig:android_show_friends}. For different accuracies different markers are used. Pinpointed position is shown with single marker (1). Position shared with beacon ID is shown with marker surrounded by circle representing the region defined by beacon signal strength (2).
-
-\subsection{Future work}
-Implemented client application provides basic functionalities for indoor positioning. Proposed future work suggest the functionalities that should be considered in further development of the project.
-
-\begin{description}
-  \item[Remote Notifications] \hfill \\
-  Backend and could implement sending remote notifications to inform mobile clients about events such as friend entering hotspot.
-  \item[Friends/Group Management] \hfill \\
-  Current application enables user to list all available groups and friends inside them. Adding and deleting friends is already implemented. Group management is already supported on backend, so mobile application should implement options to add, edit and delete groups and to assign user to one or more groups.
-
 \end{description}
