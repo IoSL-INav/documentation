@@ -10,7 +10,7 @@ To gain an understanding of what system we were trying to build, the following i
 
 \begin{center}
     \includegraphics[width=\textwidth]{system-overview}\\
-    All components of our envisioned system working together.
+    \captionof{figure}{All components of our envisioned system working together.}
     \label{fig:system-overview}
 \end{center}
 
@@ -35,7 +35,7 @@ Our system setup required a certain workload split between the two logical parti
 The general idea is to have the clients handle all direct user interaction with the service in a consistent, user-friendly manner. The other important task on client side is to gather the position information of the requesting user and performing prioritization logic on all available information. This was needed to deliver only the most accurate position to backend where it would replace the old value. The following position accuracy prioritization order was chosen:
 \begin{center}
     \includegraphics[width=0.75\textwidth]{position-priorization-order}\\
-    Position prioritization order: pin-pointed better than Bluetooth better than WiFi position.
+    \captionof{figure}{Position prioritization order: pin-pointed better than Bluetooth better than WiFi position.}
     \label{fig:position-priorization}
 \end{center}
 
