@@ -44,11 +44,11 @@ With that set, let's take a look at the final flow a user experiences by using o
 The idea of this project described above already introduced some implicit constraints in order to make it work. To have a complete overview of what we expect to have available to use our service, we defined the following constraints:
 
 \begin{itemize}
-    \item \textbf{Everyone has a smartphone}: Obvious point. As this project involves developing clients for Android and iOS and relying on these clients to interact in an user friendly manner with the backend, a smartphone is needed. We do not, though, require the latest operating system versions. For Android, version 5.0 is required, for iOS, version 9 is required.
+    \item \textbf{Everyone has a smartphone}: Obvious point. As this project involves developing clients for Android and iOS and relying on these clients to interact in an user friendly manner with the backend, a smartphone is needed.
     \item \textbf{Participants have a TUB account (edugain account)}: The service we provide needs an authentication prior to being able to modify or delete objects on backend side. Therefore some kind of user management was needed. As we will explain more deeply later in this document, for user authentication and session management we rely on a department service called CYCLONE Federation Provider\footnote{\url{http://www.cyclone-project.eu/}}. Via this service users with an edugain (and therefore a TUB) account are able to authenticate against our backend.
     \item \textbf{Minimal interaction}: As described in the previous section our intended use case is placed in situations where you probably carry a tray full of food and will not be having your hands free to interact with complex user interfaces. Therefore a very important constraint for our project was to provide applications that do not need a lot of intention in order to work as intended while at the same time strictly comply with the user's set preferences.
     \item \textbf{Easy to use}: This constraint correlates with the previous one. The setting our applications are intended for do not allow for complex user interfaces. Actions needed to be taken while using the services need to be easy to perform.
-    \item \textbf{Low impact on device battery}: The possible use of bluetooth introduced the topic of battery usage. We therefore defined low battery usage as an important constraint for our project.
+    \item \textbf{Low impact on device battery}: The possible use of Bluetooth introduced the topic of battery usage. We therefore defined low battery usage as an important constraint for our project.
 \end{itemize}
 
 

@@ -5,38 +5,38 @@
 
 Before we started our project we did research on related work regarding applied indoor navigation and positioning techniques applied on mobile devices. Most of them rely on calculating Received Signal Strength Indicator (RSSI) triangulation and/or Bluetooth BLE Beacon techniques or Wi-Fi Based Fingerprinting. The latter is a core idea of an indoor navigation system developed by \cite{ChaSo2012}. They combine two methods in order to calculate a precise position. At first they use matching of prerecorded received signal strength from nearby access points. This method is called \enquote{fingerprint matching}. The data is combined with a distance-based trilateration approach with at least three known access point coordinates which are also detected on the device. By this combination of both methods they received a high accuracy of the user position in an indoor environment.
 
-\cite{Feldmann12} implemented an indoor Bluetooth-based positioning system on Bluetooth-capable devices as a PDA, which is comparable to the smartphones of today. They calculated range estimations based on approximations of relations between RSSI and distance between sender and receiver. The location estimation was also calculated via triangulation method.
+The group in \cite{feldmann2003indoor} implemented an indoor Bluetooth-based positioning system on Bluetooth-capable devices as a PDA, which is comparable to the smartphones of today. They calculated range estimations based on approximations of relations between RSSI and distance between sender and receiver. The location estimation was also calculated via triangulation method.
 
 Apple Inc. presented on WWDC2015 new features of there well known Core Location Frameworks providing Indoor positions and Floor information \cite{wwdc15}. The closed beta is restricted by access to developers that are registered on Apples Indoor Program Maps Connect. Although Apple does not publish its algorithms, as stated on WWDC2015 by Apple Software Engineer Vitali Lovich the Core Location Frameworks also takes advantage of indoor WiFi signals in combination with motion and altitude sensors in order to provide the users with accurate position information as latitude and longitude.
 
 In 2013 Apple also developed the iBeacon protocol which is a Bluetooth Low Energy (BLE) communication standard supported by iOS and Android devices \cite{iBeacon}. The iBeacon protocol opened the door for new Beacon technologies in order to improve indoor navigation on mobile devices. The standard is incorporated by Estimote Inc. with Estimote Beacons. This indoor technique has successfully been installed in museums such as the Metropolitan Museum of Art project called: MediaLab Beacon Art Walk \cite{MOArt15}. However, this project aimed to provide additional location information to the visitors rather than providing indoor positions. Next to the battery issues also faced in the MediaLab Project, Beacons having difficulties  in cases of many people covering the clear line of sight to a device, makes actual retrieving of Latitude/Longitude coordinates in a room more difficult. Next to this, installed beacons made  temporarily maintaining of Beacons mandatory, since one missing Beacon could prevent successful indoor navigation in a calibrated system.
 
-The Cisco MSE determines the location of any wireless device in a specific building. This approach moves the calculation of a position away from a mobile device \cite{oreilly11}. Correctly installed Cisco MSE determines the location of any wireless device in a building. The access points listen for Wi-Fi signals of mobile devices and estimate its position also via trilateration. This solution has been deployed successfully at a few locations as mobile application for visitors, like the Explorer App  at the American Museum of Natural History~\cite{AMNH15}.
+The Cisco MSE determines the location of any wireless device in a specific building. This approach moves the calculation of a position away from a mobile device \cite{oreilly11}. Correctly installed Cisco MSE determines the location of any wireless device in a building. The access points listen for Wi-Fi signals of mobile devices and estimate its position also via trilateration. This solution has been deployed successfully at a few locations as mobile application for visitors, like the Explorer App  at the American Museum of Natural History\ \cite{AMNH15}.
 
 
 \vspace{0.5cm}
 
-\section{Short range localization techniques}
+\section{Short Range Localization Techniques}
 \label{short_range_localization_techniques}
-Different localization techniques are presented and compared in book~\cite{brimicombe2009location}. For purpose of this project, we were interested mostly in short range positioning technologies. Short range positioning technologies cover small areas and are frequently employed for positioning in indoor environments. Most popular technologies are WiFi and Bluetooth, which are most commonly used to determine proximity location of mobile device connected to network. Other available technologies are Radio Frequency Identification (RDIF), Ultra Wide Band Positioning, ultrasonic positioning, infrared positioning, camera-assisted and sensor-assisted positioning. We focused our research on Wi-Fi and Bluetooth as those were the technologies provided for us by our supervisors.
+Different localization techniques are presented and compared in book~\cite{brimicombe2009location}. For purpose of this project, we were interested mostly in short range positioning technologies. Short range positioning technologies cover small areas and are frequently employed for positioning in indoor environments. The most popular technologies are WiFi and Bluetooth, which are most commonly used to determine the proximity location of a mobile device connected to a network. Other available technologies are Radio Frequency Identification (RDIF), Ultra Wide Band Positioning, ultrasonic positioning, infrared positioning, camera-assisted and sensor-assisted positioning. We focused our research on Wi-Fi and Bluetooth as those were the technologies provided for us by our supervisors.
 
-\subsection{WiFi based positioning}
-The basic principle of using WiFi for indoor positioning is measuring strength of signals received at two or more access points. The signals used for positioning are called beacon frames and are primarily intended for announcing the presence of a wireless LAN. There are two ways of transmitting these signals for positioning, up-link, when beacon frames are generated by mobile device and down-link, where beacon frames are generated by access points.
+\subsection{WiFi-Based Positioning}
+The basic principle of using WiFi for indoor positioning is measuring strength of signals received at two or more access points. The signals used for positioning are called beacon frames and are primarily intended for announcing the presence of a wireless LAN. There are two ways of transmitting these signals for positioning, up-link, when beacon frames are generated by mobile devices and down-link, where beacon frames are generated by access points.
 
-Actual positioning can be done in three ways. The simplest method is determining position of mobile device from position of the access point with the strongest signal, which is the closest to the mobile device. In this case a data linking access points and their locations is needed. The second method uses signal strength data from multiple access points to calculate the position of mobile device. This method provides more accurate position data. Third method uses fingerprinting approach, in which position is determined by matching signal data on mobile device against set of precollected data on signal strengths across the area. This approach offer the best results, but it requires initial measurement of the area before position tracking can take place.
+Actual positioning can be done in three ways. The simplest method is determining the position of a mobile device from the position of the access point with the strongest signal, which is the closest to the mobile device. In this case a data linking access points and their locations is needed. The second method uses signal strength data from multiple access points to calculate the position of a mobile device. This method provides more accurate position data. The third method uses a fingerprinting approach, in which the position is determined by matching signal data on the mobile device against a set of precollected data on signal strengths across the area. This approach offers the best results, but it requires initial measurements of the area before position tracking can take place.
 
 WiFi based positioning only works in areas with good wireless network coverage. It is most commonly used in closed spaces such as offices, airports, cafes, shopping markets, hotels etc. It can also be used for outdoor positioning, usually in dense populated urban areas.
 
-In general, WiFi positioning provides a proximity location instead of more specific coordinates. For example, it may provide information, in which building, floor and room mobile device is located. When using WiFi positioning there is no need for additional infrastructure, except for existing WiFi network and positioning server with database of all available access point along with their positions.
+In general, WiFi positioning provides a proximity location instead of more specific coordinates. For example, it may provide information, in which building, floor and room the mobile device is located. When using WiFi positioning there is no need for additional infrastructure, except for an existing WiFi network and a positioning server with a database of all available access points along with their positions.
 
-\subsection{Bluetooth based positioning}
-Various solutions have been developed using Bluetooth for short range positioning. Bluetooth enabled devices are able to transmit signals containing information such as device identity and profile. When mobile device is in short range of device transmitting its location it can pick up such signals and use them for positioning. Signals can also be processed to determine the position of device, especially in case when mobile device can receive multiple signals from different devices. Position data can be exchanged between mobile devices using ad-hoc Bluetooth networks or with the location server in the network.
+\subsection{Bluetooth-Based Positioning}
+Various solutions have been developed using Bluetooth for short range positioning. Bluetooth enabled devices are able to transmit signals containing information such as device identity and profile. When a mobile device is in short range of a device transmitting its location it can pick up such signals and use them for positioning. Signals can also be processed to determine the position of a device, especially in case when the mobile device can receive multiple signals from different devices. Position data can be exchanged between mobile devices using ad-hoc Bluetooth networks or with a location server in the network.
 
-The signal strength decreases logarithmically with distance. This property can be used for calculating position. One method of positioning device is to triangulate data from different devices. This method offers higher accuracy than just detecting the closest device in range.
+The signal strength decreases logarithmically with distance. This property can be used for calculating positions. One method of positioning a device is to triangulate data from different devices. This method offers higher accuracy than just detecting the closest device in range.
 
 Bluetooth positioning can be deployed rapidly with easy maintenance and low cost. It can be used in applications where approximate positioning is sufficient.
 
-Different implementations of WiFi and Bluetooth based localization technologies are described in more detain in following sections.
+Different implementations of WiFi- and Bluetooth-based localization technologies are described in more detail in following sections.
 
 
 \vspace{0.5cm}
@@ -81,20 +81,20 @@ Another consideration is the distance BLE is able to cover and Heydon concludes 
 
 \section{Estimote Beacons}
 
-Estimote Beacons and Stickers are wireless sensors that can be attached to any location or object, embodying a wireless sensor network. The Beacons consists of a 32-bit ARM Cortex CPUs, equipped with an accelerator, temperature sensor and a 2.4 Ghz radio. Using Smart Bluetooth 4.0.(Bluetooth Low Energy), the beacons send out signals with a range of up to 70 meters (Beacons) and 15 meters (Stickers). Though the signals are often distracted under real world conditions, a range of about 40-50 and (Beacons) can be suspected. The battery can as stated by \cite{Estimote} last more than 3 years on default settings on a single CR2477 battery.
+Estimote Beacons and Stickers are wireless sensors that can be attached to any location or object, embodying a wireless sensor network. The Beacons consists of a 32-bit ARM Cortex CPUs, equipped with an accelerator, temperature sensor and a 2.4 Ghz radio. Using Smart Bluetooth 4.0 (Bluetooth Low Energy), the beacons send out signals with a range of up to 70 meters (Beacons) and 15 meters (Stickers). Though the signals are often distracted under real world conditions, a range of about 40-50 meters (Beacons) can be expected. As stated in \cite{Estimote}, the battery is able to last more than 3 years on default settings on a single CR2477 battery.
 
-Estimote beacons are working with the Apple iBeacon protocol as well as the Eddystone  open beacon format introduced by Google. These protocols working on top of the BLE technology standard are implemented in all smartphones devices enabling them to support new technologies like Apple Watch or Fitness trackers.
+Estimote beacons are working with the Apple iBeacon protocol as well as the Eddystone open beacon format introduced by Google. These protocols working on top of BLE are implemented in all smartphone devices enabling them to support new technologies like the Apple Watch or fitness trackers.
 
-Using the Estimote SDK \cite{Estimote} mobile applications are enabled to receive and understand BLE Estimote signals in order to calculate the proximity to nearby locations and objects. The beacons specifics provide information about their type, ownership and approximate locations, temperature or motions.
+Using the Estimote SDK \cite{Estimote} mobile applications are enabled to receive and understand BLE Estimote signals in order to calculate the proximity of nearby locations and objects. The beacons specifics provide information about their type, ownership and approximate locations, temperature or motions.
 
-By the detecting a beacon signal a phone can estimate the distance by measuring the received signal strength \cite{Estimote}. Since Bluetooth Low Energy does not need any pairing process between sender and receiver, the phone can constantly process new signals. This opens the doors for new technological opportunities as indoor positioning.
+By detecting a beacon signal a phone can estimate the distance by measuring the received signal strength \cite{Estimote}. Since Bluetooth Low Energy does not need any pairing process between sender and receiver, the phone can constantly process new signals. This opens the door for new technological opportunities such as indoor positioning.
 
 
 \subsection{iBeacon Protocol}
 
-The iBeacon protocol is a Bluetooth low energy communication protocol developed by Apple Inc. in 2013 and was introduced in iOS7 for indoor navigation. The protocol is supported by iOS7 devices as well as Android from version 4.3 up. The signal which is sent by a beacon is called advertisement.
+The iBeacon protocol is a Bluetooth Low Energy communication protocol developed by Apple Inc. in 2013 and was introduced in iOS7 for indoor navigation. The protocol is supported by iOS7 devices as well as Android from version 4.3 up. The signal sent by a beacon is called advertisement.
 
-These advertisements provides a so called iBeacon identifier, that is is 20 bytes long and divided into three sections:
+These advertisements provide a so called iBeacon identifier, that is 20 bytes long and divided into three sections:
 
 \begin{itemize}
     \item UUID (16 bytes)
@@ -102,58 +102,57 @@ These advertisements provides a so called iBeacon identifier, that is is 20 byte
     \item minor number (2 bytes)
 \end{itemize}
 
-These values provided by the advertisement can be modified according to own wishes.
-The hierarchical configuration of these values provides identifying information about the beacon. While the UUID can be distinguished to a corporation, major and minor values can be used to distinguish between regions and sub-regions of a corporation.
+These values provided by the advertisement can be modified according to own wishes. The hierarchical configuration of these values provides identifying information about the beacon. While the UUID can be distinguished to a corporation, major and minor values can be used to distinguish between regions and sub-regions of a corporation.
 
 
 \subsection{Region Monitoring}
 
-Region monitoring triggers actions on the device on entering or exiting a beacon defined regions range. This works in depending the devices capabilities while an app is in foreground background or suspended. An app is limited to 20 regions being monitored. However by using a single UUID in multiple locations, a device can monitor many physical locations simultaneously \cite{iBeacon}.
+Region monitoring triggers actions on the device on entering or exiting a beacon defined region's range. This works in depending the devices capabilities while an app is in foreground, background or suspended mode. An app is limited to 20 regions being monitored. However, by using a single UUID in multiple locations, a device can monitor many physical locations simultaneously \cite{iBeacon}.
 
 
 \subsection{Ranging}
 
-Ranging however triggers actions on the devise based on the proximity to a beacon.
-The iBeacon protocol applies filters to the accuracy of a advertisement of one beacon. The filtered estimation regarding the proximity to a beacon is indicated using one of four proximity states.
+Ranging however triggers actions on the device based on the proximity to a beacon. The iBeacon protocol applies filters to the accuracy of an advertisement of one beacon. The filtered estimation regarding the proximity to a beacon is indicated using one of four proximity states.
 
 \begin{itemize}
 
     \item \textbf{Immediate}\\
-    The Immediate proximity state represents a high level of confidence, that the device is physically very close to the beacon. This is in example holding the smartphone directly on to of a beacon.
+    The Immediate proximity state represents a high level of confidence that the device is physically very close to the beacon. This is for example the case when holding the smartphone directly onto a beacon.
     \item \textbf{Near}\\
-    The Near proximity state indicates a proximity of round about 1-3 meters, if there are no obstructions between the device and the beacon which might cause distractions of the beacon.
+    The Near proximity state indicates a proximity of about 1-3 meters, if there are no obstructions between the device and the beacon which might cause distractions.
     \item \textbf{Far}\\
-    The Far proximity state indicates a detected beacon without much confidence in the accuracy that is to low to determine whether it is Near or Immediate. The Far proximity state relies on the accuracy property to determine the potential proximity to the beacon.
+    The Far proximity state indicates a detected beacon without much confidence in the accuracy that is too low to determine whether it is Near or Immediate. The Far proximity state relies on the accuracy property to determine the potential proximity to a beacon.
     \item \textbf{Unknown}\\
-    The Unknown proximity state indicates a state where beacons are can not be determined. This my happen if the ranging has just begun or that the accuracy level is insufficient for measurements to determine a state that is either Far, Near or Immediate.
+    The Unknown proximity state indicates a state where beacons can not be determined. This might happen if the ranging has just begun or if the accuracy level is insufficient for measurements to determine a state that is either Far, Near or Immediate.
 \end{itemize}
+
 
 \subsection{Estimote Beacon Drawbacks}
 
-For the implementation of Estimote Indoor Navigation for the project we decided to use Monitoring on the devices in order to detect the beacons, specifying a certain region. However, the devices still take at least about 30 seconds to recognize the fact that a beacon is out of range. This is a  built-in and non adjustable delay in order to prevent \enquote{false} exit events.\cite{Estimote} This is a major drawback regarding a use-case of the project, that a user might pass multiple beacons of a location and constantly update new locations without the need to stop at each beacon.
+For the implementation of Estimote Indoor Navigation for the project we decided to use monitoring on the devices in order to detect the beacons, specifying a certain region. However, the devices still take at least about 30 seconds to recognize the fact that a beacon is out of range. This is a  built-in and non-adjustable delay in order to prevent \enquote{false} exit events \cite{Estimote}. This is a major drawback regarding an use case of the project, where an user might pass multiple beacons of a location and constantly update new locations without the need to stop at each beacon.
 
-This is solved by in additional applied ranging of all beacons that are monitored in order to process the \enquote{nearest} beacon as a users location. The devices report then the beacons in an order that is best guess of their proximity regarding issues of signal attenuation. This order however may still not be correct \cite{iBeacon}.
+This is solved by an additional applied ranging of all beacons that are monitored in order to process the \enquote{nearest} beacon as an user's location. The devices report the beacons in an order that is the best guess of their proximity regarding issues of signal attenuation. This order however may still not be correct \cite{iBeacon}.
 
 
 \vspace{0.5cm}
 
 \section{Apple Core Location Framework}
 
-As firstly presented on WWDC2015 \cite{wwdc15} Apple presented new functionalities to the already existing Core Location Framework which is the major Framework on iOS devices for location service \cite{CLlocation}. This Framework takes the user in charge of whether the app can use locations services on the device or not.
+As firstly presented on WWDC2015 \cite{wwdc15} Apple presented new functionalities to the already existing Core Location Framework which is the major framework on iOS devices for location service \cite{CLlocation}. This framework takes the user in charge of whether the app can use locations services on the device or not.
 
 The Core Location Framework uses cellular data to provide a proximity in which area in a city a user is. Additionally it uses GPS based on satellite signals to improve the position of the user as well as surrounding WiFi signals.
 
-As soon as the user enters an indoor venue, the iOS system turns down GPS and Cellular sensors and enlightens Motion and WiFi sensors. These sensors are used in combination with the remaining GPS signals, coming through the windows to locate the user indoors. The Motion sensor hereby gives information to the system that a person is moving and how fast the user is moving, while WiFi signals are feeded to the CLLocation Framework to calculate the exact position.
+As soon as the user enters an indoor venue, the iOS system turns down GPS and cellular sensors and enlightens motion and WiFi sensors. These sensors are used in combination with the remaining GPS signals, coming through the windows to locate the user indoors. The motion sensor hereby gives information to the system that a person is moving and how fast the user is moving, while WiFi signals are fed to the CLLocation Framework to calculate the exact position.
 
 Apple also added the altitude and floor attributes to the CLLocation Framework in order to provide the user with the correct floor attributes \cite{CLlocation}.
 
-For the Project the new CLLocation Framework was used to show the users position in the Mensa. After the first indoor tests in the Mensa revealed precise positioning of a user indoors. However the Framework also revealed large susceptibility in areas where the WiFi signal was apparently weak. i.e. in the upper left corner of the Mensa which is surrounded by walls that are affecting the router WiFi signals.
+For the project the new CLLocation Framework was used to show the user's position in the mensa. The first indoor tests in the mensa revealed precise positioning of an user indoors. However the framework also revealed large susceptibility in areas where the WiFi signal was apparently weak. I.e. in the upper left corner of the mensa which is surrounded by walls that are affecting the router's WiFi signals.
 
-The Frameworks started in an early beta when this project started and is constantly improved. To enable the full abilities of CLLocation Framework indoors, the venue needs to be registered and enabled by apple, using Maps Connect program \cite{MapsConnect} in order to unlock CLLocation Frameworks full potential.
+The framework started in an early beta state when this project started and is constantly improved. To enable the full abilities of CLLocation Framework indoors, the venue needs to be registered and enabled by Apple, using the Maps Connect program \cite{MapsConnect} in order to unlock CLLocation Framework's full potential.
 
-Regarding this project we tested the indoor navigation framework to see if its accuracy is already sufficient for our use case in the Mensa. As shown in  ~\ref{fig:cllocationframework1} and ~\ref{fig:cllocationframework2} The user location is shown precisely on the indoor floor plan. The accuracy as shown in ~\ref{fig:cllocationframework1} started with a large circle but constantly improved while moving through the building. We also accounted situations in which the framework lost precision dramatically as we moved to the upper left corner of the Mensa which is surrounded by walls. However the provided coordinates of the shared position of the user to the system was still accurate enough in order to find a friend.
+Regarding this project we tested the indoor navigation framework to see if it's accuracy is already sufficient for our use case in the mensa. As shown in \ref{fig:cllocationframework1} and \ref{fig:cllocationframework2} the user's location is shown precisely on the indoor floor plan. The accuracy as shown in \ref{fig:cllocationframework1} started with a large circle but constantly improved while moving through the building. We also accounted situations in which the framework lost precision dramatically as we moved to the upper left corner of the mensa which is surrounded by walls. However the provided coordinates of the shared position of the user to the system were still accurate enough in order to find a friend.
 
-We decided to use this technology, since it is the only solution for this project in order to show the user position on the floors without any additional installations into the environment of the Mensa, out of the box and without any additional user interaction.
+We decided to use this technology, since it is the only solution for this project in order to show the user position on a map without any additional installations in the environment of the mensa, out of the box and without any additional user interaction.
 
 \begin{figure}
 \centering
